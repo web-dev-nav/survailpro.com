@@ -30,9 +30,8 @@
                         'survail-brown': '#381400',
                         'survail-brown-light': '#6b3500',
                         'survail-brown-dark': '#581200',
-                        'survail-blue': '#0026c0',
-                        'survail-blue-dark': '#1800b0',
                         'survail-green': '#213f37',
+                        'survail-green-dark': '#1a2f29',
                         'survail-red': '#9e3000',
                         'survail-red-dark': '#b00000'
                     },
@@ -141,7 +140,7 @@
                     <div class="flex items-center space-x-6">
                         <div>
                             <p class="text-sm text-gray-600">Call or Text</p>
-                            <a href="tel:519-770-6634" class="text-2xl font-bold text-survail-blue hover:text-survail-blue-dark transition-colors">519-770-6634</a>
+                            <a href="tel:519-770-6634" class="text-2xl font-bold text-survail-green hover:text-survail-green-dark transition-colors">519-770-6634</a>
                         </div>
                         <div class="h-12 w-px bg-gray-300"></div>
                         <div>
@@ -263,7 +262,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-8 right-8 bg-survail-blue hover:bg-survail-blue-dark text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible scale-95 z-50">
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-survail-green hover:bg-survail-green-dark text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible scale-95 z-50">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
         </svg>

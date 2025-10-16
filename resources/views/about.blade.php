@@ -24,7 +24,7 @@
                 </p>
             </div>
 
-            <div class="bg-gradient-to-br from-survail-blue to-survail-blue-dark text-white rounded-2xl p-8">
+            <div class="bg-gradient-to-br from-survail-green to-gray-700 text-white rounded-2xl p-8">
                 <h3 class="text-2xl font-bold mb-6">Why Choose SurVail?</h3>
                 <ul class="space-y-4">
                     <li class="flex items-start">

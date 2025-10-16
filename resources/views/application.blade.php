@@ -5,11 +5,11 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="relative min-h-[70vh] flex items-center bg-gradient-to-br from-gray-900 via-survail-blue to-survail-brown overflow-hidden">
+<section class="relative min-h-[70vh] flex items-center bg-gradient-to-br from-gray-900 via-survail-green to-survail-brown overflow-hidden">
     <!-- Background -->
     <div class="absolute inset-0">
         <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-60"></div>
-        <div class="w-full h-full bg-gradient-to-br from-survail-blue to-survail-brown"></div>
+        <div class="w-full h-full bg-gradient-to-br from-survail-green to-survail-brown"></div>
     </div>
 
     <!-- Hero Content -->
@@ -26,7 +26,7 @@
             </div>
 
             <div class="animate-fade-in flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-                <a href="#application-form" class="group bg-survail-blue hover:bg-survail-blue-dark text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                <a href="#application-form" class="group bg-survail-green hover:bg-survail-green-dark text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                     <span class="flex items-center">
                         Start Application
                         <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -106,7 +106,7 @@
                 <p class="text-green-100">Competitive rates based on experience</p>
             </div>
 
-            <div class="group bg-gradient-to-br from-survail-blue to-blue-600 rounded-2xl p-8 text-center text-white hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <div class="group bg-gradient-to-br from-survail-green to-gray-700 rounded-2xl p-8 text-center text-white hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <div class="mb-6">
                     <div class="bg-white bg-opacity-20 rounded-full p-4 inline-flex group-hover:bg-opacity-30 transition-colors">
                         <svg class="h-10 w-10 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -115,7 +115,7 @@
                     </div>
                 </div>
                 <h4 class="text-xl font-bold mb-3">Flexible Schedule</h4>
-                <p class="text-blue-100">Accept assignments that fit your schedule</p>
+                <p class="text-green-100">Accept assignments that fit your schedule</p>
             </div>
 
             <div class="group bg-gradient-to-br from-survail-brown to-orange-600 rounded-2xl p-8 text-center text-white hover:shadow-xl transition-all duration-300 transform hover:scale-105">
@@ -164,7 +164,7 @@
                 </div>
 
                 <!-- Debugging Information (Temporary) -->
-                <div class="bg-blue-50 border border-blue-200 text-blue-800 px-4 py-3 rounded mb-6">
+                <div class="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded mb-6">
                     <strong>Debug Info:</strong>
                     <br>Session Driver: {{ config('session.driver') }}
                     <br>CSRF Token: <span id="csrf-debug">{{ csrf_token() }}</span>
@@ -205,26 +205,26 @@
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label for="first_name" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
-                                <input type="text" id="first_name" name="first_name" required value="{{ old('first_name') }}" class="w-full px-4 py-3 border {{ $errors->has('first_name') ? 'border-red-300' : 'border-gray-300' }} rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent">
+                                <input type="text" id="first_name" name="first_name" required value="{{ old('first_name') }}" class="w-full px-4 py-3 border {{ $errors->has('first_name') ? 'border-red-300' : 'border-gray-300' }} rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                                 @error('first_name')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div>
                                 <label for="last_name" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
-                                <input type="text" id="last_name" name="last_name" required value="{{ old('last_name') }}" class="w-full px-4 py-3 border {{ $errors->has('last_name') ? 'border-red-300' : 'border-gray-300' }} rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent">
+                                <input type="text" id="last_name" name="last_name" required value="{{ old('last_name') }}" class="w-full px-4 py-3 border {{ $errors->has('last_name') ? 'border-red-300' : 'border-gray-300' }} rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                                 @error('last_name')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="md:col-span-2">
                                 <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Address (Optional)</label>
-                                <input type="text" id="address" name="address" placeholder="Street Address" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent mb-3">
-                                <input type="text" id="city" name="city" placeholder="City, Ontario only" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent">
+                                <input type="text" id="address" name="address" placeholder="Street Address" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent mb-3">
+                                <input type="text" id="city" name="city" placeholder="City, Ontario only" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                             </div>
                             <div>
                                 <label for="gender" class="block text-sm font-medium text-gray-700 mb-2">Gender *</label>
-                                <select id="gender" name="gender" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent">
+                                <select id="gender" name="gender" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                                     <option value="">Select...</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
@@ -234,26 +234,26 @@
                             </div>
                             <div>
                                 <label for="date_of_birth" class="block text-sm font-medium text-gray-700 mb-2">Date of Birth *</label>
-                                <input type="date" id="date_of_birth" name="date_of_birth" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent">
+                                <input type="date" id="date_of_birth" name="date_of_birth" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                             </div>
                         </div>
                     </div>
 
                     <!-- License and Qualifications -->
-                    <div class="bg-blue-50 rounded-xl p-6">
+                    <div class="bg-green-50 rounded-xl p-6">
                         <h4 class="text-xl font-bold text-survail-brown mb-6">License & Qualifications</h4>
                         <div class="space-y-6">
                             <div>
                                 <label for="security_license" class="block text-sm font-medium text-gray-700 mb-2">Ontario Security Guard License Number *</label>
-                                <input type="text" id="security_license" name="security_license" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent">
+                                <input type="text" id="security_license" name="security_license" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                             </div>
                             <div>
                                 <label for="license_expiry" class="block text-sm font-medium text-gray-700 mb-2">License Expiry Date *</label>
-                                <input type="date" id="license_expiry" name="license_expiry" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent">
+                                <input type="date" id="license_expiry" name="license_expiry" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                             </div>
                             <div>
                                 <label for="has_vehicle" class="block text-sm font-medium text-gray-700 mb-2">Do you have a vehicle for commute? *</label>
-                                <select id="has_vehicle" name="has_vehicle" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent">
+                                <select id="has_vehicle" name="has_vehicle" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                                     <option value="">Select...</option>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
@@ -263,19 +263,19 @@
                                 <label class="block text-sm font-medium text-gray-700 mb-3">Additional Certifications (Check all that apply)</label>
                                 <div class="grid md:grid-cols-2 gap-3">
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="certifications[]" value="first_aid" class="mr-3 text-survail-blue">
+                                        <input type="checkbox" name="certifications[]" value="first_aid" class="mr-3 text-survail-green">
                                         <span>First Aid/CPR</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="certifications[]" value="use_of_force" class="mr-3 text-survail-blue">
+                                        <input type="checkbox" name="certifications[]" value="use_of_force" class="mr-3 text-survail-green">
                                         <span>Use of Force</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="certifications[]" value="baton" class="mr-3 text-survail-blue">
+                                        <input type="checkbox" name="certifications[]" value="baton" class="mr-3 text-survail-green">
                                         <span>Baton Training</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="certifications[]" value="emergency_response" class="mr-3 text-survail-blue">
+                                        <input type="checkbox" name="certifications[]" value="emergency_response" class="mr-3 text-survail-green">
                                         <span>Emergency Response</span>
                                     </label>
                                 </div>
@@ -291,30 +291,30 @@
                                 <label class="block text-sm font-medium text-gray-700 mb-3">Work Preference * (Check all that apply)</label>
                                 <div class="space-y-3">
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="work_preference[]" value="Any time" class="mr-3 text-survail-blue">
+                                        <input type="checkbox" name="work_preference[]" value="Any time" class="mr-3 text-survail-green">
                                         <span>Any time</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="work_preference[]" value="Part time" class="mr-3 text-survail-blue">
+                                        <input type="checkbox" name="work_preference[]" value="Part time" class="mr-3 text-survail-green">
                                         <span>Part time</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="work_preference[]" value="Full time" class="mr-3 text-survail-blue">
+                                        <input type="checkbox" name="work_preference[]" value="Full time" class="mr-3 text-survail-green">
                                         <span>Full time</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="work_preference[]" value="Nights only" class="mr-3 text-survail-blue">
+                                        <input type="checkbox" name="work_preference[]" value="Nights only" class="mr-3 text-survail-green">
                                         <span>Nights only</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="work_preference[]" value="Days only" class="mr-3 text-survail-blue">
+                                        <input type="checkbox" name="work_preference[]" value="Days only" class="mr-3 text-survail-green">
                                         <span>Days only</span>
                                     </label>
                                 </div>
                             </div>
                             <div>
                                 <label for="expected_wages" class="block text-sm font-medium text-gray-700 mb-2">Expected Wages *</label>
-                                <input type="text" id="expected_wages" name="expected_wages" required value="{{ old('expected_wages') }}" class="w-full px-4 py-3 border {{ $errors->has('expected_wages') ? 'border-red-300' : 'border-gray-300' }} rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent" placeholder="e.g. $20/hour, Negotiable, etc.">
+                                <input type="text" id="expected_wages" name="expected_wages" required value="{{ old('expected_wages') }}" class="w-full px-4 py-3 border {{ $errors->has('expected_wages') ? 'border-red-300' : 'border-gray-300' }} rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent" placeholder="e.g. $20/hour, Negotiable, etc.">
                                 @error('expected_wages')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -328,15 +328,15 @@
                         <div class="space-y-6">
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent">
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                             </div>
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent">
+                                <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                             </div>
                             <div>
                                 <label for="best_time_to_contact" class="block text-sm font-medium text-gray-700 mb-2">Best Time to Contact (if specific time needed)</label>
-                                <input type="text" id="best_time_to_contact" name="best_time_to_contact" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent" placeholder="e.g. Weekdays 9am-5pm, Evenings after 6pm, etc.">
+                                <input type="text" id="best_time_to_contact" name="best_time_to_contact" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent" placeholder="e.g. Weekdays 9am-5pm, Evenings after 6pm, etc.">
                             </div>
                         </div>
                     </div>
@@ -347,7 +347,7 @@
                         <div class="space-y-6">
                             <div>
                                 <label for="criminal_record" class="block text-sm font-medium text-gray-700 mb-2">Do you have a criminal record? *</label>
-                                <select id="criminal_record" name="criminal_record" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent">
+                                <select id="criminal_record" name="criminal_record" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                                     <option value="">Select...</option>
                                     <option value="no">No</option>
                                     <option value="yes">Yes</option>
@@ -362,17 +362,17 @@
                         <div class="space-y-6">
                             <div>
                                 <label for="work_history" class="block text-sm font-medium text-gray-700 mb-2">Work History and Training *</label>
-                                <textarea id="work_history" name="work_history" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent" placeholder="Please describe your work history, relevant training, certifications, security experience, military/law enforcement background, etc."></textarea>
+                                <textarea id="work_history" name="work_history" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent" placeholder="Please describe your work history, relevant training, certifications, security experience, military/law enforcement background, etc."></textarea>
                             </div>
                             <div>
                                 <label for="resume" class="block text-sm font-medium text-gray-700 mb-2">Upload Resume (Optional)</label>
-                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-survail-blue transition-colors">
+                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-survail-green transition-colors">
                                     <div class="space-y-1 text-center">
                                         <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
                                             <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                         </svg>
                                         <div class="flex text-sm text-gray-600">
-                                            <label for="resume" class="relative cursor-pointer bg-white rounded-md font-medium text-survail-blue hover:text-survail-blue-dark focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-survail-blue">
+                                            <label for="resume" class="relative cursor-pointer bg-white rounded-md font-medium text-survail-green hover:text-survail-green-dark focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-survail-green">
                                                 <span>Upload a file</span>
                                                 <input id="resume" name="resume" type="file" class="sr-only" accept=".pdf,.docx,.doc">
                                             </label>
@@ -391,11 +391,11 @@
                         <h4 class="text-xl font-bold text-survail-brown mb-6">Agreement</h4>
                         <div class="space-y-4">
                             <label class="flex items-start">
-                                <input type="checkbox" name="agree_terms" required class="mr-3 mt-1 text-survail-blue">
+                                <input type="checkbox" name="agree_terms" required class="mr-3 mt-1 text-survail-green">
                                 <span class="text-sm text-gray-700">I understand that hiring depends on the information provided. I confirm that all information provided is correct and factual. *</span>
                             </label>
-                            <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                                <p class="text-sm text-blue-800">
+                            <div class="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                                <p class="text-sm text-green-800">
                                     <strong>Confidentiality Notice:</strong> Information provided will be kept confidential and secure, it will never be shared.
                                 </p>
                             </div>
@@ -404,7 +404,7 @@
 
                     <!-- Submit Button -->
                     <div class="text-center pt-6">
-                        <button type="submit" class="bg-gradient-to-r from-survail-blue to-survail-blue-dark hover:from-survail-blue-dark hover:to-survail-blue text-white px-12 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        <button type="submit" class="bg-gradient-to-r from-survail-green to-survail-green-dark hover:from-survail-green-dark hover:to-survail-green text-white px-12 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                             Submit Application
                         </button>
                         <p class="text-sm text-gray-500 mt-4">* Required fields</p>
@@ -418,8 +418,8 @@
     <section class="mb-16 lg:mb-24 max-w-7xl mx-auto">
         <div class="bg-white rounded-2xl shadow-2xl p-8 lg:p-12 border border-gray-100">
             <div class="text-center mb-12">
-                <div class="bg-survail-blue bg-opacity-10 rounded-full p-4 inline-flex mb-6">
-                    <svg class="w-8 h-8 text-survail-blue" fill="currentColor" viewBox="0 0 20 20">
+                <div class="bg-survail-green bg-opacity-10 rounded-full p-4 inline-flex mb-6">
+                    <svg class="w-8 h-8 text-survail-green" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
                     </svg>
                 </div>
@@ -431,7 +431,7 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Step 1 -->
                     <div class="text-center group">
-                        <div class="bg-gradient-to-br from-survail-blue to-blue-600 text-white rounded-full w-20 h-20 flex items-center justify-center text-2xl font-bold mx-auto mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <div class="bg-gradient-to-br from-survail-green to-gray-700 text-white rounded-full w-20 h-20 flex items-center justify-center text-2xl font-bold mx-auto mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-lg">
                             1
                         </div>
                         <h4 class="text-xl font-bold text-survail-brown mb-4">Application Review</h4>
@@ -757,13 +757,13 @@ document.addEventListener('DOMContentLoaded', function() {
             html: `
                 <div class="text-left">
                     <p class="mb-4 text-gray-700">${message}</p>
-                    <div class="bg-blue-50 rounded-lg p-4">
-                        <h4 class="font-semibold text-blue-800 mb-3">What Happens Next?</h4>
-                        <ul class="text-sm text-blue-700 space-y-2">
+                    <div class="bg-green-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-green-800 mb-3">What Happens Next?</h4>
+                        <ul class="text-sm text-green-700 space-y-2">
                             <li>📧 Your application has been sent to our HR team</li>
                             <li>🔍 We will review your qualifications and experience</li>
                             <li>📞 If selected, we'll contact you within 3-5 business days</li>
-                            <li>❓ For questions, call us at <a href="tel:519-770-6634" class="font-medium text-blue-600 hover:text-blue-500">519-770-6634</a></li>
+                            <li>❓ For questions, call us at <a href="tel:519-770-6634" class="font-medium text-green-600 hover:text-green-500">519-770-6634</a></li>
                         </ul>
                     </div>
                 </div>

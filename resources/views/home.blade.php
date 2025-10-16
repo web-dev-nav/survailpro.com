@@ -26,7 +26,7 @@
             </div>
 
             <div class="animate-fade-in flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 px-4">
-                <a href="{{ route('services') }}" class="group bg-survail-blue hover:bg-survail-blue-dark text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto text-center">
+                <a href="{{ route('services') }}" class="group bg-survail-green hover:bg-survail-green-dark text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto text-center">
                     <span class="flex items-center justify-center">
                         Our Services
                         <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -236,7 +236,7 @@
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                <div class="bg-gradient-to-br from-survail-blue to-survail-blue-dark text-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                <div class="bg-gradient-to-br from-survail-green to-survail-green-dark text-white rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                     <h4 class="font-bold text-lg">Brantford</h4>
                     <p class="text-sm opacity-90">& Brant County</p>
                 </div>
@@ -275,7 +275,7 @@
                     <p class="text-xl lg:text-2xl mb-8 max-w-4xl mx-auto opacity-90">Get professional security solutions tailored to your needs. Contact us today for a free consultation.</p>
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a href="{{ route('contact') }}" class="group bg-white text-survail-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        <a href="{{ route('contact') }}" class="group bg-white text-survail-green px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
                             <span class="flex items-center">
                                 Get Free Quote
                                 <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

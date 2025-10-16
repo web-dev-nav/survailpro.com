@@ -16,8 +16,8 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Physical Protection -->
             <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-                <div class="w-16 h-16 bg-survail-blue bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-survail-blue" fill="currentColor" viewBox="0 0 20 20">
+                <div class="w-16 h-16 bg-survail-brown bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-survail-brown" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-4 4-4-4 4-4 .257.257A6 6 0 1118 8zm-6-2a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd"></path>
                     </svg>
                 </div>
