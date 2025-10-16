@@ -18,14 +18,6 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/jobs', function () {
-    return view('jobs');
-})->name('jobs');
-
-Route::get('/careers', function () {
-    return view('jobs');
-})->name('careers');
-
 Route::get('/application', [App\Http\Controllers\ApplicationController::class, 'show'])->name('application');
 Route::post('/application', [App\Http\Controllers\ApplicationController::class, 'store'])->name('application.submit');
 

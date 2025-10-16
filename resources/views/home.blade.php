@@ -7,20 +7,20 @@
 <!-- Hero Section -->
 <section class="relative hero-mobile flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-survail-brown overflow-hidden">
     <!-- Background Video/Image Placeholder -->
-    <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-60"></div>
-        <img src="{{ asset('assets/images/wp3fa78443_06.jpg') }}" alt="Security Background" class="w-full h-full object-cover object-center">
+    <div class="absolute inset-0 w-full h-full">
+        <img src="{{ asset('assets/images/banner.png') }}" alt="Security Background" class="hero-bg-image absolute inset-0 w-full h-full object-cover object-center">
+        <div class="absolute inset-0 bg-black opacity-45"></div>
     </div>
 
     <!-- Hero Content -->
-    <div class="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-8">
+    <div class="relative z-20 w-full px-4 sm:px-6 lg:px-8 py-8">
         <div class="max-w-6xl mx-auto text-center">
             <div class="animate-slide-up">
-                <h2 class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+                <h2 class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 sm:mb-6 leading-tight">
                     We Keep You
                     <span class="text-yellow-400 animate-float inline-block">Safe</span>
                 </h2>
-                <p class="text-lg xs:text-xl sm:text-2xl lg:text-3xl text-gray-200 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2">
+                <p class="text-lg xs:text-xl sm:text-2xl lg:text-3xl text-gray-200 mb-5 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2">
                     Professional security solutions with over <strong class="text-yellow-400">42 years</strong> of experience in Southern Ontario
                 </p>
             </div>
@@ -84,17 +84,17 @@
             <!-- Services Grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                 <!-- Service 1 -->
-                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-survail-blue transform hover:-translate-y-2">
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-survail-brown transform hover:-translate-y-2">
                     <div class="mb-6">
-                        <div class="w-16 h-16 bg-survail-blue bg-opacity-10 rounded-full flex items-center justify-center mb-4 group-hover:bg-opacity-20 transition-colors">
-                            <svg class="w-8 h-8 text-survail-blue" fill="currentColor" viewBox="0 0 20 20">
+                        <div class="w-16 h-16 bg-survail-brown bg-opacity-10 rounded-full flex items-center justify-center mb-4 group-hover:bg-opacity-20 transition-colors">
+                            <svg class="w-8 h-8 text-survail-brown" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-4 4-4-4 4-4 .257.257A6 6 0 1118 8zm-6-2a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
                         <h4 class="text-xl font-bold text-survail-brown mb-3">Physical Protection</h4>
                         <p class="text-gray-600 leading-relaxed">Professional security personnel for construction sites, retail locations, warehouses, and corporate facilities.</p>
                     </div>
-                    <a href="{{ route('services') }}" class="text-survail-blue font-semibold hover:text-survail-blue-dark transition-colors flex items-center">
+                    <a href="{{ route('services') }}" class="text-survail-brown font-semibold hover:text-survail-brown-light transition-colors flex items-center">
                         Learn More
                         <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -113,7 +113,7 @@
                         <h4 class="text-xl font-bold text-survail-brown mb-3">Event Security</h4>
                         <p class="text-gray-600 leading-relaxed">Specialized security management for concerts, festivals, sporting events, and special occasions with crowd control expertise.</p>
                     </div>
-                    <a href="{{ route('services') }}#events" class="text-survail-green font-semibold hover:text-survail-green transition-colors flex items-center">
+                    <a href="{{ route('services') }}#events" class="text-survail-green font-semibold hover:text-gray-700 transition-colors flex items-center">
                         Learn More
                         <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -122,17 +122,17 @@
                 </div>
 
                 <!-- Service 3 -->
-                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-survail-red transform hover:-translate-y-2">
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-survail-brown-light transform hover:-translate-y-2">
                     <div class="mb-6">
-                        <div class="w-16 h-16 bg-survail-red bg-opacity-10 rounded-full flex items-center justify-center mb-4 group-hover:bg-opacity-20 transition-colors">
-                            <svg class="w-8 h-8 text-survail-red" fill="currentColor" viewBox="0 0 20 20">
+                        <div class="w-16 h-16 bg-survail-brown-light bg-opacity-10 rounded-full flex items-center justify-center mb-4 group-hover:bg-opacity-20 transition-colors">
+                            <svg class="w-8 h-8 text-survail-brown-light" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                             </svg>
                         </div>
                         <h4 class="text-xl font-bold text-survail-brown mb-3">Consulting & Training</h4>
                         <p class="text-gray-600 leading-relaxed">Professional security consulting, emergency management training, and specialized security planning services.</p>
                     </div>
-                    <a href="{{ route('services') }}#consulting" class="text-survail-red font-semibold hover:text-survail-red-dark transition-colors flex items-center">
+                    <a href="{{ route('services') }}#consulting" class="text-survail-brown-light font-semibold hover:text-survail-brown transition-colors flex items-center">
                         Learn More
                         <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -262,10 +262,10 @@
 </section>
 
 <!-- Call to Action -->
-<section class="py-16 lg:py-24 bg-gray-900">
+<section class="py-16 lg:py-24 bg-survail-green">
     <div class="w-full px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
-            <div class="bg-gradient-to-r from-survail-blue to-survail-blue-dark rounded-3xl p-8 lg:p-16 text-center text-white relative overflow-hidden">
+            <div class="bg-survail-green rounded-3xl p-8 lg:p-16 text-center text-white relative overflow-hidden">
                 <!-- Background decoration -->
                 <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full transform translate-x-32 -translate-y-32"></div>
                 <div class="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full transform -translate-x-32 translate-y-32"></div>

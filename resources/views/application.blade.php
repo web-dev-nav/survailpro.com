@@ -252,6 +252,14 @@
                                 <input type="date" id="license_expiry" name="license_expiry" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent">
                             </div>
                             <div>
+                                <label for="has_vehicle" class="block text-sm font-medium text-gray-700 mb-2">Do you have a vehicle for commute? *</label>
+                                <select id="has_vehicle" name="has_vehicle" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-blue focus:border-transparent">
+                                    <option value="">Select...</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                            <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-3">Additional Certifications (Check all that apply)</label>
                                 <div class="grid md:grid-cols-2 gap-3">
                                     <label class="flex items-center">
@@ -493,19 +501,19 @@
     </section>
 
     <!-- Need Help? -->
-    <section class="mb-16 lg:mb-24 max-w-7xl mx-auto">
-        <div class="bg-gradient-to-r from-survail-blue to-blue-600 rounded-2xl p-8 lg:p-12 text-center text-white">
+    <section class="text-center max-w-7xl mx-auto">
+        <div class="bg-survail-green rounded-2xl p-8 lg:p-12 text-white">
             <div class="bg-white bg-opacity-20 rounded-full p-4 inline-flex mb-6">
                 <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"></path>
                 </svg>
             </div>
             <h3 class="text-3xl font-bold mb-4">Need Help with Your Application?</h3>
-            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p class="text-xl text-green-100 mb-8 max-w-2xl mx-auto leading-relaxed">
                 If you have questions about the application process or requirements, don't hesitate to contact Don directly. We're here to help!
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="tel:519-770-6634" class="group bg-white text-survail-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <a href="tel:519-770-6634" class="group bg-white text-survail-green px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
                     <span class="flex items-center justify-center">
                         <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
@@ -513,7 +521,7 @@
                         Call: 519-770-6634
                     </span>
                 </a>
-                <a href="mailto:don@survailpro.ca" class="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-survail-blue transition-all duration-300 transform hover:scale-105">
+                <a href="mailto:don@survailpro.ca" class="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-survail-green transition-all duration-300 transform hover:scale-105">
                     <span class="flex items-center justify-center">
                         <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
@@ -523,29 +531,6 @@
                     </span>
                 </a>
             </div>
-        </div>
-    </section>
-
-    <!-- Back to Jobs Page -->
-    <section class="text-center max-w-7xl mx-auto">
-        <div class="bg-gradient-to-r from-survail-brown to-orange-600 rounded-2xl p-8 lg:p-12 text-white">
-            <div class="bg-white bg-opacity-20 rounded-full p-4 inline-flex mb-6">
-                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                </svg>
-            </div>
-            <h3 class="text-2xl lg:text-3xl font-bold mb-4">Want to Learn More About Working with SurVail?</h3>
-            <p class="text-orange-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-                Visit our careers page to learn more about our employment process, benefits, and what we're looking for in candidates.
-            </p>
-            <a href="{{ route('jobs') }}" class="group bg-white text-survail-brown px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg inline-block">
-                <span class="flex items-center">
-                    <svg class="mr-2 w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                    Back to Careers Page
-                </span>
-            </a>
         </div>
     </section>
 </main>

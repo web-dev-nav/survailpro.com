@@ -69,15 +69,47 @@
         /* Fix for mobile viewport height issues */
         .hero-mobile {
             height: 100vh;
-            height: calc(var(--vh, 1vh) * 100);
+            min-height: 700px;
+            position: relative;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
         @media (max-width: 640px) {
             .hero-mobile {
-                min-height: 600px;
-                height: auto;
-                padding-top: 2rem;
-                padding-bottom: 2rem;
+                min-height: 100vh;
+                height: 100vh;
+            }
+
+            .hero-bg-image {
+                object-fit: cover !important;
+                object-position: center !important;
+            }
+
+            .hero-mobile h2,
+            .hero-mobile p {
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.7);
+            }
+        }
+
+        /* Desktop hero image improvements */
+        @media (min-width: 1024px) {
+            .hero-mobile {
+                min-height: 800px;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .hero-mobile {
+                min-height: 850px;
             }
         }
     </style>
@@ -141,7 +173,6 @@
                     <a href="{{ route('about') }}" class="px-6 py-4 text-white font-semibold {{ Route::currentRouteName() == 'about' ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">About Us</a>
                     <a href="{{ route('services') }}" class="px-6 py-4 text-white font-semibold {{ Route::currentRouteName() == 'services' ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">Services</a>
                     <a href="{{ route('contact') }}" class="px-6 py-4 text-white font-semibold {{ Route::currentRouteName() == 'contact' ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">Contact</a>
-                    <a href="{{ route('jobs') }}" class="px-6 py-4 text-white font-semibold {{ in_array(Route::currentRouteName(), ['jobs', 'careers']) ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">Careers</a>
                     <a href="{{ route('application') }}" class="px-6 py-4 text-white font-semibold {{ in_array(Route::currentRouteName(), ['application', 'apply']) ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">Apply Now</a>
                 </div>
 
@@ -152,7 +183,6 @@
                         <a href="{{ route('about') }}" class="block px-4 py-3 text-white font-semibold {{ Route::currentRouteName() == 'about' ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">About Us</a>
                         <a href="{{ route('services') }}" class="block px-4 py-3 text-white font-semibold {{ Route::currentRouteName() == 'services' ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">Services</a>
                         <a href="{{ route('contact') }}" class="block px-4 py-3 text-white font-semibold {{ Route::currentRouteName() == 'contact' ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">Contact</a>
-                        <a href="{{ route('jobs') }}" class="block px-4 py-3 text-white font-semibold {{ in_array(Route::currentRouteName(), ['jobs', 'careers']) ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">Careers</a>
                         <a href="{{ route('application') }}" class="block px-4 py-3 text-white font-semibold {{ in_array(Route::currentRouteName(), ['application', 'apply']) ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">Apply Now</a>
 
                         <!-- Mobile Contact Info -->
@@ -206,7 +236,7 @@
                         <li><a href="{{ route('about') }}" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
                         <li><a href="{{ route('services') }}" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
                         <li><a href="{{ route('contact') }}" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
-                        <li><a href="{{ route('jobs') }}" class="text-gray-300 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="{{ route('application') }}" class="text-gray-300 hover:text-white transition-colors">Apply Now</a></li>
                     </ul>
                 </div>
 

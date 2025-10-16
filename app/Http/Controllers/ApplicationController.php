@@ -44,6 +44,7 @@ class ApplicationController extends Controller
             // License & Qualifications
             'security_license' => 'required|string|max:50|regex:/^[A-Z0-9\-]+$/',
             'license_expiry' => 'required|date|after:today',
+            'has_vehicle' => 'required|in:yes,no',
             'certifications' => 'nullable|array',
             'certifications.*' => 'string|in:first_aid,use_of_force,baton,emergency_response',
 

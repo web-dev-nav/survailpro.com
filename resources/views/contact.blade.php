@@ -27,7 +27,16 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-semibold text-survail-brown mb-2">Phone</h3>
-                            <a href="tel:519-770-6634" class="text-lg text-gray-600 hover:text-survail-blue transition-colors">519-770-6634</a>
+                            <div class="space-y-1">
+                                <div>
+                                    <a href="tel:519-770-6634" class="text-lg text-gray-600 hover:text-survail-blue transition-colors">519-770-6634</a>
+                                    <span class="text-sm text-gray-500 ml-2">(Main)</span>
+                                </div>
+                                <div>
+                                    <a href="tel:905-928-9636" class="text-lg text-gray-600 hover:text-survail-blue transition-colors">905-928-9636</a>
+                                    <span class="text-sm text-gray-500 ml-2">(Hamilton Area)</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

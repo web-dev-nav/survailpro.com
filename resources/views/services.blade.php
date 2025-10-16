@@ -68,11 +68,11 @@
 
         <!-- Call to Action -->
         <div class="mt-16 text-center">
-            <div class="bg-gradient-to-r from-survail-blue to-survail-blue-dark rounded-2xl p-8 text-white">
+            <div class="bg-survail-green rounded-2xl p-8 text-white">
                 <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
                 <p class="text-xl mb-6">Contact us today for a free consultation and customized security solution.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="{{ route('contact') }}" class="bg-white text-survail-blue px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors">
+                    <a href="{{ route('contact') }}" class="bg-white text-survail-green px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors">
                         Get Free Quote
                     </a>
                     <a href="tel:519-770-6634" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 px-8 py-3 rounded-full font-bold text-lg transition-colors">
