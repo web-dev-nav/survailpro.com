@@ -54,6 +54,23 @@
                 </ul>
             </div>
         </div>
+
+        <!-- Certifications Section -->
+        <div class="mt-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold text-survail-brown mb-4">Certifications & Licensing</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    We are fully licensed and certified to provide professional security and investigation services in Ontario.
+                </p>
+            </div>
+            <div class="flex justify-center">
+                <div class="bg-white rounded-2xl shadow-xl p-8 max-w-4xl">
+                    <img src="{{ asset('assets/images/certificate.png') }}"
+                         alt="SurVail Protection & Investigation Services Certificate"
+                         class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
