@@ -55,18 +55,18 @@
             </div>
         </div>
 
-        <!-- Certifications Section -->
+        <!-- Awards Section -->
         <div class="mt-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl lg:text-4xl font-bold text-survail-brown mb-4">Certifications & Licensing</h2>
+                <h2 class="text-3xl lg:text-4xl font-bold text-survail-brown mb-4">Awards & Recognition</h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    We are fully licensed and certified to provide professional security and investigation services in Ontario.
+                    Proud Platinum Winner of the Community Vote Brantford 2025 - recognized by our community for excellence in security services.
                 </p>
             </div>
             <div class="flex justify-center">
                 <div class="bg-white rounded-2xl shadow-xl p-8 max-w-4xl">
-                    <img src="{{ asset('assets/images/certificate.png') }}"
-                         alt="SurVail Protection & Investigation Services Certificate"
+                    <img src="/assets/images/certificate.png"
+                         alt="Community Vote Brantford 2025 Platinum Winner - SurVail Protection & Investigation Services"
                          class="w-full h-auto rounded-lg shadow-lg">
                 </div>
             </div>
