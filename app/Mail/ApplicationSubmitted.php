@@ -59,11 +59,55 @@ class ApplicationSubmitted extends Mailable
     {
         $attachments = [];
 
-        if ($this->resumePath && file_exists(storage_path('app/' . $this->resumePath))) {
-            $attachments[] = Attachment::fromPath(storage_path('app/' . $this->resumePath))
-                ->as('Resume_' . $this->applicationData['first_name'] . '_' . $this->applicationData['last_name'] . '.pdf');
+        if ($this->resumePath) {
+            $fullPath = storage_path('app/' . $this->resumePath);
+
+            \Log::info('Attempting to attach resume', [
+                'resume_path' => $this->resumePath,
+                'full_path' => $fullPath,
+                'file_exists' => file_exists($fullPath),
+                'applicant' => $this->applicationData['first_name'] . ' ' . $this->applicationData['last_name']
+            ]);
+
+            if (file_exists($fullPath)) {
+                // Get the original file extension
+                $pathInfo = pathinfo($fullPath);
+                $extension = isset($pathInfo['extension']) ? '.' . $pathInfo['extension'] : '';
+                $filename = 'Resume_' . $this->applicationData['first_name'] . '_' . $this->applicationData['last_name'] . $extension;
+
+                $attachments[] = Attachment::fromPath($fullPath)
+                    ->as($filename)
+                    ->withMime($this->getMimeType($extension));
+
+                \Log::info('Resume attached successfully', [
+                    'filename' => $filename,
+                    'extension' => $extension,
+                    'mime_type' => $this->getMimeType($extension)
+                ]);
+            } else {
+                \Log::error('Resume file not found for attachment', [
+                    'resume_path' => $this->resumePath,
+                    'full_path' => $fullPath
+                ]);
+            }
+        } else {
+            \Log::info('No resume uploaded for this application');
         }
 
         return $attachments;
+    }
+
+    /**
+     * Get MIME type based on file extension
+     */
+    private function getMimeType($extension): string
+    {
+        $mimeTypes = [
+            '.pdf' => 'application/pdf',
+            '.docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            '.doc' => 'application/msword',
+        ];
+
+        return $mimeTypes[$extension] ?? 'application/octet-stream';
     }
 }

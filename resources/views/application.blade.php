@@ -358,7 +358,7 @@
                             </div>
                             <div>
                                 <label for="expected_wages" class="block text-sm font-medium text-gray-700 mb-2">Expected Wages *</label>
-                                <input type="text" id="expected_wages" name="expected_wages" required value="{{ old('expected_wages') }}" class="w-full px-4 py-3 border {{ $errors->has('expected_wages') ? 'border-red-300' : 'border-gray-300' }} rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent" placeholder="e.g. $20/hour, Negotiable, etc.">
+                                <input type="text" id="expected_wages" name="expected_wages" required value="{{ old('expected_wages') }}" class="w-full px-4 py-3 border {{ $errors->has('expected_wages') ? 'border-red-300' : 'border-gray-300' }} rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent" placeholder="e.g. $18.20/hour, Negotiable, etc.">
                                 @error('expected_wages')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -372,11 +372,17 @@
                         <div class="space-y-6">
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                <input type="email" id="email" name="email" required value="{{ old('email') }}" class="w-full px-4 py-3 border {{ $errors->has('email') ? 'border-red-300 bg-red-50' : 'border-gray-300' }} rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                @error('email')
+                                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                <input type="tel" id="phone" name="phone" required value="{{ old('phone', '+1 (287) 482-2687') }}" class="w-full px-4 py-3 border {{ $errors->has('phone') ? 'border-red-300' : 'border-gray-300' }} rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent" placeholder="+1 (XXX) XXX-XXXX">
+                                @error('phone')
+                                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div>
                                 <label for="best_time_to_contact" class="block text-sm font-medium text-gray-700 mb-2">Best Time to Contact (if specific time needed)</label>
@@ -409,7 +415,10 @@
                                 <textarea id="work_history" name="work_history" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent" placeholder="Please describe your work history, relevant training, certifications, security experience, military/law enforcement background, etc."></textarea>
                             </div>
                             <div>
-                                <label for="resume" class="block text-sm font-medium text-gray-700 mb-2">Upload Resume (Optional)</label>
+                                <label for="resume" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Upload Resume (Optional)
+                                    <span class="text-xs font-normal text-red-600">- PDF or Word only</span>
+                                </label>
                                 <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-survail-green transition-colors">
                                     <div class="space-y-1 text-center">
                                         <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
@@ -422,7 +431,10 @@
                                             </label>
                                             <p class="pl-1">or drag and drop</p>
                                         </div>
-                                        <p class="text-xs text-gray-500">PDF, DOCX files up to 10MB</p>
+                                        <p class="text-xs text-gray-500">
+                                            <strong class="text-red-600">Only PDF or Word documents</strong><br>
+                                            (.pdf, .docx, .doc) - Max 10MB
+                                        </p>
                                     </div>
                                 </div>
                                 <div id="file-name" class="mt-2 text-sm text-gray-600 hidden"></div>
@@ -590,6 +602,58 @@ document.addEventListener('DOMContentLoaded', function() {
     // Prevent multiple submissions
     let isSubmitting = false;
 
+    // Phone number auto-formatting
+    const phoneInput = document.getElementById('phone');
+
+    function formatPhoneNumber(value) {
+        // Remove all non-numeric characters
+        const phoneNumber = value.replace(/\D/g, '');
+
+        // Handle different lengths
+        if (phoneNumber.length === 0) {
+            return '';
+        }
+
+        // If it starts with 1, it's already formatted for US/Canada
+        let cleaned = phoneNumber;
+        if (phoneNumber.length === 11 && phoneNumber[0] === '1') {
+            cleaned = phoneNumber.substring(1);
+        } else if (phoneNumber.length === 10) {
+            cleaned = phoneNumber;
+        } else if (phoneNumber.length === 11 && phoneNumber[0] === '1') {
+            cleaned = phoneNumber.substring(1);
+        }
+
+        // Format as +1 (XXX) XXX-XXXX
+        if (cleaned.length <= 3) {
+            return `+1 (${cleaned}`;
+        } else if (cleaned.length <= 6) {
+            return `+1 (${cleaned.slice(0, 3)}) ${cleaned.slice(3)}`;
+        } else if (cleaned.length <= 10) {
+            return `+1 (${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(6, 10)}`;
+        }
+
+        // If more than 10 digits, truncate
+        return `+1 (${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(6, 10)}`;
+    }
+
+    phoneInput.addEventListener('input', function(e) {
+        const cursorPosition = e.target.selectionStart;
+        const oldValue = e.target.value;
+        const formatted = formatPhoneNumber(e.target.value);
+        e.target.value = formatted;
+
+        // Try to maintain cursor position
+        if (formatted.length >= cursorPosition) {
+            e.target.setSelectionRange(cursorPosition, cursorPosition);
+        }
+    });
+
+    // Format on page load if there's already a value
+    if (phoneInput.value) {
+        phoneInput.value = formatPhoneNumber(phoneInput.value);
+    }
+
     form.addEventListener('submit', function(e) {
         if (isSubmitting) {
             e.preventDefault();
@@ -660,10 +724,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!allowedExtensions.includes(extension) || !allowedMimeTypes.includes(file.type)) {
                 Swal.fire({
                     title: 'Invalid File Type',
-                    text: 'Please upload only PDF or Word documents (.pdf, .docx, .doc)',
+                    html: '<p class="mb-2">Only PDF or Word documents are accepted.</p><p class="text-sm text-gray-600">Allowed formats: .pdf, .docx, .doc</p>',
                     icon: 'error',
-                    confirmButtonColor: '#0026c0',
-                    confirmButtonText: 'OK'
+                    confirmButtonColor: '#dc2626',
+                    confirmButtonText: 'OK, Got It'
                 });
                 e.target.value = '';
                 fileNameDisplay.classList.add('hidden');
@@ -671,16 +735,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Check for suspicious filenames
-            const suspiciousPatterns = ['.exe', '.bat', '.cmd', '.scr', '.pif', '.js', '.vbs', '.php'];
+            const suspiciousPatterns = ['.exe', '.bat', '.cmd', '.scr', '.pif', '.js', '.vbs', '.php', '.sh', '.com'];
             const filename = file.name.toLowerCase();
 
             for (let pattern of suspiciousPatterns) {
                 if (filename.includes(pattern)) {
                     Swal.fire({
                         title: 'Security Alert',
-                        text: 'Invalid file type detected for security reasons',
+                        html: '<p class="mb-2">This file type is not allowed for security reasons.</p><p class="text-sm text-gray-600">Only PDF or Word documents (.pdf, .docx, .doc) are accepted.</p>',
                         icon: 'error',
-                        confirmButtonColor: '#0026c0',
+                        confirmButtonColor: '#dc2626',
                         confirmButtonText: 'OK'
                     });
                     e.target.value = '';

@@ -63,7 +63,7 @@ class ApplicationController extends Controller
 
             // Contact Information
             'email' => 'required|email|max:255',
-            'phone' => 'required|string|max:20|regex:/^[\+]?[1-9][\d]{0,15}$/',
+            'phone' => 'required|string|max:30|regex:/^[\+]?[1]?\s?[\(]?[0-9]{3}[\)]?\s?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4}$/',
             'best_time_to_contact' => 'nullable|string|max:200',
 
             // Background Information
@@ -79,17 +79,18 @@ class ApplicationController extends Controller
             'last_name.regex' => 'Last name contains invalid characters.',
             'city.regex' => 'City name contains invalid characters.',
             'security_license.regex' => 'Security license format is invalid.',
-            'phone.regex' => 'Phone number format is invalid.',
+            'phone.regex' => 'Please enter a valid 10-digit phone number.',
             'email.email' => 'Please enter a valid email address.',
             'date_of_birth.before' => 'Date of birth must be in the past.',
             'date_of_birth.after' => 'Please enter a valid date of birth.',
             'license_expiry.after' => 'License must not be expired.',
             'work_preference.min' => 'Please select at least one work preference.',
             'expected_wages.required' => 'Please enter your expected wages.',
-            'expected_wages.string' => 'Expected wages must be text (e.g., $20/hour, Negotiable).',
+            'expected_wages.string' => 'Expected wages must be text (e.g., $18.20/hour, Negotiable).',
             'expected_wages.max' => 'Expected wages cannot exceed 100 characters.',
-            'resume.mimes' => 'Resume must be a PDF or Word document.',
+            'resume.mimes' => 'Invalid file type. Only PDF or Word documents are accepted (.pdf, .docx, .doc)',
             'resume.max' => 'Resume file size cannot exceed 10MB.',
+            'resume.file' => 'Resume must be a valid file.',
         ]);
 
         if ($validator->fails()) {
@@ -226,10 +227,21 @@ class ApplicationController extends Controller
     {
         // Generate secure filename
         $originalName = $file->getClientOriginalName();
-        $extension = $file->getClientOriginalExtension();
+        $extension = strtolower($file->getClientOriginalExtension());
+
+        // Validate extension - ONLY allow PDF and Word documents
+        $allowedExtensions = ['pdf', 'docx', 'doc'];
+        if (!in_array($extension, $allowedExtensions)) {
+            \Log::warning('Invalid file extension attempted', [
+                'filename' => $originalName,
+                'extension' => $extension
+            ]);
+            throw new \Exception('Invalid file type. Only PDF or Word documents (.pdf, .docx, .doc) are allowed.');
+        }
+
         $filename = Str::random(40) . '.' . $extension;
 
-        // Additional security checks
+        // Additional security checks - MIME type validation
         $realMimeType = $file->getMimeType();
         $allowedMimes = [
             'application/pdf',
@@ -238,7 +250,11 @@ class ApplicationController extends Controller
         ];
 
         if (!in_array($realMimeType, $allowedMimes)) {
-            throw new \Exception('Invalid file type detected.');
+            \Log::warning('Invalid MIME type attempted', [
+                'filename' => $originalName,
+                'mime_type' => $realMimeType
+            ]);
+            throw new \Exception('Invalid file type. Only PDF or Word documents are allowed.');
         }
 
         // Scan file content for potential threats (basic check)
@@ -258,8 +274,12 @@ class ApplicationController extends Controller
         \Log::info('Resume uploaded', [
             'original_name' => $originalName,
             'stored_name' => $filename,
+            'stored_path' => $path,
+            'full_path' => storage_path('app/' . $path),
+            'file_exists' => file_exists(storage_path('app/' . $path)),
             'size' => $file->getSize(),
-            'mime_type' => $realMimeType
+            'mime_type' => $realMimeType,
+            'extension' => $extension
         ]);
 
         return $path;
