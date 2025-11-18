@@ -102,16 +102,12 @@ class ApplicationController extends Controller
             // Handle file upload securely
             $resumePath = null;
             $resumeUrl = null;
+            $resumeFilename = null;
             if ($request->hasFile('resume')) {
-                $resumePath = $this->handleFileUpload($request->file('resume'));
-
-                // Generate signed URL for resume download (expires in 90 days)
-                $filename = basename($resumePath);
-                $resumeUrl = \URL::temporarySignedRoute(
-                    'application.resume.download',
-                    now()->addDays(90),
-                    ['filename' => $filename]
-                );
+                $uploadResult = $this->handleFileUpload($request->file('resume'));
+                $resumePath = $uploadResult['path'];
+                $resumeUrl = $uploadResult['url'];
+                $resumeFilename = $uploadResult['filename'];
             }
 
             // Store application data (you can save to database here)
@@ -219,7 +215,7 @@ class ApplicationController extends Controller
         return $sanitized;
     }
 
-    private function handleFileUpload($file): string
+    private function handleFileUpload($file): array
     {
         // Generate secure filename
         $originalName = $file->getClientOriginalName();
@@ -263,61 +259,32 @@ class ApplicationController extends Controller
             }
         }
 
-        // Store file securely
-        $path = $file->storeAs('applications/resumes', $filename, 'local');
+        // Store file in PUBLIC storage (accessible via web)
+        $path = $file->storeAs('resumes', $filename, 'public');
+
+        // Generate public URL (no signature, direct access)
+        $url = asset('storage/' . $path);
+
+        $fullPath = storage_path('app/public/' . $path);
 
         // Log file upload
         \Log::info('Resume uploaded', [
             'original_name' => $originalName,
             'stored_name' => $filename,
             'stored_path' => $path,
-            'full_path' => storage_path('app/' . $path),
-            'file_exists' => file_exists(storage_path('app/' . $path)),
+            'full_path' => $fullPath,
+            'public_url' => $url,
+            'file_exists' => file_exists($fullPath),
             'size' => $file->getSize(),
             'mime_type' => $realMimeType,
             'extension' => $extension
         ]);
 
-        return $path;
+        return [
+            'path' => $path,
+            'url' => $url,
+            'filename' => $filename
+        ];
     }
 
-    /**
-     * Download resume file (requires signed URL)
-     */
-    public function downloadResume(string $filename)
-    {
-        // Security: Only allow accessing files from the resumes directory
-        $path = storage_path('app/applications/resumes/' . $filename);
-
-        // Check if file exists first (before realpath which returns false if file doesn't exist)
-        if (!file_exists($path)) {
-            \Log::warning('Resume file not found', [
-                'filename' => $filename,
-                'path' => $path
-            ]);
-            abort(404, 'Resume file not found. The file may have been deleted or moved.');
-        }
-
-        // Prevent directory traversal attacks
-        $realPath = realpath($path);
-        $resumeDir = realpath(storage_path('app/applications/resumes'));
-
-        if (!$realPath || !str_starts_with($realPath, $resumeDir)) {
-            \Log::warning('Attempted unauthorized resume access', [
-                'filename' => $filename,
-                'attempted_path' => $path,
-                'real_path' => $realPath,
-                'resume_dir' => $resumeDir
-            ]);
-            abort(403, 'Unauthorized access attempt');
-        }
-
-        \Log::info('Resume downloaded', [
-            'filename' => $filename,
-            'path' => $realPath
-        ]);
-
-        // Return file download response
-        return response()->download($realPath);
-    }
 }
