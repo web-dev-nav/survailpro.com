@@ -42,7 +42,7 @@ class ApplicationSubmitted extends Mailable
     public function content(): Content
     {
         return new Content(
-            htmlView: 'emails.application-submitted-simple',
+            view: 'emails.application-submitted-simple',
             with: [
                 'applicationData' => $this->applicationData,
                 'resumePath' => $this->resumePath,
