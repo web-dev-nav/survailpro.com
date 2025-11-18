@@ -289,6 +289,15 @@ class ApplicationController extends Controller
         // Security: Only allow accessing files from the resumes directory
         $path = storage_path('app/applications/resumes/' . $filename);
 
+        // Check if file exists first (before realpath which returns false if file doesn't exist)
+        if (!file_exists($path)) {
+            \Log::warning('Resume file not found', [
+                'filename' => $filename,
+                'path' => $path
+            ]);
+            abort(404, 'Resume file not found. The file may have been deleted or moved.');
+        }
+
         // Prevent directory traversal attacks
         $realPath = realpath($path);
         $resumeDir = realpath(storage_path('app/applications/resumes'));
@@ -296,18 +305,11 @@ class ApplicationController extends Controller
         if (!$realPath || !str_starts_with($realPath, $resumeDir)) {
             \Log::warning('Attempted unauthorized resume access', [
                 'filename' => $filename,
-                'attempted_path' => $path
+                'attempted_path' => $path,
+                'real_path' => $realPath,
+                'resume_dir' => $resumeDir
             ]);
-            abort(404, 'Resume not found');
-        }
-
-        // Check if file exists
-        if (!file_exists($realPath)) {
-            \Log::warning('Resume file not found', [
-                'filename' => $filename,
-                'path' => $realPath
-            ]);
-            abort(404, 'Resume not found');
+            abort(403, 'Unauthorized access attempt');
         }
 
         \Log::info('Resume downloaded', [
