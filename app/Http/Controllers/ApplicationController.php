@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use App\Mail\ApplicationSubmitted;
+use App\Mail\ApplicationThankYou;
 
 class ApplicationController extends Controller
 {
@@ -117,29 +118,45 @@ class ApplicationController extends Controller
             // For now, just log the application (replace with database storage)
             \Log::info('New job application submitted', $applicationData);
 
-            // Send email notification to admin (if enabled)
+            // Send email notifications (if enabled)
             if (env('ENABLE_EMAIL_NOTIFICATIONS', true)) {
                 try {
-                    $adminEmail = env('ADMIN_EMAIL', 'don@survailpro.ca');
+                    $adminEmail = env('ADMIN_EMAIL', 'hr@survailpro.ca');
+                    $applicantEmail = $sanitizedData['email'];
                     $mailDriver = env('MAIL_MAILER', 'log');
 
-                    \Log::info('Sending application notification email', [
+                    \Log::info('Sending application notification emails', [
                         'driver' => $mailDriver,
                         'admin_email' => $adminEmail,
+                        'applicant_email' => $applicantEmail,
                         'applicant' => $sanitizedData['first_name'] . ' ' . $sanitizedData['last_name']
                     ]);
 
+                    // Send structured email to HR with resume attachment
                     Mail::to($adminEmail)->send(new ApplicationSubmitted($sanitizedData, $resumePath));
 
+                    // Send thank you email to applicant
+                    Mail::to($applicantEmail)->send(new ApplicationThankYou(
+                        $sanitizedData['first_name'],
+                        $sanitizedData['last_name']
+                    ));
+
                     if ($mailDriver === 'log') {
-                        \Log::info('Application notification logged (using log driver)', ['email' => $adminEmail]);
+                        \Log::info('Application notifications logged (using log driver)', [
+                            'hr_email' => $adminEmail,
+                            'applicant_email' => $applicantEmail
+                        ]);
                     } else {
-                        \Log::info('Application notification email sent to admin', ['email' => $adminEmail, 'driver' => $mailDriver]);
+                        \Log::info('Application notification emails sent successfully', [
+                            'hr_email' => $adminEmail,
+                            'applicant_email' => $applicantEmail,
+                            'driver' => $mailDriver
+                        ]);
                     }
                 } catch (\Exception $emailError) {
-                    \Log::error('Failed to send application notification email: ' . $emailError->getMessage(), [
+                    \Log::error('Failed to send application notification emails: ' . $emailError->getMessage(), [
                         'driver' => env('MAIL_MAILER', 'log'),
-                        'admin_email' => env('ADMIN_EMAIL', 'don@survailpro.ca')
+                        'admin_email' => env('ADMIN_EMAIL', 'hr@survailpro.ca')
                     ]);
                     // Don't fail the application submission if email fails
                 }

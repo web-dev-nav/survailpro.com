@@ -211,6 +211,15 @@
                         @endif
                     </span>
                 </div>
+                <div class="info-row">
+                    <span class="label">Has Vehicle:</span>
+                    <span class="value">
+                        {{ ucfirst($applicationData['has_vehicle']) }}
+                        @if($applicationData['has_vehicle'] === 'yes')
+                            <span class="badge">✓ Available</span>
+                        @endif
+                    </span>
+                </div>
                 @if(!empty($applicationData['certifications']))
                 <div class="info-row">
                     <span class="label">Certifications:</span>
@@ -319,7 +328,7 @@
         <div class="footer">
             <p style="margin: 0; font-weight: bold;">SurVail Protection & Investigation Services</p>
             <p style="margin: 5px 0 0 0; opacity: 0.8;">
-                📧 don@survailpro.ca | 📞 519-770-6634 | 🌐 survailpro.ca
+                📧 hr@survailpro.ca | 📞 519-770-6634 | 🌐 survailpro.ca
             </p>
         </div>
     </div>
