@@ -278,29 +278,29 @@
                     <div class="partners-slider flex gap-8 items-center" id="partnersSlider">
                         <!-- Partner 1 -->
                         <div class="partner-slide flex-shrink-0">
-                            <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                <img src="{{ asset('assets/images/partners/logoipsum-391.png') }}" alt="Partner Company" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                            <a href="#" target="_blank" class="partner-card block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                                <img src="{{ asset('assets/images/partners/logoipsum-391.png') }}" alt="Partner Company" class="partner-logo w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
                             </a>
                         </div>
 
                         <!-- Partner 2 -->
                         <div class="partner-slide flex-shrink-0">
-                            <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                <img src="{{ asset('assets/images/partners/logoipsum-395.png') }}" alt="Partner Company" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                            <a href="#" target="_blank" class="partner-card block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                                <img src="{{ asset('assets/images/partners/logoipsum-395.png') }}" alt="Partner Company" class="partner-logo w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
                             </a>
                         </div>
 
                         <!-- Partner 3 -->
                         <div class="partner-slide flex-shrink-0">
-                            <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                <img src="{{ asset('assets/images/partners/logoipsum-406.png') }}" alt="Partner Company" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                            <a href="#" target="_blank" class="partner-card block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                                <img src="{{ asset('assets/images/partners/logoipsum-406.png') }}" alt="Partner Company" class="partner-logo w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
                             </a>
                         </div>
 
                         <!-- Partner 4 -->
                         <div class="partner-slide flex-shrink-0">
-                            <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                <img src="{{ asset('assets/images/partners/logoipsum-408.png') }}" alt="Partner Company" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                            <a href="#" target="_blank" class="partner-card block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                                <img src="{{ asset('assets/images/partners/logoipsum-408.png') }}" alt="Partner Company" class="partner-logo w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
                             </a>
                         </div>
                     </div>
@@ -335,13 +335,48 @@
         transition: transform 0.5s ease-in-out;
     }
 
+    .partner-card {
+        height: 100%;
+    }
+
+    .partner-logo {
+        height: 5rem;
+    }
+
     .partner-slide {
-        width: 250px;
+        width: clamp(220px, 22vw, 260px);
+        flex: 0 0 auto;
+    }
+
+    @media (min-width: 1280px) {
+        .partner-slide {
+            width: clamp(240px, 18vw, 300px);
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .partner-slide {
+            width: clamp(220px, 28vw, 250px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .partner-slide {
+            width: clamp(200px, 65vw, 240px);
+        }
     }
 
     @media (max-width: 640px) {
         .partner-slide {
-            width: 200px;
+            width: min(85vw, 280px);
+        }
+
+        .partner-card {
+            padding: 1.5rem;
+        }
+
+        .partner-logo {
+            height: 3.5rem;
         }
     }
 
@@ -368,27 +403,50 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const slider = document.getElementById('partnersSlider');
+        if (!slider) return;
+
         const slides = slider.querySelectorAll('.partner-slide');
+        if (!slides.length) return;
+
         const prevBtn = document.getElementById('partnersPrev');
         const nextBtn = document.getElementById('partnersNext');
         const dotsContainer = document.getElementById('partnersDots');
 
         let currentIndex = 0;
-        let slidesToShow = getSlidesToShow();
         const totalSlides = slides.length;
-        const maxIndex = Math.max(0, totalSlides - slidesToShow);
+        let slidesToShow = getSlidesToShow();
+        let maxIndex = calculateMaxIndex();
+        let autoplayInterval = null;
 
-        // Calculate slides to show based on screen width
-        function getSlidesToShow() {
-            if (window.innerWidth >= 1024) return 4;
-            if (window.innerWidth >= 768) return 3;
+        function getDesiredSlides() {
+            if (window.innerWidth >= 1280) return 4;
+            if (window.innerWidth >= 1024) return 3;
+            if (window.innerWidth >= 768) return 2;
             if (window.innerWidth >= 640) return 2;
             return 1;
         }
 
-        // Create dots
+        function getSlidesToShow() {
+            const desired = getDesiredSlides();
+            if (totalSlides <= desired) {
+                if (totalSlides > 2) {
+                    return totalSlides - 1;
+                }
+                return totalSlides || 1;
+            }
+            return desired;
+        }
+
+        function calculateMaxIndex() {
+            const visibleSlides = Math.min(slidesToShow, totalSlides);
+            return Math.max(0, totalSlides - visibleSlides);
+        }
+
         function createDots() {
+            if (!dotsContainer) return;
             dotsContainer.innerHTML = '';
+            if (maxIndex === 0) return;
+
             for (let i = 0; i <= maxIndex; i++) {
                 const dot = document.createElement('div');
                 dot.classList.add('partner-dot');
@@ -398,15 +456,14 @@
             }
         }
 
-        // Update dots
         function updateDots() {
+            if (!dotsContainer) return;
             const dots = dotsContainer.querySelectorAll('.partner-dot');
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentIndex);
             });
         }
 
-        // Update slider position
         function updateSlider() {
             const slideWidth = slides[0].offsetWidth;
             const gap = 32; // gap-8 = 2rem = 32px
@@ -415,62 +472,72 @@
             updateDots();
         }
 
-        // Go to specific slide
         function goToSlide(index) {
             currentIndex = Math.max(0, Math.min(index, maxIndex));
             updateSlider();
         }
 
-        // Next slide
         function nextSlide() {
-            if (currentIndex < maxIndex) {
-                currentIndex++;
-            } else {
-                currentIndex = 0; // Loop back to start
-            }
+            if (maxIndex === 0) return;
+            currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
             updateSlider();
         }
 
-        // Previous slide
         function prevSlide() {
-            if (currentIndex > 0) {
-                currentIndex--;
-            } else {
-                currentIndex = maxIndex; // Loop to end
-            }
+            if (maxIndex === 0) return;
+            currentIndex = currentIndex > 0 ? currentIndex - 1 : maxIndex;
             updateSlider();
         }
 
-        // Event listeners
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
+        function toggleNavigationState() {
+            const disabled = maxIndex === 0;
+            [prevBtn, nextBtn].forEach((btn) => {
+                if (!btn) return;
+                btn.disabled = disabled;
+                btn.classList.toggle('opacity-40', disabled);
+                btn.classList.toggle('pointer-events-none', disabled);
+            });
 
-        // Auto-play
-        let autoplayInterval = setInterval(nextSlide, 4000);
+            if (dotsContainer) {
+                dotsContainer.classList.toggle('hidden', disabled);
+            }
+        }
 
-        // Pause on hover
-        slider.addEventListener('mouseenter', () => {
-            clearInterval(autoplayInterval);
-        });
-
-        slider.addEventListener('mouseleave', () => {
+        function startAutoplay() {
+            if (autoplayInterval || maxIndex === 0) return;
             autoplayInterval = setInterval(nextSlide, 4000);
-        });
+        }
 
-        // Handle window resize
+        function stopAutoplay() {
+            if (!autoplayInterval) return;
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
+        }
+
+        nextBtn && nextBtn.addEventListener('click', nextSlide);
+        prevBtn && prevBtn.addEventListener('click', prevSlide);
+
+        slider.addEventListener('mouseenter', stopAutoplay);
+        slider.addEventListener('mouseleave', startAutoplay);
+
         window.addEventListener('resize', () => {
             slidesToShow = getSlidesToShow();
-            const newMaxIndex = Math.max(0, totalSlides - slidesToShow);
-            if (currentIndex > newMaxIndex) {
-                currentIndex = newMaxIndex;
-            }
+            maxIndex = calculateMaxIndex();
+            currentIndex = Math.min(currentIndex, maxIndex);
             createDots();
+            toggleNavigationState();
             updateSlider();
+            if (maxIndex === 0) {
+                stopAutoplay();
+            } else {
+                startAutoplay();
+            }
         });
 
-        // Initialize
         createDots();
+        toggleNavigationState();
         updateSlider();
+        startAutoplay();
     });
 </script>
 
