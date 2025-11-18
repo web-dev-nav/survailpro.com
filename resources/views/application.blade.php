@@ -182,22 +182,41 @@
 
                 <!-- Success/Error Messages -->
                 @if(session('success'))
-                    <div id="success-message" data-message="{{ session('success') }}" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-                        <strong>Success!</strong> {{ session('success') }}
-                    </div>
+                    <div id="success-message" data-message="{{ session('success') }}" style="display: none;"></div>
+
+                    <script>
+                        // Show SweetAlert for success
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const successDiv = document.getElementById('success-message');
+                            if (successDiv) {
+                                const successMessage = successDiv.getAttribute('data-message');
+
+                                Swal.fire({
+                                    title: '✅ Application Submitted!',
+                                    html: `
+                                        <div class="text-left">
+                                            <p class="mb-4 text-gray-700">${successMessage}</p>
+                                            <div class="bg-green-50 rounded-lg p-4">
+                                                <p class="text-sm text-green-700"><strong>What happens next?</strong></p>
+                                                <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                                    <li>• Our HR team will review your application</li>
+                                                    <li>• We'll contact you within 5-7 business days</li>
+                                                    <li>• Check your email for a confirmation message</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    `,
+                                    icon: 'success',
+                                    confirmButtonColor: '#059669',
+                                    confirmButtonText: 'Got It!'
+                                });
+                            }
+                        });
+                    </script>
                 @endif
 
                 @if($errors->has('submission'))
-                    <div id="error-message" data-message="{{ $errors->first('submission') }}" class="bg-red-50 border border-red-200 rounded-lg p-4 mb-8">
-                        <div class="flex">
-                            <svg class="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
-                            </svg>
-                            <div class="ml-3">
-                                <p class="text-sm text-red-700">{{ $errors->first('submission') }}</p>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="error-message" data-message="{{ $errors->first('submission') }}" style="display: none;"></div>
 
                     <script>
                         // Show SweetAlert for submission errors
