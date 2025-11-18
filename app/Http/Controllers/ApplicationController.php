@@ -20,7 +20,11 @@ class ApplicationController extends Controller
 
     public function store(Request $request)
     {
-        \Log::info('APPLICATION FORM SUBMISSION STARTED', ['ip' => $request->ip()]);
+        \Log::info('APPLICATION FORM SUBMISSION STARTED', [
+            'ip' => $request->ip(),
+            'timestamp' => now(),
+            'all_data' => $request->except(['resume', 'agree_terms'])
+        ]);
 
         // Rate limiting - max 3 submissions per hour per IP
         $key = 'application-submit-' . $request->ip();
@@ -156,15 +160,29 @@ class ApplicationController extends Controller
                 } catch (\Exception $emailError) {
                     \Log::error('Failed to send application notification emails: ' . $emailError->getMessage(), [
                         'driver' => env('MAIL_MAILER', 'log'),
-                        'admin_email' => env('ADMIN_EMAIL', 'hr@survailpro.ca')
+                        'admin_email' => env('ADMIN_EMAIL', 'hr@survailpro.ca'),
+                        'error_trace' => $emailError->getTraceAsString(),
+                        'error_file' => $emailError->getFile(),
+                        'error_line' => $emailError->getLine()
                     ]);
                     // Don't fail the application submission if email fails
+                    // But log it prominently
+                    \Log::critical('APPLICATION SUBMITTED BUT EMAILS FAILED TO SEND', [
+                        'applicant' => $sanitizedData['first_name'] . ' ' . $sanitizedData['last_name'],
+                        'applicant_email' => $sanitizedData['email']
+                    ]);
                 }
             } else {
                 \Log::info('Email notifications disabled - skipping email notification');
             }
 
             // Send success response
+            \Log::info('APPLICATION SUBMISSION COMPLETED SUCCESSFULLY', [
+                'applicant' => $sanitizedData['first_name'] . ' ' . $sanitizedData['last_name'],
+                'email' => $sanitizedData['email'],
+                'redirect_to' => 'application'
+            ]);
+
             return redirect()->route('application')->with('success',
                 'Your application has been submitted successfully! We will review your application and contact you if you are selected for further consideration.');
 
