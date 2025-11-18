@@ -261,6 +261,233 @@
     </div>
 </section>
 
+<!-- Our Partners -->
+<section class="py-16 lg:py-24 bg-gray-50">
+    <div class="w-full px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl lg:text-5xl font-bold text-survail-brown mb-4">Our Trusted Partners</h3>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We collaborate with leading organizations to deliver exceptional security solutions
+                </p>
+            </div>
+
+            <!-- Partners Slider -->
+            <div class="relative overflow-hidden">
+                <div class="partners-slider-container">
+                    <div class="partners-slider flex gap-8 items-center" id="partnersSlider">
+                        <!-- Partner 1 -->
+                        <div class="partner-slide flex-shrink-0">
+                            <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                                <img src="{{ asset('assets/images/partners/partner-1.png') }}" alt="Partner 1" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                            </a>
+                        </div>
+
+                        <!-- Partner 2 -->
+                        <div class="partner-slide flex-shrink-0">
+                            <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                                <img src="{{ asset('assets/images/partners/partner-2.png') }}" alt="Partner 2" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                            </a>
+                        </div>
+
+                        <!-- Partner 3 -->
+                        <div class="partner-slide flex-shrink-0">
+                            <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                                <img src="{{ asset('assets/images/partners/partner-3.png') }}" alt="Partner 3" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                            </a>
+                        </div>
+
+                        <!-- Partner 4 -->
+                        <div class="partner-slide flex-shrink-0">
+                            <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                                <img src="{{ asset('assets/images/partners/partner-4.png') }}" alt="Partner 4" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                            </a>
+                        </div>
+
+                        <!-- Partner 5 -->
+                        <div class="partner-slide flex-shrink-0">
+                            <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                                <img src="{{ asset('assets/images/partners/partner-5.png') }}" alt="Partner 5" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                            </a>
+                        </div>
+
+                        <!-- Partner 6 -->
+                        <div class="partner-slide flex-shrink-0">
+                            <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                                <img src="{{ asset('assets/images/partners/partner-6.png') }}" alt="Partner 6" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button id="partnersPrev" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 bg-white hover:bg-survail-brown text-survail-brown hover:text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 z-10">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button id="partnersNext" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 bg-white hover:bg-survail-brown text-survail-brown hover:text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 z-10">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <!-- Dots Indicator -->
+                <div class="flex justify-center gap-2 mt-8" id="partnersDots"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .partners-slider-container {
+        overflow: hidden;
+        padding: 20px 0;
+    }
+
+    .partners-slider {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .partner-slide {
+        width: 250px;
+    }
+
+    @media (max-width: 640px) {
+        .partner-slide {
+            width: 200px;
+        }
+    }
+
+    .partner-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #d1d5db;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .partner-dot.active {
+        background-color: #0026c0;
+        width: 32px;
+        border-radius: 6px;
+    }
+
+    .partner-dot:hover {
+        background-color: #9ca3af;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.getElementById('partnersSlider');
+        const slides = slider.querySelectorAll('.partner-slide');
+        const prevBtn = document.getElementById('partnersPrev');
+        const nextBtn = document.getElementById('partnersNext');
+        const dotsContainer = document.getElementById('partnersDots');
+
+        let currentIndex = 0;
+        let slidesToShow = getSlidesToShow();
+        const totalSlides = slides.length;
+        const maxIndex = Math.max(0, totalSlides - slidesToShow);
+
+        // Calculate slides to show based on screen width
+        function getSlidesToShow() {
+            if (window.innerWidth >= 1024) return 4;
+            if (window.innerWidth >= 768) return 3;
+            if (window.innerWidth >= 640) return 2;
+            return 1;
+        }
+
+        // Create dots
+        function createDots() {
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i <= maxIndex; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('partner-dot');
+                if (i === currentIndex) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        // Update dots
+        function updateDots() {
+            const dots = dotsContainer.querySelectorAll('.partner-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        // Update slider position
+        function updateSlider() {
+            const slideWidth = slides[0].offsetWidth;
+            const gap = 32; // gap-8 = 2rem = 32px
+            const offset = -(currentIndex * (slideWidth + gap));
+            slider.style.transform = `translateX(${offset}px)`;
+            updateDots();
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            currentIndex = Math.max(0, Math.min(index, maxIndex));
+            updateSlider();
+        }
+
+        // Next slide
+        function nextSlide() {
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Loop back to start
+            }
+            updateSlider();
+        }
+
+        // Previous slide
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = maxIndex; // Loop to end
+            }
+            updateSlider();
+        }
+
+        // Event listeners
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Auto-play
+        let autoplayInterval = setInterval(nextSlide, 4000);
+
+        // Pause on hover
+        slider.addEventListener('mouseenter', () => {
+            clearInterval(autoplayInterval);
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            autoplayInterval = setInterval(nextSlide, 4000);
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            slidesToShow = getSlidesToShow();
+            const newMaxIndex = Math.max(0, totalSlides - slidesToShow);
+            if (currentIndex > newMaxIndex) {
+                currentIndex = newMaxIndex;
+            }
+            createDots();
+            updateSlider();
+        });
+
+        // Initialize
+        createDots();
+        updateSlider();
+    });
+</script>
+
 <!-- Call to Action -->
 <section class="py-16 lg:py-24 bg-survail-green">
     <div class="w-full px-4 sm:px-6 lg:px-8">
