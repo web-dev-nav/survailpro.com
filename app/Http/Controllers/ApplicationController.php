@@ -140,16 +140,16 @@ class ApplicationController extends Controller
                         'driver' => $mailDriver,
                         'admin_email' => $adminEmail,
                         'applicant_email' => $applicantEmail,
-                        'applicant' => $sanitizedData['first_name'] . ' ' . $sanitizedData['last_name']
+                        'applicant' => $applicationData['first_name'] . ' ' . $applicationData['last_name']
                     ]);
 
                     // Send structured email to HR with resume attachment
-                    Mail::to($adminEmail)->send(new ApplicationSubmitted($sanitizedData, $resumePath));
+                    Mail::to($adminEmail)->send(new ApplicationSubmitted($applicationData, $resumePath));
 
                     // Send thank you email to applicant
                     Mail::to($applicantEmail)->send(new ApplicationThankYou(
-                        $sanitizedData['first_name'],
-                        $sanitizedData['last_name']
+                        $applicationData['first_name'],
+                        $applicationData['last_name']
                     ));
 
                     if ($mailDriver === 'log') {
@@ -175,8 +175,8 @@ class ApplicationController extends Controller
                     // Don't fail the application submission if email fails
                     // But log it prominently
                     \Log::critical('APPLICATION SUBMITTED BUT EMAILS FAILED TO SEND', [
-                        'applicant' => $sanitizedData['first_name'] . ' ' . $sanitizedData['last_name'],
-                        'applicant_email' => $sanitizedData['email']
+                        'applicant' => $applicationData['first_name'] . ' ' . $applicationData['last_name'],
+                        'applicant_email' => $applicationData['email']
                     ]);
                 }
             } else {
@@ -185,8 +185,8 @@ class ApplicationController extends Controller
 
             // Send success response
             \Log::info('APPLICATION SUBMISSION COMPLETED SUCCESSFULLY', [
-                'applicant' => $sanitizedData['first_name'] . ' ' . $sanitizedData['last_name'],
-                'email' => $sanitizedData['email'],
+                'applicant' => $applicationData['first_name'] . ' ' . $applicationData['last_name'],
+                'email' => $applicationData['email'],
                 'redirect_to' => 'application'
             ]);
 
