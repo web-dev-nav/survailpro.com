@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use App\Mail\ApplicationSubmitted;
@@ -25,16 +24,6 @@ class ApplicationController extends Controller
             'timestamp' => now(),
             'all_data' => $request->except(['resume', 'agree_terms'])
         ]);
-
-        // Rate limiting - max 3 submissions per hour per IP
-        $key = 'application-submit-' . $request->ip();
-
-        if (RateLimiter::tooManyAttempts($key, 3)) {
-            $seconds = RateLimiter::availableIn($key);
-            return back()->withErrors([
-                'rate_limit' => "Too many submission attempts. Please try again in " . ceil($seconds / 60) . " minutes."
-            ]);
-        }
 
         // Input validation and sanitization
         $validator = Validator::make($request->all(), [
@@ -105,9 +94,6 @@ class ApplicationController extends Controller
                 ->withInput($request->except(['resume']))
                 ->with('validation_failed', 'Please correct the errors below and try again.');
         }
-
-        // Increment rate limiter
-        RateLimiter::hit($key, 3600); // 1 hour
 
         try {
             // Sanitize input data
