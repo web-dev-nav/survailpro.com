@@ -306,22 +306,22 @@
                             </div>
                             <div class="md:col-span-2">
                                 <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Address (Optional)</label>
-                                <input type="text" id="address" name="address" placeholder="Street Address" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent mb-3">
-                                <input type="text" id="city" name="city" placeholder="City, Ontario only" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                <input type="text" id="address" name="address" value="{{ old('address') }}" placeholder="Street Address" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent mb-3">
+                                <input type="text" id="city" name="city" value="{{ old('city') }}" placeholder="City, Ontario only" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                             </div>
                             <div>
                                 <label for="gender" class="block text-sm font-medium text-gray-700 mb-2">Gender *</label>
                                 <select id="gender" name="gender" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                                     <option value="">Select...</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
-                                    <option value="prefer_not_to_say">Prefer not to say</option>
+                                    <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
+                                    <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
+                                    <option value="other" {{ old('gender') == 'other' ? 'selected' : '' }}>Other</option>
+                                    <option value="prefer_not_to_say" {{ old('gender') == 'prefer_not_to_say' ? 'selected' : '' }}>Prefer not to say</option>
                                 </select>
                             </div>
                             <div>
                                 <label for="date_of_birth" class="block text-sm font-medium text-gray-700 mb-2">Date of Birth *</label>
-                                <input type="date" id="date_of_birth" name="date_of_birth" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                <input type="date" id="date_of_birth" name="date_of_birth" required value="{{ old('date_of_birth') }}" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                             </div>
                         </div>
                     </div>
@@ -348,27 +348,27 @@
                                 <label for="has_vehicle" class="block text-sm font-medium text-gray-700 mb-2">Do you have a vehicle for commute? *</label>
                                 <select id="has_vehicle" name="has_vehicle" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                                     <option value="">Select...</option>
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
+                                    <option value="yes" {{ old('has_vehicle') == 'yes' ? 'selected' : '' }}>Yes</option>
+                                    <option value="no" {{ old('has_vehicle') == 'no' ? 'selected' : '' }}>No</option>
                                 </select>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-3">Additional Certifications (Check all that apply)</label>
                                 <div class="grid md:grid-cols-2 gap-3">
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="certifications[]" value="first_aid" class="mr-3 text-survail-green">
+                                        <input type="checkbox" name="certifications[]" value="first_aid" {{ in_array('first_aid', old('certifications', [])) ? 'checked' : '' }} class="mr-3 text-survail-green">
                                         <span>First Aid/CPR</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="certifications[]" value="use_of_force" class="mr-3 text-survail-green">
+                                        <input type="checkbox" name="certifications[]" value="use_of_force" {{ in_array('use_of_force', old('certifications', [])) ? 'checked' : '' }} class="mr-3 text-survail-green">
                                         <span>Use of Force</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="certifications[]" value="baton" class="mr-3 text-survail-green">
+                                        <input type="checkbox" name="certifications[]" value="baton" {{ in_array('baton', old('certifications', [])) ? 'checked' : '' }} class="mr-3 text-survail-green">
                                         <span>Baton Training</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="certifications[]" value="emergency_response" class="mr-3 text-survail-green">
+                                        <input type="checkbox" name="certifications[]" value="emergency_response" {{ in_array('emergency_response', old('certifications', [])) ? 'checked' : '' }} class="mr-3 text-survail-green">
                                         <span>Emergency Response</span>
                                     </label>
                                 </div>
@@ -384,23 +384,23 @@
                                 <label class="block text-sm font-medium text-gray-700 mb-3">Work Preference * (Check all that apply)</label>
                                 <div class="space-y-3">
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="work_preference[]" value="Any time" class="mr-3 text-survail-green">
+                                        <input type="checkbox" name="work_preference[]" value="Any time" {{ in_array('Any time', old('work_preference', [])) ? 'checked' : '' }} class="mr-3 text-survail-green">
                                         <span>Any time</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="work_preference[]" value="Part time" class="mr-3 text-survail-green">
+                                        <input type="checkbox" name="work_preference[]" value="Part time" {{ in_array('Part time', old('work_preference', [])) ? 'checked' : '' }} class="mr-3 text-survail-green">
                                         <span>Part time</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="work_preference[]" value="Full time" class="mr-3 text-survail-green">
+                                        <input type="checkbox" name="work_preference[]" value="Full time" {{ in_array('Full time', old('work_preference', [])) ? 'checked' : '' }} class="mr-3 text-survail-green">
                                         <span>Full time</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="work_preference[]" value="Nights only" class="mr-3 text-survail-green">
+                                        <input type="checkbox" name="work_preference[]" value="Nights only" {{ in_array('Nights only', old('work_preference', [])) ? 'checked' : '' }} class="mr-3 text-survail-green">
                                         <span>Nights only</span>
                                     </label>
                                     <label class="flex items-center">
-                                        <input type="checkbox" name="work_preference[]" value="Days only" class="mr-3 text-survail-green">
+                                        <input type="checkbox" name="work_preference[]" value="Days only" {{ in_array('Days only', old('work_preference', [])) ? 'checked' : '' }} class="mr-3 text-survail-green">
                                         <span>Days only</span>
                                     </label>
                                 </div>
@@ -435,7 +435,7 @@
                             </div>
                             <div>
                                 <label for="best_time_to_contact" class="block text-sm font-medium text-gray-700 mb-2">Best Time to Contact (if specific time needed)</label>
-                                <input type="text" id="best_time_to_contact" name="best_time_to_contact" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent" placeholder="e.g. Weekdays 9am-5pm, Evenings after 6pm, etc.">
+                                <input type="text" id="best_time_to_contact" name="best_time_to_contact" value="{{ old('best_time_to_contact') }}" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent" placeholder="e.g. Weekdays 9am-5pm, Evenings after 6pm, etc.">
                             </div>
                         </div>
                     </div>
@@ -448,8 +448,8 @@
                                 <label for="criminal_record" class="block text-sm font-medium text-gray-700 mb-2">Do you have a criminal record? *</label>
                                 <select id="criminal_record" name="criminal_record" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
                                     <option value="">Select...</option>
-                                    <option value="no">No</option>
-                                    <option value="yes">Yes</option>
+                                    <option value="no" {{ old('criminal_record') == 'no' ? 'selected' : '' }}>No</option>
+                                    <option value="yes" {{ old('criminal_record') == 'yes' ? 'selected' : '' }}>Yes</option>
                                 </select>
                             </div>
                         </div>
@@ -461,7 +461,7 @@
                         <div class="space-y-6">
                             <div>
                                 <label for="work_history" class="block text-sm font-medium text-gray-700 mb-2">Work History and Training *</label>
-                                <textarea id="work_history" name="work_history" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent" placeholder="Please describe your work history, relevant training, certifications, security experience, military/law enforcement background, etc."></textarea>
+                                <textarea id="work_history" name="work_history" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent" placeholder="Please describe your work history, relevant training, certifications, security experience, military/law enforcement background, etc.">{{ old('work_history') }}</textarea>
                             </div>
                             <div>
                                 <label for="resume" class="block text-sm font-medium text-gray-700 mb-2">
