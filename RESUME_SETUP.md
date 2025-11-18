@@ -2,66 +2,64 @@
 
 ## What Changed?
 
-Resumes are now stored in **public storage** for direct browser viewing without signatures.
+Resumes are now stored **directly in the public directory** - NO SYMLINK NEEDED!
 
 ### Before:
 - ❌ Signed URLs with signatures
-- ❌ Private storage with 404 errors
-- ❌ Files not accessible
+- ❌ Required storage symlink
+- ❌ Files in storage/app/public (not accessible)
+- ❌ 404 errors
 
 ### After:
-- ✅ Direct URLs (e.g., `https://survailpro.ca/storage/resumes/filename.docx`)
-- ✅ Public storage - viewable in browser
-- ✅ No signatures needed
+- ✅ Direct URLs (e.g., `https://survailpro.ca/resumes/filename.docx`)
+- ✅ Files stored in `public/resumes/` directory
+- ✅ **NO SYMLINK REQUIRED**
+- ✅ Works immediately after upload
 
 ---
 
 ## Setup on Your Hostinger Server
 
-### 1. Create Storage Symlink
+### 1. Create Resumes Directory (if it doesn't exist)
 
 SSH into your server and run:
 
 ```bash
-cd /home/u862070716/domains/survailpro.ca/public_html
-php artisan storage:link
+cd /home/u364625631/domains/survailprotection.com/public_html
+mkdir -p public/resumes
+chmod 755 public/resumes
 ```
 
-This creates a symlink: `public/storage` → `storage/app/public`
-
-### 2. Create Resumes Directory
-
-```bash
-mkdir -p storage/app/public/resumes
-chmod -R 775 storage/app/public/resumes
-chown -R u862070716:u862070716 storage/app/public/resumes
-```
-
-### 3. Verify Setup
-
-After running the commands, check:
-
-```bash
-ls -la public/storage  # Should show symlink to ../storage/app/public
-ls -la storage/app/public/resumes  # Should exist
-```
-
-### 4. Upload Your Code
+### 2. Upload Files
 
 Upload these updated files to your server:
 - `app/Http/Controllers/ApplicationController.php`
 - `app/Mail/ApplicationSubmitted.php`
-- `resources/views/emails/application-submitted.blade.php`
-- `routes/web.php`
-- `.env` (with APP_URL=https://survailpro.ca)
+- `public/resumes/.htaccess` (prevents directory listing)
+- `public/resumes/.gitignore` (excludes resume files from git)
 
-### 5. Clear Cache
+### 3. Clear Cache
 
 ```bash
 php artisan config:clear
 php artisan cache:clear
-php artisan route:clear
 ```
+
+---
+
+## Directory Structure
+
+```
+public_html/
+├── public/
+│   └── resumes/  ← Resume files stored HERE
+│       ├── .htaccess (prevents directory listing)
+│       ├── .gitignore
+│       ├── abc123...xyz.pdf
+│       └── def456...uvw.docx
+```
+
+Accessible as: `https://survailpro.ca/resumes/abc123...xyz.pdf`
 
 ---
 
@@ -69,10 +67,20 @@ php artisan route:clear
 
 When someone uploads a resume:
 
-1. **File saved to:** `storage/app/public/resumes/randomstring.docx`
-2. **Accessible via:** `https://survailpro.ca/storage/resumes/randomstring.docx`
-3. **Email contains:** Direct clickable link (no signature!)
+1. **File saved to:** `public/resumes/randomstring.docx`
+2. **Accessible via:** `https://survailpro.ca/resumes/randomstring.docx`
+3. **Email contains:** Direct clickable link
 4. **HR can:** Click link to view/download in browser
+
+---
+
+## Security Features
+
+- ✅ Random 40-character filenames (impossible to guess)
+- ✅ Directory listing disabled (via .htaccess)
+- ✅ Still validates PDF/Word only
+- ✅ Still scans for malicious content
+- ✅ Public but obscured (random names)
 
 ---
 
@@ -85,39 +93,29 @@ When someone uploads a resume:
 
 ---
 
-## Security Notes
-
-- ✅ Files have random 40-character names (impossible to guess)
-- ✅ Still validates PDF/Word only
-- ✅ Still scans for malicious content
-- ✅ Public but obscured (no directory listing)
-- ✅ Can be deleted manually if needed
-
----
-
 ## Troubleshooting
 
 ### "404 Not Found" when clicking resume link
 
-**Check symlink exists:**
+**Check directory exists:**
 ```bash
-ls -la /home/u862070716/domains/survailpro.ca/public_html/public/storage
+ls -la public/resumes
 ```
 
-If not found, run:
+If not found, create it:
 ```bash
-php artisan storage:link
+mkdir -p public/resumes
+chmod 755 public/resumes
 ```
 
 ### Resume file not being saved
 
 **Check directory permissions:**
 ```bash
-chmod -R 775 storage/app/public/resumes
-chown -R u862070716:u862070716 storage/app/public
+chmod 755 public/resumes
 ```
 
-### Resume link shows broken
+### Resume link shows wrong domain
 
 **Check .env APP_URL:**
 ```bash
@@ -133,19 +131,25 @@ php artisan config:clear
 
 ---
 
-## Directory Structure
+## Advantages of This Approach
 
-```
-public_html/
-├── public/
-│   └── storage/  ← SYMLINK to ../storage/app/public
-├── storage/
-│   └── app/
-│       └── public/
-│           └── resumes/  ← Resume files stored here
-│               ├── abc123...xyz.pdf
-│               ├── def456...uvw.docx
-│               └── .gitignore
+✅ **No symlink needed** - Works on all hosting providers
+✅ **Simpler setup** - Just create a directory
+✅ **Direct access** - Files immediately accessible
+✅ **No 404 errors** - No symlink breakage issues
+✅ **Easier debugging** - Files visible in public directory
+
+---
+
+## File Cleanup (Optional)
+
+To delete old resume files:
+
+```bash
+# Delete files older than 90 days
+find public/resumes -name "*.pdf" -mtime +90 -delete
+find public/resumes -name "*.docx" -mtime +90 -delete
+find public/resumes -name "*.doc" -mtime +90 -delete
 ```
 
-Accessible as: `https://survailpro.ca/storage/resumes/abc123...xyz.pdf`
+You can add this as a cron job if needed.

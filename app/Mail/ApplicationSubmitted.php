@@ -60,7 +60,7 @@ class ApplicationSubmitted extends Mailable
         $attachments = [];
 
         if ($this->resumePath) {
-            $fullPath = storage_path('app/public/' . $this->resumePath);
+            $fullPath = public_path($this->resumePath);
 
             \Log::info('Attempting to attach resume', [
                 'resume_path' => $this->resumePath,

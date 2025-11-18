@@ -259,29 +259,37 @@ class ApplicationController extends Controller
             }
         }
 
-        // Store file in PUBLIC storage (accessible via web)
-        $path = $file->storeAs('resumes', $filename, 'public');
+        // Store file DIRECTLY in public/resumes directory (no symlink needed)
+        $publicPath = 'resumes/' . $filename;
+        $fullPath = public_path($publicPath);
 
-        // Generate public URL (no signature, direct access)
-        $url = asset('storage/' . $path);
+        // Ensure directory exists
+        $resumesDir = public_path('resumes');
+        if (!is_dir($resumesDir)) {
+            mkdir($resumesDir, 0755, true);
+        }
 
-        $fullPath = storage_path('app/public/' . $path);
+        // Move file to public directory
+        $file->move($resumesDir, $filename);
+
+        // Generate public URL (direct access, no symlink needed)
+        $url = asset($publicPath);
 
         // Log file upload
         \Log::info('Resume uploaded', [
             'original_name' => $originalName,
             'stored_name' => $filename,
-            'stored_path' => $path,
+            'stored_path' => $publicPath,
             'full_path' => $fullPath,
             'public_url' => $url,
             'file_exists' => file_exists($fullPath),
-            'size' => $file->getSize(),
+            'size' => filesize($fullPath),
             'mime_type' => $realMimeType,
             'extension' => $extension
         ]);
 
         return [
-            'path' => $path,
+            'path' => $publicPath,
             'url' => $url,
             'filename' => $filename
         ];
