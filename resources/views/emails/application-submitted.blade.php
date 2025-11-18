@@ -160,9 +160,15 @@
             <div class="highlight">
                 <strong>⚠️ Action Required:</strong> New application submitted and requires review.
                 @if($resumePath)
-                    Resume attachment included.
+                    <br><br><strong style="font-size: 16px; color: #059669;">📎 RESUME ATTACHED TO THIS EMAIL</strong>
+                    <br><span style="background-color: #10b981; color: white; padding: 4px 12px; border-radius: 4px; display: inline-block; margin-top: 8px;">
+                        ⬇️ Look for attachment at the top or bottom of this email and click to download
+                    </span>
+                    <br><span style="font-size: 12px; color: #6b7280; margin-top: 8px; display: block;">
+                        File name: Resume_{{ $applicationData['first_name'] }}_{{ $applicationData['last_name'] }}.{{ pathinfo($resumePath, PATHINFO_EXTENSION) }}
+                    </span>
                 @else
-                    No resume attachment provided.
+                    <br>⚠️ No resume attachment provided.
                 @endif
             </div>
 
@@ -296,24 +302,31 @@
                 </div>
             </div>
 
-            <!-- Application Details -->
+            <!-- Resume Attachment -->
             <div class="section">
-                <h3>📊 Application Details</h3>
-                <div class="info-row">
-                    <span class="label">Submitted From:</span>
-                    <span class="value">{{ $applicationData['ip_address'] ?? 'Unknown' }}</span>
-                </div>
-                <div class="info-row">
-                    <span class="label">User Agent:</span>
-                    <span class="value" style="font-size: 12px;">{{ $applicationData['user_agent'] ?? 'Unknown' }}</span>
-                </div>
+                <h3>📎 Resume Attachment</h3>
                 @if($resumePath)
-                <div class="info-row">
-                    <span class="label">Resume:</span>
-                    <span class="value">
-                        <span class="badge">📎 Attached</span>
-                        ({{ basename($resumePath) }})
-                    </span>
+                <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); padding: 20px; border-radius: 12px; border: 3px solid #10b981; text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 10px;">📎</div>
+                    <div style="font-size: 20px; font-weight: bold; color: #047857; margin-bottom: 10px;">
+                        RESUME IS ATTACHED TO THIS EMAIL
+                    </div>
+                    <div style="background-color: #059669; color: white; padding: 12px 24px; border-radius: 8px; display: inline-block; margin: 10px 0; font-weight: bold; font-size: 14px;">
+                        ⬇️ CLICK THE ATTACHMENT TO DOWNLOAD & OPEN
+                    </div>
+                    <div style="font-size: 13px; color: #047857; margin-top: 10px;">
+                        <strong>Attachment location:</strong> Look at the top or bottom of this email for attached files
+                    </div>
+                    <div style="font-size: 12px; color: #6b7280; margin-top: 8px; font-family: monospace; background-color: white; padding: 8px; border-radius: 4px; display: inline-block;">
+                        📄 Resume_{{ $applicationData['first_name'] }}_{{ $applicationData['last_name'] }}.{{ pathinfo($resumePath, PATHINFO_EXTENSION) }}
+                    </div>
+                </div>
+                @else
+                <div style="background-color: #fef3c7; padding: 20px; border-radius: 12px; border: 3px solid #f59e0b; text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 10px;">⚠️</div>
+                    <div style="font-size: 18px; font-weight: bold; color: #92400e;">
+                        No resume was uploaded with this application
+                    </div>
                 </div>
                 @endif
             </div>

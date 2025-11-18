@@ -90,6 +90,23 @@
         </div>
     </section>
 
+    <!-- Eligibility Requirement -->
+    <section class="mb-12 max-w-7xl mx-auto">
+        <div class="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-6 shadow-md">
+            <div class="flex items-start">
+                <svg class="h-6 w-6 text-blue-500 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                </svg>
+                <div class="flex-1">
+                    <h4 class="text-lg font-semibold text-blue-800 mb-2">Eligibility Requirement</h4>
+                    <p class="text-blue-700">
+                        To apply, you must be a <strong>Canadian citizen</strong> or hold a valid <strong>work permit</strong> or <strong>study permit</strong> that allows employment in Canada.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Benefits Section -->
     <section class="mb-16 lg:mb-24 max-w-7xl mx-auto">
         <div class="grid md:grid-cols-3 gap-8">
@@ -161,14 +178,6 @@
                             </p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Debugging Information (Temporary) -->
-                <div class="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded mb-6">
-                    <strong>Debug Info:</strong>
-                    <br>Session Driver: {{ config('session.driver') }}
-                    <br>CSRF Token: <span id="csrf-debug">{{ csrf_token() }}</span>
-                    <br>Current Time: {{ now() }}
                 </div>
 
                 <!-- Success/Error Messages -->
@@ -763,7 +772,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form validation on submit
     form.addEventListener('submit', function(e) {
-        console.log('Form submission started');
         // Check required work preferences
         const workPreferences = document.querySelectorAll('input[name="work_preference[]"]:checked');
         if (workPreferences.length === 0) {
@@ -799,11 +807,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
 
-        // Debug: Check expected wages value
-        const expectedWages = document.getElementById('expected_wages').value;
-        console.log('Expected wages value:', expectedWages);
-
         // Ensure expected wages is not empty
+        const expectedWages = document.getElementById('expected_wages').value;
         if (!expectedWages.trim()) {
             e.preventDefault();
             Swal.fire({
@@ -838,27 +843,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Debug CSRF token and form submission issues
-    const csrfToken = document.querySelector('input[name="_token"]');
-    console.log('CSRF Token element:', csrfToken);
-    console.log('CSRF Token value:', csrfToken ? csrfToken.value : 'Not found');
-
-    // Monitor form submission
-    const applicationForm = document.querySelector('form[action*="application"]');
-    if (applicationForm) {
-        console.log('Application form found:', applicationForm);
-        applicationForm.addEventListener('submit', function(e) {
-            console.log('Form submission started');
-            console.log('CSRF token at submission:', csrfToken ? csrfToken.value : 'Not found');
-        });
-    }
-
     // Handle success message display with SweetAlert2
     const successMessage = document.getElementById('success-message');
-    console.log('Success message element:', successMessage);
     if (successMessage) {
         const message = successMessage.getAttribute('data-message');
-        console.log('Success message text:', message);
 
         Swal.fire({
             title: '🎉 Application Submitted Successfully!',
