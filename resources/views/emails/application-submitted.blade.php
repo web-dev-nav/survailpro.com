@@ -159,26 +159,16 @@
             <!-- Highlight Important Info -->
             <div class="highlight">
                 <strong>⚠️ Action Required:</strong> New application submitted and requires review.
-                @if($resumePath)
-                    <br><br><strong style="font-size: 16px; color: #059669;">📎 RESUME AVAILABLE</strong>
-
-                    @if(isset($applicationData['resume_url']))
+                @if($resumePath && isset($applicationData['resume_url']))
                     <br><br>
-                    <a href="{{ $applicationData['resume_url'] }}"
-                       style="background-color: #059669; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; font-size: 16px; margin: 8px 0;">
-                        🔗 CLICK HERE TO OPEN RESUME IN BROWSER
+                    <strong style="font-size: 16px; color: #059669;">📎 Resume:</strong>
+                    <a href="{{ $applicationData['resume_url'] }}" style="color: #1e40af; font-weight: bold; text-decoration: underline;">
+                        Click here to view/download
                     </a>
-                    <br><span style="font-size: 12px; color: #6b7280; margin-top: 8px; display: block;">
-                        Click the green button above to download and view the resume in your browser
-                    </span>
-                    @endif
-
-                    <br><span style="background-color: #10b981; color: white; padding: 4px 12px; border-radius: 4px; display: inline-block; margin-top: 8px;">
-                        📎 Also attached to this email
-                    </span>
-                    <br><span style="font-size: 12px; color: #6b7280; margin-top: 8px; display: block;">
-                        File name: Resume_{{ $applicationData['first_name'] }}_{{ $applicationData['last_name'] }}.{{ pathinfo($resumePath, PATHINFO_EXTENSION) }}
-                    </span>
+                    <span style="color: #6b7280; font-size: 14px;">(Also attached to this email)</span>
+                @elseif($resumePath)
+                    <br><br>
+                    <strong style="font-size: 16px; color: #059669;">📎 Resume attached to this email</strong>
                 @else
                     <br>⚠️ No resume attachment provided.
                 @endif
@@ -316,45 +306,27 @@
 
             <!-- Resume Attachment -->
             <div class="section">
-                <h3>📎 Resume Download</h3>
+                <h3>📎 Resume</h3>
                 @if($resumePath)
-                <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); padding: 20px; border-radius: 12px; border: 3px solid #10b981; text-align: center;">
-                    <div style="font-size: 48px; margin-bottom: 10px;">📄</div>
-                    <div style="font-size: 20px; font-weight: bold; color: #047857; margin-bottom: 15px;">
-                        RESUME DOWNLOAD OPTIONS
-                    </div>
-
                     @if(isset($applicationData['resume_url']))
-                    <!-- Browser Download Button -->
-                    <a href="{{ $applicationData['resume_url'] }}"
-                       style="background-color: #047857; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; font-size: 16px; margin: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                        🌐 OPEN RESUME IN BROWSER
-                    </a>
-                    <div style="font-size: 13px; color: #047857; margin-top: 10px;">
-                        <strong>Recommended:</strong> Click the button above to open and download the resume in your browser
+                    <div class="info-row">
+                        <span class="label">Download Link:</span>
+                        <span class="value">
+                            <a href="{{ $applicationData['resume_url'] }}" style="color: #1e40af; font-weight: bold; text-decoration: underline;">
+                                Click here to view/download resume
+                            </a>
+                        </span>
                     </div>
-                    <div style="border-top: 2px dashed #10b981; margin: 20px 40px; padding-top: 15px;">
-                        <div style="font-size: 14px; color: #047857; margin-bottom: 8px;">
-                            <strong>Alternative:</strong> Email Attachment
-                        </div>
-                    @else
-                    <div style="margin-top: 10px;">
                     @endif
-                        <div style="font-size: 13px; color: #047857;">
-                            The resume is also attached to this email. Look at the top or bottom of this email for the attachment.
-                        </div>
-                        <div style="font-size: 12px; color: #6b7280; margin-top: 8px; font-family: monospace; background-color: white; padding: 8px; border-radius: 4px; display: inline-block;">
-                            📄 Resume_{{ $applicationData['first_name'] }}_{{ $applicationData['last_name'] }}.{{ pathinfo($resumePath, PATHINFO_EXTENSION) }}
-                        </div>
+                    <div class="info-row">
+                        <span class="label">Email Attachment:</span>
+                        <span class="value">Resume_{{ $applicationData['first_name'] }}_{{ $applicationData['last_name'] }}.{{ pathinfo($resumePath, PATHINFO_EXTENSION) }}</span>
                     </div>
-                </div>
+                    <p style="color: #6b7280; font-size: 13px; margin-top: 10px;">
+                        The resume file is attached to this email. Check your email client's attachment section.
+                    </p>
                 @else
-                <div style="background-color: #fef3c7; padding: 20px; border-radius: 12px; border: 3px solid #f59e0b; text-align: center;">
-                    <div style="font-size: 48px; margin-bottom: 10px;">⚠️</div>
-                    <div style="font-size: 18px; font-weight: bold; color: #92400e;">
-                        No resume was uploaded with this application
-                    </div>
-                </div>
+                    <p style="color: #92400e; font-weight: bold;">⚠️ No resume was uploaded with this application</p>
                 @endif
             </div>
 
