@@ -279,42 +279,28 @@
                         <!-- Partner 1 -->
                         <div class="partner-slide flex-shrink-0">
                             <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                <img src="{{ asset('assets/images/partners/partner-1.png') }}" alt="Partner 1" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                                <img src="{{ asset('assets/images/partners/logoipsum-391.png') }}" alt="Partner Company" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
                             </a>
                         </div>
 
                         <!-- Partner 2 -->
                         <div class="partner-slide flex-shrink-0">
                             <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                <img src="{{ asset('assets/images/partners/partner-2.png') }}" alt="Partner 2" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                                <img src="{{ asset('assets/images/partners/logoipsum-395.png') }}" alt="Partner Company" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
                             </a>
                         </div>
 
                         <!-- Partner 3 -->
                         <div class="partner-slide flex-shrink-0">
                             <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                <img src="{{ asset('assets/images/partners/partner-3.png') }}" alt="Partner 3" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                                <img src="{{ asset('assets/images/partners/logoipsum-406.png') }}" alt="Partner Company" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
                             </a>
                         </div>
 
                         <!-- Partner 4 -->
                         <div class="partner-slide flex-shrink-0">
                             <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                <img src="{{ asset('assets/images/partners/partner-4.png') }}" alt="Partner 4" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
-                            </a>
-                        </div>
-
-                        <!-- Partner 5 -->
-                        <div class="partner-slide flex-shrink-0">
-                            <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                <img src="{{ asset('assets/images/partners/partner-5.png') }}" alt="Partner 5" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
-                            </a>
-                        </div>
-
-                        <!-- Partner 6 -->
-                        <div class="partner-slide flex-shrink-0">
-                            <a href="#" target="_blank" class="block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                <img src="{{ asset('assets/images/partners/partner-6.png') }}" alt="Partner 6" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                                <img src="{{ asset('assets/images/partners/logoipsum-408.png') }}" alt="Partner Company" class="h-20 w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
                             </a>
                         </div>
                     </div>
