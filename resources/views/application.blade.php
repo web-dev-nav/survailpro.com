@@ -188,7 +188,7 @@
                 @endif
 
                 @if($errors->has('rate_limit') || $errors->has('submission'))
-                    <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-8">
+                    <div id="error-message" data-type="{{ $errors->has('rate_limit') ? 'rate_limit' : 'submission' }}" data-message="{{ $errors->has('rate_limit') ? $errors->first('rate_limit') : $errors->first('submission') }}" class="bg-red-50 border border-red-200 rounded-lg p-4 mb-8">
                         <div class="flex">
                             <svg class="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
@@ -203,6 +203,53 @@
                             </div>
                         </div>
                     </div>
+
+                    <script>
+                        // Show SweetAlert for rate limit and submission errors
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const errorDiv = document.getElementById('error-message');
+                            if (errorDiv) {
+                                const errorType = errorDiv.getAttribute('data-type');
+                                const errorMessage = errorDiv.getAttribute('data-message');
+
+                                if (errorType === 'rate_limit') {
+                                    Swal.fire({
+                                        title: '⏰ Rate Limit Reached',
+                                        html: `
+                                            <div class="text-left">
+                                                <p class="mb-4 text-gray-700">${errorMessage}</p>
+                                                <div class="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
+                                                    <h4 class="font-semibold text-yellow-800 mb-2">Why am I seeing this?</h4>
+                                                    <p class="text-sm text-yellow-700 mb-2">To prevent spam, we limit form submissions to <strong>3 per hour</strong> from the same device.</p>
+                                                    <p class="text-sm text-yellow-700 mb-2">Please wait a moment before trying again, or call us directly:</p>
+                                                    <p class="text-sm"><a href="tel:519-770-6634" class="font-medium text-yellow-600 hover:text-yellow-500">📞 519-770-6634</a></p>
+                                                </div>
+                                            </div>
+                                        `,
+                                        icon: 'warning',
+                                        confirmButtonColor: '#f59e0b',
+                                        confirmButtonText: 'OK, I\'ll Wait'
+                                    });
+                                } else if (errorType === 'submission') {
+                                    Swal.fire({
+                                        title: '❌ Submission Error',
+                                        html: `
+                                            <div class="text-left">
+                                                <p class="mb-4 text-gray-700">${errorMessage}</p>
+                                                <div class="bg-red-50 rounded-lg p-4">
+                                                    <p class="text-sm text-red-700">Please try again or contact us for assistance:</p>
+                                                    <p class="text-sm mt-2"><a href="tel:519-770-6634" class="font-medium text-red-600 hover:text-red-500">📞 519-770-6634</a></p>
+                                                </div>
+                                            </div>
+                                        `,
+                                        icon: 'error',
+                                        confirmButtonColor: '#dc2626',
+                                        confirmButtonText: 'OK'
+                                    });
+                                }
+                            }
+                        });
+                    </script>
                 @endif
 
                 @if($errors->any() && !$errors->has('rate_limit') && !$errors->has('submission'))
