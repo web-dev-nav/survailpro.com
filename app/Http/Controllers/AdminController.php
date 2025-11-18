@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\Partner;
+use App\Models\ContactSetting;
 
 class AdminController extends Controller
 {
@@ -48,7 +50,10 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $partnerCount = Partner::count();
+        $contactSettings = ContactSetting::first();
+
+        return view('admin.dashboard', compact('partnerCount', 'contactSettings'));
     }
 
     public function logout(Request $request)

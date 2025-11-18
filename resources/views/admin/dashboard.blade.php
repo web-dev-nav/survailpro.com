@@ -31,16 +31,26 @@
             @endif
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-                    <p class="text-sm text-gray-500 mb-2">Job Applications</p>
-                    <p class="text-3xl font-bold text-gray-900">—</p>
-                    <p class="text-xs text-gray-400 mt-1">Connect to a database to display live stats.</p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-                    <p class="text-sm text-gray-500 mb-2">Messages</p>
-                    <p class="text-3xl font-bold text-gray-900">—</p>
-                    <p class="text-xs text-gray-400 mt-1">Hook your contact form into this view.</p>
-                </div>
+                <a href="{{ route('admin.partners.index') }}" class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:-translate-y-1 hover:shadow-xl transition">
+                    <p class="text-sm text-gray-500 mb-2">Partner Logos</p>
+                    <p class="text-3xl font-bold text-gray-900">{{ $partnerCount }}</p>
+                    <p class="text-xs text-survail-green mt-3 font-semibold flex items-center gap-2">
+                        Manage logos
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </p>
+                </a>
+                <a href="{{ route('admin.contact.edit') }}" class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:-translate-y-1 hover:shadow-xl transition">
+                    <p class="text-sm text-gray-500 mb-2">Contact Details</p>
+                    <p class="text-3xl font-bold text-gray-900">{{ $contactSettings ? 'Ready' : 'Set up' }}</p>
+                    <p class="text-xs text-survail-green mt-3 font-semibold flex items-center gap-2">
+                        Update info
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </p>
+                </a>
                 <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
                     <p class="text-sm text-gray-500 mb-2">System Health</p>
                     <p class="text-3xl font-bold text-gray-900">OK</p>
@@ -49,21 +59,23 @@
             </div>
 
             <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                <h2 class="text-2xl font-semibold text-gray-900 mb-4">Next Steps</h2>
-                <ul class="space-y-3 text-gray-600">
-                    <li class="flex items-start gap-3">
-                        <span class="mt-1 w-2 h-2 rounded-full bg-survail-green"></span>
-                        Connect this dashboard to your preferred data source (database or API) to surface live stats.
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="mt-1 w-2 h-2 rounded-full bg-survail-green"></span>
-                        Replace the placeholder cards with real widgets (recent applications, notifications, etc.).
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="mt-1 w-2 h-2 rounded-full bg-survail-green"></span>
-                        Extend routing under the `/admin` prefix for additional tools (content editing, reports, etc.).
-                    </li>
-                </ul>
+                <h2 class="text-2xl font-semibold text-gray-900 mb-4">Quick Actions</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="{{ route('admin.partners.create') }}" class="flex items-center gap-3 p-4 border border-dashed border-survail-green rounded-2xl hover:bg-survail-green hover:bg-opacity-5 transition">
+                        <span class="w-10 h-10 rounded-full bg-survail-green bg-opacity-10 text-survail-green flex items-center justify-center text-xl font-bold">+</span>
+                        <div>
+                            <p class="font-semibold text-gray-900">Add New Partner Logo</p>
+                            <p class="text-sm text-gray-500">Upload and publish instantly</p>
+                        </div>
+                    </a>
+                    <a href="{{ route('admin.contact.edit') }}" class="flex items-center gap-3 p-4 border border-dashed border-survail-green rounded-2xl hover:bg-survail-green hover:bg-opacity-5 transition">
+                        <span class="w-10 h-10 rounded-full bg-survail-green bg-opacity-10 text-survail-green flex items-center justify-center text-xl font-bold">✎</span>
+                        <div>
+                            <p class="font-semibold text-gray-900">Edit Contact Page</p>
+                            <p class="text-sm text-gray-500">Update phones, email, or address</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

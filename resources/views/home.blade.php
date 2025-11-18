@@ -272,37 +272,28 @@
                 </p>
             </div>
 
+            @php
+                $partnersList = isset($partners) && $partners->count() ? $partners : collect([
+                    (object) ['name' => 'Partner Company', 'website_url' => '#', 'logo_url' => asset('assets/images/partners/logoipsum-391.png')],
+                    (object) ['name' => 'Partner Company', 'website_url' => '#', 'logo_url' => asset('assets/images/partners/logoipsum-395.png')],
+                    (object) ['name' => 'Partner Company', 'website_url' => '#', 'logo_url' => asset('assets/images/partners/logoipsum-406.png')],
+                    (object) ['name' => 'Partner Company', 'website_url' => '#', 'logo_url' => asset('assets/images/partners/logoipsum-408.png')],
+                ]);
+            @endphp
+
             <!-- Partners Slider -->
             <div class="relative overflow-hidden">
                 <div class="partners-slider-container">
                     <div class="partners-slider flex gap-8 items-center" id="partnersSlider">
-                        <!-- Partner 1 -->
-                        <div class="partner-slide flex-shrink-0">
-                            <a href="#" target="_blank" class="partner-card block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                <img src="{{ asset('assets/images/partners/logoipsum-391.png') }}" alt="Partner Company" class="partner-logo w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
-                            </a>
-                        </div>
-
-                        <!-- Partner 2 -->
-                        <div class="partner-slide flex-shrink-0">
-                            <a href="#" target="_blank" class="partner-card block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                <img src="{{ asset('assets/images/partners/logoipsum-395.png') }}" alt="Partner Company" class="partner-logo w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
-                            </a>
-                        </div>
-
-                        <!-- Partner 3 -->
-                        <div class="partner-slide flex-shrink-0">
-                            <a href="#" target="_blank" class="partner-card block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                <img src="{{ asset('assets/images/partners/logoipsum-406.png') }}" alt="Partner Company" class="partner-logo w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
-                            </a>
-                        </div>
-
-                        <!-- Partner 4 -->
-                        <div class="partner-slide flex-shrink-0">
-                            <a href="#" target="_blank" class="partner-card block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                                <img src="{{ asset('assets/images/partners/logoipsum-408.png') }}" alt="Partner Company" class="partner-logo w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
-                            </a>
-                        </div>
+                        @foreach($partnersList as $partner)
+                            <div class="partner-slide flex-shrink-0">
+                                <a href="{{ $partner->website_url ?? '#' }}" target="_blank" class="partner-card block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                                    <img src="{{ $partner->logo_url ?? $partner->logo_path ?? asset('assets/images/partners/logoipsum-391.png') }}"
+                                         alt="{{ $partner->name ?? 'Partner Company' }}"
+                                         class="partner-logo w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
 

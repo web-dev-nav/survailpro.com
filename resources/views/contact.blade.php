@@ -4,12 +4,31 @@
 @section('description', 'Contact SurVail Protection & Investigation Services. Call 519-770-6634 or email don@survailpro.ca for professional security solutions.')
 
 @section('content')
+@php
+    $contact = $contactSettings ?? null;
+    $heroTitle = $contact->hero_title ?? 'Contact Us';
+    $heroDescription = $contact->hero_description ?? 'Ready to secure your property? Get in touch with our security professionals today.';
+    $mainPhoneLabel = $contact->main_phone_label ?? 'Main';
+    $mainPhoneNumber = $contact->main_phone_number ?? '519-770-6634';
+    $secondaryPhoneLabel = $contact->secondary_phone_label ?? 'Hamilton Area';
+    $secondaryPhoneNumber = $contact->secondary_phone_number ?? '905-928-9636';
+    $email = $contact->email ?? 'don@survailpro.ca';
+    $addressLineOne = $contact->address_line_one ?? '148 Henry Street';
+    $addressLineTwo = $contact->address_line_two ?? 'Brantford ON N3S-5C7';
+    $serviceAreas = collect($contact->service_areas ?? [
+        ['title' => 'Brantford', 'subtitle' => '& Brant County'],
+        ['title' => 'Hamilton', 'subtitle' => 'Greater Area'],
+        ['title' => 'Waterloo', 'subtitle' => 'Region'],
+        ['title' => 'Haldimand', 'subtitle' => 'County'],
+    ]);
+@endphp
+
 <div class="min-h-screen py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h1 class="text-4xl lg:text-6xl font-bold text-survail-brown mb-6">Contact Us</h1>
+            <h1 class="text-4xl lg:text-6xl font-bold text-survail-brown mb-6">{{ $heroTitle }}</h1>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                Ready to secure your property? Get in touch with our security professionals today.
+                {{ $heroDescription }}
             </p>
         </div>
 
@@ -27,15 +46,19 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-semibold text-survail-brown mb-2">Phone</h3>
-                            <div class="space-y-1">
+                            <div class="space-y-3">
                                 <div>
-                                    <a href="tel:519-770-6634" class="text-lg text-gray-600 hover:text-survail-green transition-colors">519-770-6634</a>
-                                    <span class="text-sm text-gray-500 ml-2">(Main)</span>
+                                    <a href="tel:{{ preg_replace('/\\s+/', '', $mainPhoneNumber) }}" class="text-lg text-gray-600 hover:text-survail-green transition-colors">{{ $mainPhoneNumber }}</a>
+                                    <span class="text-sm text-gray-500 ml-2">({{ $mainPhoneLabel }})</span>
                                 </div>
-                                <div>
-                                    <a href="tel:905-928-9636" class="text-lg text-gray-600 hover:text-survail-green transition-colors">905-928-9636</a>
-                                    <span class="text-sm text-gray-500 ml-2">(Hamilton Area)</span>
-                                </div>
+                                @if($secondaryPhoneNumber)
+                                    <div>
+                                        <a href="tel:{{ preg_replace('/\\s+/', '', $secondaryPhoneNumber) }}" class="text-lg text-gray-600 hover:text-survail-green transition-colors">{{ $secondaryPhoneNumber }}</a>
+                                        @if($secondaryPhoneLabel)
+                                            <span class="text-sm text-gray-500 ml-2">({{ $secondaryPhoneLabel }})</span>
+                                        @endif
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -49,7 +72,7 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-semibold text-survail-brown mb-2">Email</h3>
-                            <a href="mailto:don@survailpro.ca" class="text-lg text-gray-600 hover:text-survail-green transition-colors">don@survailpro.ca</a>
+                            <a href="mailto:{{ $email }}" class="text-lg text-gray-600 hover:text-survail-green transition-colors">{{ $email }}</a>
                         </div>
                     </div>
 
@@ -61,7 +84,7 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-semibold text-survail-brown mb-2">Address</h3>
-                            <p class="text-lg text-gray-600">148 Henry Street<br>Brantford ON N3S-5C7</p>
+                            <p class="text-lg text-gray-600">{{ $addressLineOne }}<br>{{ $addressLineTwo }}</p>
                         </div>
                     </div>
                 </div>
@@ -70,22 +93,23 @@
                 <div class="mt-12">
                     <h3 class="text-2xl font-bold text-survail-brown mb-6">Service Areas</h3>
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-gradient-to-br from-survail-brown to-survail-brown-dark text-white rounded-lg p-4 text-center">
-                            <div class="font-bold">Brantford</div>
-                            <div class="text-sm opacity-90">& Brant County</div>
-                        </div>
-                        <div class="bg-gradient-to-br from-survail-green to-gray-700 text-white rounded-lg p-4 text-center">
-                            <div class="font-bold">Hamilton</div>
-                            <div class="text-sm opacity-90">Greater Area</div>
-                        </div>
-                        <div class="bg-gradient-to-br from-survail-red to-survail-red-dark text-white rounded-lg p-4 text-center">
-                            <div class="font-bold">Waterloo</div>
-                            <div class="text-sm opacity-90">Region</div>
-                        </div>
-                        <div class="bg-gradient-to-br from-survail-brown to-survail-brown-dark text-white rounded-lg p-4 text-center">
-                            <div class="font-bold">Haldimand</div>
-                            <div class="text-sm opacity-90">County</div>
-                        </div>
+                        @foreach($serviceAreas as $index => $area)
+                            @php
+                                $colors = [
+                                    'from-survail-brown to-survail-brown-dark',
+                                    'from-survail-green to-gray-700',
+                                    'from-survail-red to-survail-red-dark',
+                                    'from-survail-brown to-survail-brown-dark',
+                                ];
+                                $color = $colors[$index % count($colors)];
+                            @endphp
+                            <div class="bg-gradient-to-br {{ $color }} text-white rounded-lg p-4 text-center">
+                                <div class="font-bold">{{ $area['title'] ?? 'Service Area' }}</div>
+                                @if(!empty($area['subtitle']))
+                                    <div class="text-sm opacity-90">{{ $area['subtitle'] }}</div>
+                                @endif
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

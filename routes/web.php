@@ -2,9 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\ContactSettingsController;
+use App\Models\Partner;
+use App\Models\ContactSetting;
 
 Route::get('/', function () {
-    return view('home');
+    $partners = Partner::orderBy('display_order')->get();
+
+    return view('home', compact('partners'));
 })->name('home');
 
 Route::get('/about', function () {
@@ -16,7 +22,9 @@ Route::get('/services', function () {
 })->name('services');
 
 Route::get('/contact', function () {
-    return view('contact');
+    $contactSettings = ContactSetting::first();
+
+    return view('contact', compact('contactSettings'));
 })->name('contact');
 
 Route::get('/application', [App\Http\Controllers\ApplicationController::class, 'show'])->name('application');
@@ -31,5 +39,8 @@ Route::prefix('admin')->group(function () {
     Route::middleware('admin.auth')->group(function () {
         Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
         Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+        Route::resource('partners', PartnerController::class)->except(['show']);
+        Route::get('contact-settings', [ContactSettingsController::class, 'edit'])->name('admin.contact.edit');
+        Route::put('contact-settings', [ContactSettingsController::class, 'update'])->name('admin.contact.update');
     });
 });
