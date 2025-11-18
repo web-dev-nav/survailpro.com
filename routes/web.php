@@ -22,3 +22,8 @@ Route::get('/application', [App\Http\Controllers\ApplicationController::class, '
 Route::post('/application', [App\Http\Controllers\ApplicationController::class, 'store'])->name('application.submit');
 
 Route::get('/apply', [App\Http\Controllers\ApplicationController::class, 'show'])->name('apply');
+
+// Signed URL route for downloading resumes (expires in 90 days)
+Route::get('/application/resume/{filename}', [App\Http\Controllers\ApplicationController::class, 'downloadResume'])
+    ->name('application.resume.download')
+    ->middleware('signed');

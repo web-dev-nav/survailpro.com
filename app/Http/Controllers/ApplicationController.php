@@ -101,13 +101,23 @@ class ApplicationController extends Controller
 
             // Handle file upload securely
             $resumePath = null;
+            $resumeUrl = null;
             if ($request->hasFile('resume')) {
                 $resumePath = $this->handleFileUpload($request->file('resume'));
+
+                // Generate signed URL for resume download (expires in 90 days)
+                $filename = basename($resumePath);
+                $resumeUrl = \URL::temporarySignedRoute(
+                    'application.resume.download',
+                    now()->addDays(90),
+                    ['filename' => $filename]
+                );
             }
 
             // Store application data (you can save to database here)
             $applicationData = array_merge($sanitizedData, [
                 'resume_path' => $resumePath,
+                'resume_url' => $resumeUrl,
                 'ip_address' => $request->ip(),
                 'user_agent' => $request->userAgent(),
                 'submitted_at' => now(),
@@ -269,5 +279,43 @@ class ApplicationController extends Controller
         ]);
 
         return $path;
+    }
+
+    /**
+     * Download resume file (requires signed URL)
+     */
+    public function downloadResume(string $filename)
+    {
+        // Security: Only allow accessing files from the resumes directory
+        $path = storage_path('app/applications/resumes/' . $filename);
+
+        // Prevent directory traversal attacks
+        $realPath = realpath($path);
+        $resumeDir = realpath(storage_path('app/applications/resumes'));
+
+        if (!$realPath || !str_starts_with($realPath, $resumeDir)) {
+            \Log::warning('Attempted unauthorized resume access', [
+                'filename' => $filename,
+                'attempted_path' => $path
+            ]);
+            abort(404, 'Resume not found');
+        }
+
+        // Check if file exists
+        if (!file_exists($realPath)) {
+            \Log::warning('Resume file not found', [
+                'filename' => $filename,
+                'path' => $realPath
+            ]);
+            abort(404, 'Resume not found');
+        }
+
+        \Log::info('Resume downloaded', [
+            'filename' => $filename,
+            'path' => $realPath
+        ]);
+
+        // Return file download response
+        return response()->download($realPath);
     }
 }

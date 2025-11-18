@@ -160,9 +160,21 @@
             <div class="highlight">
                 <strong>⚠️ Action Required:</strong> New application submitted and requires review.
                 @if($resumePath)
-                    <br><br><strong style="font-size: 16px; color: #059669;">📎 RESUME ATTACHED TO THIS EMAIL</strong>
+                    <br><br><strong style="font-size: 16px; color: #059669;">📎 RESUME AVAILABLE</strong>
+
+                    @if(isset($applicationData['resume_url']))
+                    <br><br>
+                    <a href="{{ $applicationData['resume_url'] }}"
+                       style="background-color: #059669; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; font-size: 16px; margin: 8px 0;">
+                        🔗 CLICK HERE TO OPEN RESUME IN BROWSER
+                    </a>
+                    <br><span style="font-size: 12px; color: #6b7280; margin-top: 8px; display: block;">
+                        Click the green button above to download and view the resume in your browser
+                    </span>
+                    @endif
+
                     <br><span style="background-color: #10b981; color: white; padding: 4px 12px; border-radius: 4px; display: inline-block; margin-top: 8px;">
-                        ⬇️ Look for attachment at the top or bottom of this email and click to download
+                        📎 Also attached to this email
                     </span>
                     <br><span style="font-size: 12px; color: #6b7280; margin-top: 8px; display: block;">
                         File name: Resume_{{ $applicationData['first_name'] }}_{{ $applicationData['last_name'] }}.{{ pathinfo($resumePath, PATHINFO_EXTENSION) }}
@@ -304,21 +316,36 @@
 
             <!-- Resume Attachment -->
             <div class="section">
-                <h3>📎 Resume Attachment</h3>
+                <h3>📎 Resume Download</h3>
                 @if($resumePath)
                 <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); padding: 20px; border-radius: 12px; border: 3px solid #10b981; text-align: center;">
-                    <div style="font-size: 48px; margin-bottom: 10px;">📎</div>
-                    <div style="font-size: 20px; font-weight: bold; color: #047857; margin-bottom: 10px;">
-                        RESUME IS ATTACHED TO THIS EMAIL
+                    <div style="font-size: 48px; margin-bottom: 10px;">📄</div>
+                    <div style="font-size: 20px; font-weight: bold; color: #047857; margin-bottom: 15px;">
+                        RESUME DOWNLOAD OPTIONS
                     </div>
-                    <div style="background-color: #059669; color: white; padding: 12px 24px; border-radius: 8px; display: inline-block; margin: 10px 0; font-weight: bold; font-size: 14px;">
-                        ⬇️ CLICK THE ATTACHMENT TO DOWNLOAD & OPEN
-                    </div>
+
+                    @if(isset($applicationData['resume_url']))
+                    <!-- Browser Download Button -->
+                    <a href="{{ $applicationData['resume_url'] }}"
+                       style="background-color: #047857; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; font-size: 16px; margin: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        🌐 OPEN RESUME IN BROWSER
+                    </a>
                     <div style="font-size: 13px; color: #047857; margin-top: 10px;">
-                        <strong>Attachment location:</strong> Look at the top or bottom of this email for attached files
+                        <strong>Recommended:</strong> Click the button above to open and download the resume in your browser
                     </div>
-                    <div style="font-size: 12px; color: #6b7280; margin-top: 8px; font-family: monospace; background-color: white; padding: 8px; border-radius: 4px; display: inline-block;">
-                        📄 Resume_{{ $applicationData['first_name'] }}_{{ $applicationData['last_name'] }}.{{ pathinfo($resumePath, PATHINFO_EXTENSION) }}
+                    <div style="border-top: 2px dashed #10b981; margin: 20px 40px; padding-top: 15px;">
+                        <div style="font-size: 14px; color: #047857; margin-bottom: 8px;">
+                            <strong>Alternative:</strong> Email Attachment
+                        </div>
+                    @else
+                    <div style="margin-top: 10px;">
+                    @endif
+                        <div style="font-size: 13px; color: #047857;">
+                            The resume is also attached to this email. Look at the top or bottom of this email for the attachment.
+                        </div>
+                        <div style="font-size: 12px; color: #6b7280; margin-top: 8px; font-family: monospace; background-color: white; padding: 8px; border-radius: 4px; display: inline-block;">
+                            📄 Resume_{{ $applicationData['first_name'] }}_{{ $applicationData['last_name'] }}.{{ pathinfo($resumePath, PATHINFO_EXTENSION) }}
+                        </div>
                     </div>
                 </div>
                 @else
