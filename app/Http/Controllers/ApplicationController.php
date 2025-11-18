@@ -93,9 +93,16 @@ class ApplicationController extends Controller
         ]);
 
         if ($validator->fails()) {
+            \Log::warning('APPLICATION FORM VALIDATION FAILED', [
+                'ip' => $request->ip(),
+                'errors' => $validator->errors()->toArray(),
+                'failed_fields' => array_keys($validator->errors()->toArray())
+            ]);
+
             return back()
                 ->withErrors($validator)
-                ->withInput($request->except(['resume']));
+                ->withInput($request->except(['resume']))
+                ->with('validation_failed', 'Please correct the errors below and try again.');
         }
 
         // Increment rate limiter

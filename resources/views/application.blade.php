@@ -196,6 +196,44 @@
                     </div>
                 @endif
 
+                @if($errors->any() && !$errors->has('rate_limit') && !$errors->has('submission'))
+                    <div class="bg-red-50 border-l-4 border-red-500 rounded-lg p-6 mb-8">
+                        <div class="flex items-start">
+                            <svg class="h-6 w-6 text-red-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+                            </svg>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-red-800 mb-2">Please correct the following errors:</h3>
+                                <ul class="list-disc list-inside space-y-1 text-sm text-red-700">
+                                    @foreach($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        // Scroll to error message
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const errorDiv = document.querySelector('.bg-red-50');
+                            if (errorDiv) {
+                                errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                // Also show SweetAlert
+                                if (typeof Swal !== 'undefined') {
+                                    Swal.fire({
+                                        title: 'Validation Errors',
+                                        html: '<div class="text-left">Please scroll down and correct the highlighted fields.</div>',
+                                        icon: 'error',
+                                        confirmButtonColor: '#dc2626',
+                                        confirmButtonText: 'OK, I\'ll Fix Them'
+                                    });
+                                }
+                            }
+                        });
+                    </script>
+                @endif
+
                 <form class="space-y-8" action="{{ route('application.submit') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
@@ -245,11 +283,17 @@
                         <div class="space-y-6">
                             <div>
                                 <label for="security_license" class="block text-sm font-medium text-gray-700 mb-2">Ontario Security Guard License Number *</label>
-                                <input type="text" id="security_license" name="security_license" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                <input type="text" id="security_license" name="security_license" required value="{{ old('security_license') }}" class="w-full px-4 py-3 border {{ $errors->has('security_license') ? 'border-red-300 bg-red-50' : 'border-gray-300' }} rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                @error('security_license')
+                                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div>
-                                <label for="license_expiry" class="block text-sm font-medium text-gray-700 mb-2">License Expiry Date *</label>
-                                <input type="date" id="license_expiry" name="license_expiry" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                <label for="license_expiry" class="block text-sm font-medium text-gray-700 mb-2">License Expiry Date * <span class="text-xs text-gray-500">(must be valid/not expired)</span></label>
+                                <input type="date" id="license_expiry" name="license_expiry" required value="{{ old('license_expiry') }}" min="{{ date('Y-m-d') }}" class="w-full px-4 py-3 border {{ $errors->has('license_expiry') ? 'border-red-300 bg-red-50' : 'border-gray-300' }} rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                @error('license_expiry')
+                                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div>
                                 <label for="has_vehicle" class="block text-sm font-medium text-gray-700 mb-2">Do you have a vehicle for commute? *</label>
