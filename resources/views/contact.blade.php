@@ -117,37 +117,60 @@
             <!-- Contact Form -->
             <div class="bg-white rounded-2xl shadow-lg p-8">
                 <h3 class="text-2xl font-bold text-survail-brown mb-6">Send us a Message</h3>
-                <form class="space-y-6">
+
+                @if(session('success'))
+                    <div class="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                <form action="{{ route('contact.submit') }}" method="POST" class="space-y-6">
+                    @csrf
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                            <input type="text" id="name" name="name" value="{{ old('name') }}" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent @error('name') border-red-500 @enderror">
+                            @error('name')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div>
                             <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                            <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent @error('phone') border-red-500 @enderror">
+                            @error('phone')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
 
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                        <input type="email" id="email" name="email" value="{{ old('email') }}" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent @error('email') border-red-500 @enderror">
+                        @error('email')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
                         <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Needed</label>
-                        <select id="service" name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                        <select id="service" name="service" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent @error('service') border-red-500 @enderror">
                             <option value="">Select a service</option>
-                            <option value="physical-protection">Physical Protection</option>
-                            <option value="event-security">Event Security</option>
-                            <option value="consulting">Consulting & Training</option>
-                            <option value="other">Other</option>
+                            <option value="physical-protection" {{ old('service') === 'physical-protection' ? 'selected' : '' }}>Physical Protection</option>
+                            <option value="event-security" {{ old('service') === 'event-security' ? 'selected' : '' }}>Event Security</option>
+                            <option value="consulting" {{ old('service') === 'consulting' ? 'selected' : '' }}>Consulting & Training</option>
+                            <option value="other" {{ old('service') === 'other' ? 'selected' : '' }}>Other</option>
                         </select>
+                        @error('service')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
                         <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent"></textarea>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent @error('message') border-red-500 @enderror">{{ old('message') }}</textarea>
+                        @error('message')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <button type="submit" class="w-full bg-survail-green hover:bg-gray-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">

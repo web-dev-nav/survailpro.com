@@ -27,6 +27,8 @@ Route::get('/contact', function () {
     return view('contact', compact('contactSettings'));
 })->name('contact');
 
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
+
 Route::get('/application', [App\Http\Controllers\ApplicationController::class, 'show'])->name('application');
 Route::post('/application', [App\Http\Controllers\ApplicationController::class, 'store'])->name('application.submit');
 
