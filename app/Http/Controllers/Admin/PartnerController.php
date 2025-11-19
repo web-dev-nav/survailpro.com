@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Partner;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class PartnerController extends Controller
@@ -32,7 +31,9 @@ class PartnerController extends Controller
             'logo' => ['required', 'image', 'mimes:png,jpg,jpeg,svg,webp', 'max:2048'],
         ]);
 
-        $path = $request->file('logo')->store('partners', 'public');
+        $fileName = time() . '_' . $request->file('logo')->getClientOriginalName();
+        $request->file('logo')->move(public_path('partners'), $fileName);
+        $path = 'partners/' . $fileName;
 
         Partner::create([
             'name' => $data['name'],
@@ -60,7 +61,9 @@ class PartnerController extends Controller
 
         if ($request->hasFile('logo')) {
             $this->deleteLogo($partner->logo_path);
-            $partner->logo_path = $request->file('logo')->store('partners', 'public');
+            $fileName = time() . '_' . $request->file('logo')->getClientOriginalName();
+            $request->file('logo')->move(public_path('partners'), $fileName);
+            $partner->logo_path = 'partners/' . $fileName;
         }
 
         $partner->name = $data['name'];
@@ -85,8 +88,11 @@ class PartnerController extends Controller
             return;
         }
 
-        if (str_starts_with($path, 'partners/') && Storage::disk('public')->exists($path)) {
-            Storage::disk('public')->delete($path);
+        if (str_starts_with($path, 'partners/')) {
+            $fullPath = public_path($path);
+            if (file_exists($fullPath)) {
+                unlink($fullPath);
+            }
         }
     }
 }

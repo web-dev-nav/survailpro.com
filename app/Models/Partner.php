@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Partner extends Model
@@ -32,10 +31,6 @@ class Partner extends Model
             return $this->logo_path;
         }
 
-        if (Str::startsWith($this->logo_path, 'assets/')) {
-            return asset($this->logo_path);
-        }
-
-        return Storage::disk('public')->url($this->logo_path);
+        return asset($this->logo_path);
     }
 }
