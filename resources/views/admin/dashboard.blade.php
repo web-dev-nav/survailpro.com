@@ -71,8 +71,8 @@
                     <a href="{{ route('admin.contact.edit') }}" class="flex items-center gap-3 p-4 border border-dashed border-survail-green rounded-2xl hover:bg-survail-green hover:bg-opacity-5 transition">
                         <span class="w-10 h-10 rounded-full bg-survail-green bg-opacity-10 text-survail-green flex items-center justify-center text-xl font-bold">✎</span>
                         <div>
-                            <p class="font-semibold text-gray-900">Edit Contact Page</p>
-                            <p class="text-sm text-gray-500">Update phones, email, or address</p>
+                            <p class="font-semibold text-gray-900">Edit Contact Details</p>
+                            <p class="text-sm text-gray-500">Update phone, email across entire site</p>
                         </div>
                     </a>
                 </div>

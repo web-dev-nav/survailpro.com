@@ -16,9 +16,9 @@
             <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
                 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
                     <div>
-                        <p class="text-sm uppercase tracking-widest text-survail-green">Contact Page</p>
-                        <h1 class="text-3xl font-bold text-gray-900">Update Details</h1>
-                        <p class="text-gray-600">All changes reflect instantly on <a href="{{ route('contact') }}" class="underline text-survail-green" target="_blank" rel="noreferrer">/contact</a>.</p>
+                        <p class="text-sm uppercase tracking-widest text-survail-green">Website Contact Settings</p>
+                        <h1 class="text-3xl font-bold text-gray-900">Update Contact Details</h1>
+                        <p class="text-gray-600">Changes update across the <strong>entire website</strong> including header, footer, all pages, and email templates.</p>
                     </div>
                 </div>
 
