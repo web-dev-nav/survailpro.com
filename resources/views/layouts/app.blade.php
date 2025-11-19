@@ -246,7 +246,6 @@
                         <li>Personal Protection</li>
                         <li>Event Security</li>
                         <li>Corporate Security</li>
-                        <li>Investigation Services</li>
                         <li>Consulting</li>
                     </ul>
                 </div>
