@@ -213,8 +213,8 @@
                     <h4 class="text-2xl font-bold mb-4">Ready to Experience Professional Security?</h4>
                     <p class="text-lg text-green-100 mb-6">Contact Don directly to discuss your specific security needs and get a customized solution.</p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="tel:519-770-6634" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 px-8 py-3 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105">
-                            Call: 519-770-6634
+                        <a href="tel:{{ preg_replace('/\\s+/', '', $globalContact->main_phone_number ?? '519-770-6634') }}" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 px-8 py-3 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105">
+                            Call: {{ $globalContact->main_phone_number ?? '519-770-6634' }}
                         </a>
                         <a href="{{ route('contact') }}" class="bg-transparent border-2 border-white hover:bg-white hover:text-survail-green text-white px-8 py-3 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105">
                             Contact Form
@@ -554,12 +554,12 @@
                                 </svg>
                             </span>
                         </a>
-                        <a href="tel:519-770-6634" class="group bg-survail-red hover:bg-survail-red-dark text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        <a href="tel:{{ preg_replace('/\\s+/', '', $globalContact->main_phone_number ?? '519-770-6634') }}" class="group bg-survail-red hover:bg-survail-red-dark text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
                             <span class="flex items-center">
                                 <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
                                 </svg>
-                                Call Now: 519-770-6634
+                                Call Now: {{ $globalContact->main_phone_number ?? '519-770-6634' }}
                             </span>
                         </a>
                     </div>

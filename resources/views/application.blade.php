@@ -34,7 +34,7 @@
                         </svg>
                     </span>
                 </a>
-                <a href="tel:519-770-6634" class="group bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+                <a href="tel:{{ preg_replace('/\\s+/', '', $globalContact->main_phone_number ?? '519-770-6634') }}" class="group bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105">
                     <span class="flex items-center">
                         <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
@@ -232,7 +232,7 @@
                                             <p class="mb-4 text-gray-700">${errorMessage}</p>
                                             <div class="bg-red-50 rounded-lg p-4">
                                                 <p class="text-sm text-red-700">Please try again or contact us for assistance:</p>
-                                                <p class="text-sm mt-2"><a href="tel:519-770-6634" class="font-medium text-red-600 hover:text-red-500">📞 519-770-6634</a></p>
+                                                <p class="text-sm mt-2"><a href="tel:{{ preg_replace('/\\s+/', '', $globalContact->main_phone_number ?? '519-770-6634') }}" class="font-medium text-red-600 hover:text-red-500">📞 {{ $globalContact->main_phone_number ?? '519-770-6634' }}</a></p>
                                             </div>
                                         </div>
                                     `,
@@ -618,21 +618,21 @@
                 If you have questions about the application process or requirements, don't hesitate to contact Don directly. We're here to help!
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="tel:519-770-6634" class="group bg-white text-survail-green px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <a href="tel:{{ preg_replace('/\\s+/', '', $globalContact->main_phone_number ?? '519-770-6634') }}" class="group bg-white text-survail-green px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
                     <span class="flex items-center justify-center">
                         <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
                         </svg>
-                        Call: 519-770-6634
+                        Call: {{ $globalContact->main_phone_number ?? '519-770-6634' }}
                     </span>
                 </a>
-                <a href="mailto:don@survailpro.ca" class="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-survail-green transition-all duration-300 transform hover:scale-105">
+                <a href="mailto:{{ $globalContact->email ?? 'don@survailpro.ca' }}" class="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-survail-green transition-all duration-300 transform hover:scale-105">
                     <span class="flex items-center justify-center">
                         <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
                             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                         </svg>
-                        Email: don@survailpro.ca
+                        Email: {{ $globalContact->email ?? 'don@survailpro.ca' }}
                     </span>
                 </a>
             </div>
@@ -899,7 +899,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <li>📧 Your application has been sent to our HR team</li>
                             <li>🔍 We will review your qualifications and experience</li>
                             <li>📞 If selected, we'll contact you within 3-5 business days</li>
-                            <li>❓ For questions, call us at <a href="tel:519-770-6634" class="font-medium text-green-600 hover:text-green-500">519-770-6634</a></li>
+                            <li>❓ For questions, call us at <a href="tel:{{ preg_replace('/\\s+/', '', $globalContact->main_phone_number ?? '519-770-6634') }}" class="font-medium text-green-600 hover:text-green-500">{{ $globalContact->main_phone_number ?? '519-770-6634' }}</a></li>
                         </ul>
                     </div>
                 </div>

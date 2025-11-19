@@ -140,12 +140,12 @@
                     <div class="flex items-center space-x-6">
                         <div>
                             <p class="text-sm text-gray-600">Call or Text</p>
-                            <a href="tel:519-770-6634" class="text-2xl font-bold text-survail-green hover:text-survail-green-dark transition-colors">519-770-6634</a>
+                            <a href="tel:{{ preg_replace('/\\s+/', '', $globalContact->main_phone_number ?? '519-770-6634') }}" class="text-2xl font-bold text-survail-green hover:text-survail-green-dark transition-colors">{{ $globalContact->main_phone_number ?? '519-770-6634' }}</a>
                         </div>
                         <div class="h-12 w-px bg-gray-300"></div>
                         <div>
                             <p class="text-sm text-gray-600">Email</p>
-                            <a href="mailto:don@survailpro.ca" class="text-lg text-survail-brown hover:text-survail-brown-light transition-colors">don@survailpro.ca</a>
+                            <a href="mailto:{{ $globalContact->email ?? 'don@survailpro.ca' }}" class="text-lg text-survail-brown hover:text-survail-brown-light transition-colors">{{ $globalContact->email ?? 'don@survailpro.ca' }}</a>
                         </div>
                     </div>
                 </div>
@@ -187,8 +187,8 @@
                         <!-- Mobile Contact Info -->
                         <div class="border-t border-white border-opacity-20 mt-4 pt-4">
                             <div class="text-center space-y-2">
-                                <a href="tel:519-770-6634" class="block text-yellow-300 font-bold text-xl">519-770-6634</a>
-                                <a href="mailto:don@survailpro.ca" class="block text-yellow-200">don@survailpro.ca</a>
+                                <a href="tel:{{ preg_replace('/\\s+/', '', $globalContact->main_phone_number ?? '519-770-6634') }}" class="block text-yellow-300 font-bold text-xl">{{ $globalContact->main_phone_number ?? '519-770-6634' }}</a>
+                                <a href="mailto:{{ $globalContact->email ?? 'don@survailpro.ca' }}" class="block text-yellow-200">{{ $globalContact->email ?? 'don@survailpro.ca' }}</a>
                             </div>
                         </div>
                     </div>
@@ -218,11 +218,11 @@
                     <div class="flex space-x-4">
                         <div>
                             <h4 class="font-semibold text-yellow-400 mb-1">Phone</h4>
-                            <a href="tel:519-770-6634" class="text-gray-300 hover:text-white transition-colors">519-770-6634</a>
+                            <a href="tel:{{ preg_replace('/\\s+/', '', $globalContact->main_phone_number ?? '519-770-6634') }}" class="text-gray-300 hover:text-white transition-colors">{{ $globalContact->main_phone_number ?? '519-770-6634' }}</a>
                         </div>
                         <div>
                             <h4 class="font-semibold text-yellow-400 mb-1">Email</h4>
-                            <a href="mailto:don@survailpro.ca" class="text-gray-300 hover:text-white transition-colors">don@survailpro.ca</a>
+                            <a href="mailto:{{ $globalContact->email ?? 'don@survailpro.ca' }}" class="text-gray-300 hover:text-white transition-colors">{{ $globalContact->email ?? 'don@survailpro.ca' }}</a>
                         </div>
                     </div>
                 </div>

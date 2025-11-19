@@ -151,8 +151,8 @@
                     If you have any questions about your application, please contact us:
                 </p>
                 <p>
-                    📧 <a href="mailto:hr@survailpro.ca">hr@survailpro.ca</a><br>
-                    📞 <a href="tel:519-770-6634">519-770-6634</a>
+                    📧 <a href="mailto:{{ env('ADMIN_EMAIL', 'hr@survailpro.ca') }}">{{ env('ADMIN_EMAIL', 'hr@survailpro.ca') }}</a><br>
+                    📞 <a href="tel:{{ preg_replace('/\s+/', '', $contactPhone) }}">{{ $contactPhone }}</a>
                 </p>
             </div>
 
@@ -172,7 +172,7 @@
             <p style="font-weight: bold; margin-bottom: 10px;">SurVail Protection & Investigation Services</p>
             <p>Protecting Southern Ontario for Over 42 Years</p>
             <p style="opacity: 0.8; font-size: 14px;">
-                📧 info@survailpro.ca | 📞 519-770-6634 | 🌐 survailpro.ca
+                📧 {{ $contactEmail }} | 📞 {{ $contactPhone }} | 🌐 survailpro.ca
             </p>
             <p style="opacity: 0.7; font-size: 12px; margin-top: 15px;">
                 Serving Brantford, Hamilton, Waterloo, Haldimand, and Norfolk counties

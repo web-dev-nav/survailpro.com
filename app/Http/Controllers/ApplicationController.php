@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use App\Mail\ApplicationSubmitted;
 use App\Mail\ApplicationThankYou;
+use App\Models\ContactSetting;
 
 class ApplicationController extends Controller
 {
@@ -129,6 +130,11 @@ class ApplicationController extends Controller
                     $applicantEmail = $sanitizedData['email'];
                     $mailDriver = env('MAIL_MAILER', 'log');
 
+                    // Get contact settings from database
+                    $contactSettings = ContactSetting::first();
+                    $contactPhone = $contactSettings->main_phone_number ?? '519-770-6634';
+                    $contactEmail = $contactSettings->email ?? 'don@survailpro.ca';
+
                     \Log::info('Sending application notification emails', [
                         'driver' => $mailDriver,
                         'admin_email' => $adminEmail,
@@ -137,12 +143,14 @@ class ApplicationController extends Controller
                     ]);
 
                     // Send structured email to HR with resume attachment
-                    Mail::to($adminEmail)->send(new ApplicationSubmitted($applicationData, $resumePath));
+                    Mail::to($adminEmail)->send(new ApplicationSubmitted($applicationData, $resumePath, $contactPhone, $contactEmail));
 
                     // Send thank you email to applicant
                     Mail::to($applicantEmail)->send(new ApplicationThankYou(
                         $applicationData['first_name'],
-                        $applicationData['last_name']
+                        $applicationData['last_name'],
+                        $contactPhone,
+                        $contactEmail
                     ));
 
                     if ($mailDriver === 'log') {

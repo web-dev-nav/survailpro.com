@@ -14,13 +14,17 @@ class ApplicationThankYou extends Mailable
     use Queueable, SerializesModels;
 
     public $applicantName;
+    public $contactPhone;
+    public $contactEmail;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($firstName, $lastName)
+    public function __construct($firstName, $lastName, $contactPhone = '519-770-6634', $contactEmail = 'info@survailpro.ca')
     {
         $this->applicantName = $firstName . ' ' . $lastName;
+        $this->contactPhone = $contactPhone;
+        $this->contactEmail = $contactEmail;
     }
 
     /**
@@ -42,6 +46,8 @@ class ApplicationThankYou extends Mailable
             view: 'emails.application-thankyou',
             with: [
                 'applicantName' => $this->applicantName,
+                'contactPhone' => $this->contactPhone,
+                'contactEmail' => $this->contactEmail,
             ]
         );
     }

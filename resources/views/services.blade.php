@@ -75,8 +75,8 @@
                     <a href="{{ route('contact') }}" class="bg-white text-survail-green px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors">
                         Get Free Quote
                     </a>
-                    <a href="tel:519-770-6634" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 px-8 py-3 rounded-full font-bold text-lg transition-colors">
-                        Call: 519-770-6634
+                    <a href="tel:{{ preg_replace('/\\s+/', '', $globalContact->main_phone_number ?? '519-770-6634') }}" class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 px-8 py-3 rounded-full font-bold text-lg transition-colors">
+                        Call: {{ $globalContact->main_phone_number ?? '519-770-6634' }}
                     </a>
                 </div>
             </div>

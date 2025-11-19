@@ -16,14 +16,18 @@ class ApplicationSubmitted extends Mailable
 
     public $applicationData;
     public $resumePath;
+    public $contactPhone;
+    public $contactEmail;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($applicationData, $resumePath = null)
+    public function __construct($applicationData, $resumePath = null, $contactPhone = '519-770-6634', $contactEmail = 'hr@survailpro.ca')
     {
         $this->applicationData = $applicationData;
         $this->resumePath = $resumePath;
+        $this->contactPhone = $contactPhone;
+        $this->contactEmail = $contactEmail;
     }
 
     /**
@@ -46,6 +50,8 @@ class ApplicationSubmitted extends Mailable
             with: [
                 'applicationData' => $this->applicationData,
                 'resumePath' => $this->resumePath,
+                'contactPhone' => $this->contactPhone,
+                'contactEmail' => $this->contactEmail,
             ]
         );
     }

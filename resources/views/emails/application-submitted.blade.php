@@ -340,7 +340,7 @@
         <div class="footer">
             <p style="margin: 0; font-weight: bold;">SurVail Protection & Investigation Services</p>
             <p style="margin: 5px 0 0 0; opacity: 0.8;">
-                📧 hr@survailpro.ca | 📞 519-770-6634 | 🌐 survailpro.ca
+                📧 {{ $contactEmail }} | 📞 {{ $contactPhone }} | 🌐 survailpro.ca
             </p>
         </div>
     </div>
