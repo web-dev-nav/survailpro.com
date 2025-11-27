@@ -28,6 +28,7 @@
                     <li>• Retail location protection</li>
                     <li>• Warehouse security</li>
                     <li>• Corporate facility security</li>
+                    <li>• FireWatch/Recovery Security</li>
                 </ul>
             </div>
 
@@ -45,6 +46,9 @@
                     <li>• Festival management</li>
                     <li>• Sporting events</li>
                     <li>• Crowd control</li>
+                    <li>• Corporate Events</li>
+                    <li>• Weddings</li>
+                    <li>• Funerals</li>
                 </ul>
             </div>
 

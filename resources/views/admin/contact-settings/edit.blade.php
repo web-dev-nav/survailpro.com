@@ -130,25 +130,39 @@
 
                         <div id="serviceAreaList" class="space-y-4">
                             @forelse($serviceAreas as $index => $area)
-                                <div class="grid md:grid-cols-2 gap-4 service-area-entry bg-gray-50 rounded-2xl p-4">
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
-                                        <input type="text" name="service_areas[{{ $index }}][title]" value="{{ $area['title'] ?? '' }}" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">Subtitle</label>
-                                        <input type="text" name="service_areas[{{ $index }}][subtitle]" value="{{ $area['subtitle'] ?? '' }}" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                <div class="service-area-entry bg-gray-50 rounded-2xl p-4 relative">
+                                    <button type="button" class="delete-entry absolute top-2 right-2 text-red-600 hover:text-red-800 transition-colors" title="Remove this entry">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </button>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                                            <input type="text" name="service_areas[{{ $index }}][title]" value="{{ $area['title'] ?? '' }}" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Subtitle</label>
+                                            <input type="text" name="service_areas[{{ $index }}][subtitle]" value="{{ $area['subtitle'] ?? '' }}" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                        </div>
                                     </div>
                                 </div>
                             @empty
-                                <div class="grid md:grid-cols-2 gap-4 service-area-entry bg-gray-50 rounded-2xl p-4">
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
-                                        <input type="text" name="service_areas[0][title]" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">Subtitle</label>
-                                        <input type="text" name="service_areas[0][subtitle]" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                <div class="service-area-entry bg-gray-50 rounded-2xl p-4 relative">
+                                    <button type="button" class="delete-entry absolute top-2 right-2 text-red-600 hover:text-red-800 transition-colors" title="Remove this entry">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </button>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                                            <input type="text" name="service_areas[0][title]" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Subtitle</label>
+                                            <input type="text" name="service_areas[0][subtitle]" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                        </div>
                                     </div>
                                 </div>
                             @endforelse
@@ -172,21 +186,49 @@
         const list = document.getElementById('serviceAreaList');
         let index = list.querySelectorAll('.service-area-entry').length;
 
+        // Add delete functionality to existing entries
+        function attachDeleteHandlers() {
+            const deleteButtons = list.querySelectorAll('.delete-entry');
+            deleteButtons.forEach(btn => {
+                btn.onclick = function() {
+                    if (list.querySelectorAll('.service-area-entry').length > 1) {
+                        this.closest('.service-area-entry').remove();
+                    } else {
+                        alert('At least one service area entry is required.');
+                    }
+                };
+            });
+        }
+
+        // Attach handlers to initial entries
+        attachDeleteHandlers();
+
+        // Add new entry
         addBtn.addEventListener('click', () => {
             const wrapper = document.createElement('div');
-            wrapper.className = 'grid md:grid-cols-2 gap-4 service-area-entry bg-gray-50 rounded-2xl p-4';
+            wrapper.className = 'service-area-entry bg-gray-50 rounded-2xl p-4 relative';
             wrapper.innerHTML = `
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
-                    <input type="text" name="service_areas[${index}][title]" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Subtitle</label>
-                    <input type="text" name="service_areas[${index}][subtitle]" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                <button type="button" class="delete-entry absolute top-2 right-2 text-red-600 hover:text-red-800 transition-colors" title="Remove this entry">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                        <input type="text" name="service_areas[${index}][title]" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Subtitle</label>
+                        <input type="text" name="service_areas[${index}][subtitle]" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                    </div>
                 </div>
             `;
             list.appendChild(wrapper);
             index++;
+
+            // Attach delete handler to the new entry
+            attachDeleteHandlers();
         });
     });
 </script>
