@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\Partner;
 use App\Models\ContactSetting;
+use App\Services\AnalyticsService;
 
 class AdminController extends Controller
 {
@@ -48,12 +49,25 @@ class AdminController extends Controller
         ])->withInput($request->except('password'));
     }
 
-    public function dashboard()
+    public function dashboard(AnalyticsService $analyticsService)
     {
         $partnerCount = Partner::count();
         $contactSettings = ContactSetting::first();
+        $analytics = [
+            'enabled' => $analyticsService->isConfigured(),
+            'overview' => null,
+            'error' => null,
+        ];
 
-        return view('admin.dashboard', compact('partnerCount', 'contactSettings'));
+        if ($analytics['enabled']) {
+            try {
+                $analytics['overview'] = $analyticsService->getOverview();
+            } catch (\Throwable $e) {
+                $analytics['error'] = 'Analytics data is not available right now.';
+            }
+        }
+
+        return view('admin.dashboard', compact('partnerCount', 'contactSettings', 'analytics'));
     }
 
     public function logout(Request $request)

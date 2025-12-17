@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ContactSettingsController;
+use App\Http\Controllers\Admin\AnalyticsSettingsController;
 use App\Models\Partner;
 use App\Models\ContactSetting;
 
@@ -44,5 +45,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('partners', PartnerController::class)->names('admin.partners')->except(['show']);
         Route::get('contact-settings', [ContactSettingsController::class, 'edit'])->name('admin.contact.edit');
         Route::put('contact-settings', [ContactSettingsController::class, 'update'])->name('admin.contact.update');
+        Route::get('analytics-settings', [AnalyticsSettingsController::class, 'edit'])->name('admin.analytics.edit');
+        Route::post('analytics-settings', [AnalyticsSettingsController::class, 'update'])->name('admin.analytics.update');
     });
 });

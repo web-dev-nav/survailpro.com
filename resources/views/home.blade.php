@@ -73,7 +73,7 @@
 <!-- Services Overview -->
 <section class="py-16 lg:py-24 bg-white">
     <div class="w-full px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
+        <div class="w-full">
             <div class="text-center mb-16">
                 <h3 class="text-3xl lg:text-5xl font-bold text-survail-brown mb-6">Professional Security Services</h3>
                 <p class="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -335,25 +335,25 @@
     }
 
     .partner-slide {
-        width: clamp(220px, 22vw, 260px);
+        width: clamp(180px, 18vw, 230px);
         flex: 0 0 auto;
     }
 
     @media (min-width: 1280px) {
         .partner-slide {
-            width: clamp(240px, 18vw, 300px);
+            width: clamp(200px, 14vw, 240px);
         }
     }
 
     @media (max-width: 1024px) {
         .partner-slide {
-            width: clamp(220px, 28vw, 250px);
+            width: clamp(180px, 22vw, 230px);
         }
     }
 
     @media (max-width: 768px) {
         .partner-slide {
-            width: clamp(200px, 65vw, 240px);
+            width: clamp(170px, 55vw, 220px);
         }
     }
 
@@ -410,9 +410,9 @@
         let autoplayInterval = null;
 
         function getDesiredSlides() {
-            if (window.innerWidth >= 1280) return 4;
-            if (window.innerWidth >= 1024) return 3;
-            if (window.innerWidth >= 768) return 2;
+            if (window.innerWidth >= 1280) return 5;
+            if (window.innerWidth >= 1024) return 4;
+            if (window.innerWidth >= 768) return 3;
             if (window.innerWidth >= 640) return 2;
             return 1;
         }
