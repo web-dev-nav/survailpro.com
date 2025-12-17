@@ -266,7 +266,7 @@
     <div class="w-full px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-12">
-                <h3 class="text-3xl lg:text-5xl font-bold text-survail-brown mb-4">Our Trusted Partners</h3>
+                <h3 class="text-3xl lg:text-5xl font-bold text-survail-brown mb-4">Our Valued client links</h3>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                     We collaborate with leading organizations to deliver exceptional security solutions
                 </p>
@@ -290,7 +290,7 @@
                                 <a href="{{ $partner->website_url ?? '#' }}" target="_blank" class="partner-card block bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                                     <img src="{{ $partner->logo_url ?? $partner->logo_path ?? asset('assets/images/partners/logoipsum-391.png') }}"
                                          alt="{{ $partner->name ?? 'Partner Company' }}"
-                                         class="partner-logo w-auto mx-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
+                                         class="partner-logo w-auto mx-auto object-contain transition-transform duration-300 hover:scale-105">
                                 </a>
                             </div>
                         @endforeach
@@ -331,7 +331,7 @@
     }
 
     .partner-logo {
-        height: 5rem;
+        height: 6rem;
     }
 
     .partner-slide {
@@ -367,7 +367,7 @@
         }
 
         .partner-logo {
-            height: 3.5rem;
+            height: 4.5rem;
         }
     }
 

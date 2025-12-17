@@ -161,7 +161,7 @@ Comment out or remove this line (around line 463):
 
 Edit line 269:
 ```html
-<h3 class="text-3xl lg:text-5xl font-bold text-survail-brown mb-4">Our Trusted Partners</h3>
+<h3 class="text-3xl lg:text-5xl font-bold text-survail-brown mb-4">Our Valued client links</h3>
 ```
 
 Change to:
@@ -235,7 +235,7 @@ Here's a complete example of adding "Google" as a partner:
 
 ### 3. Test:
 - Visit homepage: `https://survailpro.ca`
-- Scroll to "Our Trusted Partners" section
+- Scroll to "Our Valued client links" section
 - Click arrows or dots to navigate
 - Hover over logo to see it in color
 - Click logo to visit Google's website
@@ -266,7 +266,7 @@ Here's a complete example of adding "Google" as a partner:
 
 ## 📊 Section Location
 
-The "Our Trusted Partners" section appears:
+The "Our Valued client links" section appears:
 - **After:** Service coverage areas
 - **Before:** Call to Action section
 - **Position:** Near the bottom of the homepage
