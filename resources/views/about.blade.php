@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'About Us - SurVail Protection & Investigation Services')
-@section('description', 'Learn about SurVail Protection & Investigation Services. Over 42 years of professional security experience in Southern Ontario.')
+@section('description', 'Learn about SurVail Protection & Investigation Services. 42 years of combined management experience in Southern Ontario.')
 
 @section('content')
 <div class="min-h-screen py-16">
@@ -9,7 +9,7 @@
         <div class="text-center mb-16">
             <h1 class="text-4xl lg:text-6xl font-bold text-survail-brown mb-6">About Us</h1>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                Professional security and investigation services with over 42 years of experience serving Southern Ontario.
+                Professional security and investigation services with 42 years of combined management experience serving Southern Ontario.
             </p>
         </div>
 
@@ -31,7 +31,7 @@
                         <svg class="w-6 h-6 text-yellow-300 mr-3 mt-1" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                         </svg>
-                        <span>42+ years of proven experience</span>
+                        <span>42 years of combined management experience</span>
                     </li>
                     <li class="flex items-start">
                         <svg class="w-6 h-6 text-yellow-300 mr-3 mt-1" fill="currentColor" viewBox="0 0 20 20">
