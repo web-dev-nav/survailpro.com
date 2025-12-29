@@ -42,6 +42,7 @@ Route::prefix('admin')->group(function () {
     Route::middleware('admin.auth')->group(function () {
         Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
         Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+        Route::patch('partners/{partner}/order', [PartnerController::class, 'updateOrder'])->name('admin.partners.order');
         Route::resource('partners', PartnerController::class)->names('admin.partners')->except(['show']);
         Route::get('contact-settings', [ContactSettingsController::class, 'edit'])->name('admin.contact.edit');
         Route::put('contact-settings', [ContactSettingsController::class, 'update'])->name('admin.contact.update');

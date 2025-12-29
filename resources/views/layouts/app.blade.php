@@ -61,8 +61,17 @@
                 }
             }
         }
-    </script>
 
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RXWW7S01M1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RXWW7S01M1');
+    </script>
     <!-- Mobile viewport height fix -->
     <style>
         /* Fix for mobile viewport height issues */

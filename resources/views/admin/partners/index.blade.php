@@ -10,7 +10,7 @@
                 <div>
                     <p class="text-sm uppercase tracking-widest text-survail-green">Admin</p>
                     <h1 class="text-3xl font-bold text-gray-900">Partner Logos</h1>
-                    <p class="text-gray-600">Upload, edit, or remove logos shown on the homepage carousel.</p>
+                    <p class="text-gray-600">Upload, edit, or remove logos shown on the homepage partners grid.</p>
                 </div>
                 <a href="{{ route('admin.partners.create') }}" class="inline-flex items-center gap-2 px-5 py-3 bg-survail-green text-white rounded-xl font-semibold shadow-lg hover:bg-survail-green-dark transition">
                     <span class="text-xl leading-none">+</span>
@@ -56,9 +56,16 @@
                                             <span class="text-sm text-gray-400">—</span>
                                         @endif
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="text-sm text-gray-600">{{ $partner->display_order }}</span>
-                                    </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <form action="{{ route('admin.partners.order', $partner) }}" method="POST" class="flex items-center gap-2">
+                                        @csrf
+                                        @method('PATCH')
+                                        <input type="number" name="display_order" value="{{ old('display_order', $partner->display_order) }}" min="0" class="w-20 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-survail-green focus:border-transparent">
+                                        <button type="submit" class="inline-flex items-center px-3 py-1.5 rounded-lg bg-survail-green text-white text-sm font-semibold hover:bg-survail-green-dark transition">
+                                            Save
+                                        </button>
+                                    </form>
+                                </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2">
                                         <a href="{{ route('admin.partners.edit', $partner) }}" class="inline-flex items-center px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition">
                                             Edit

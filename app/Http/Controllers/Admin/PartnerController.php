@@ -82,6 +82,19 @@ class PartnerController extends Controller
         return redirect()->route('admin.partners.index')->with('status', 'Partner removed.');
     }
 
+    public function updateOrder(Request $request, Partner $partner): RedirectResponse
+    {
+        $data = $request->validate([
+            'display_order' => ['required', 'integer', 'min:0'],
+        ]);
+
+        $partner->update([
+            'display_order' => $data['display_order'],
+        ]);
+
+        return back()->with('status', 'Partner order updated.');
+    }
+
     private function deleteLogo(?string $path): void
     {
         if (!$path) {
