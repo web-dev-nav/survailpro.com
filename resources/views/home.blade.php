@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'SurVail Protection & Investigation Services - Professional Security Solutions')
-@section('description', 'Professional security and investigation services in Southern Ontario. Over 42 years of experience in protection, event security, and specialized consulting services.')
+@section('description', 'Professional security and investigation services in Southern Ontario. 42 years of combined management experience in protection, event security, and specialized consulting services.')
 
 @section('content')
 <!-- Hero Section -->
@@ -21,7 +21,7 @@
                     <span class="text-yellow-400 animate-float inline-block">Safe</span>
                 </h2>
                 <p class="text-lg xs:text-xl sm:text-2xl lg:text-3xl text-gray-200 mb-5 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2">
-                    Professional security solutions with over <strong class="text-yellow-400">42 years</strong> of experience in Southern Ontario
+                    Professional security solutions with <strong class="text-yellow-400">42 years</strong> of combined management experience in Southern Ontario
                 </p>
             </div>
 
@@ -181,7 +181,7 @@
                         </svg>
                     </div>
                     <h4 class="text-xl font-bold mb-3">Proven Experience</h4>
-                    <p class="text-green-100 text-sm">Over 42 years in justice, protection, and security sectors with 500+ successful events managed.</p>
+                    <p class="text-green-100 text-sm">42 years of combined management experience in justice, protection, and security sectors with 500+ successful events managed.</p>
                 </div>
 
                 <!-- Credential 3 -->

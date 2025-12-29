@@ -126,7 +126,7 @@
             </div>
 
             <p>
-                We appreciate your interest in joining our team. With over 42 years of experience
+                We appreciate your interest in joining our team. With 42 years of combined management experience
                 in the protection and investigation sector, we are committed to maintaining the
                 highest standards of professionalism and security services in Southern Ontario.
             </p>
@@ -170,7 +170,7 @@
         <!-- Footer -->
         <div class="footer">
             <p style="font-weight: bold; margin-bottom: 10px;">SurVail Protection & Investigation Services</p>
-            <p>Protecting Southern Ontario for Over 42 Years</p>
+            <p>Protecting Southern Ontario with 42 years of combined management experience</p>
             <p style="opacity: 0.8; font-size: 14px;">
                 📧 {{ $contactEmail }} | 📞 {{ $contactPhone }} | 🌐 survailpro.ca
             </p>

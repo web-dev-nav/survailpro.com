@@ -5,7 +5,7 @@
     <title>@yield('title', 'SurVail Protection & Investigation Services - Professional Security Solutions')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="@yield('keywords', 'Investigation, Security, Protection, Brantford Ontario, Guard-Services, Police-Service, concierge, Safety, Control, certification')">
-    <meta name="description" content="@yield('description', 'Professional security and investigation services in Southern Ontario. Over 42 years of experience in protection, event security, and specialized consulting services.')">
+    <meta name="description" content="@yield('description', 'Professional security and investigation services in Southern Ontario. 42 years of combined management experience in protection, event security, and specialized consulting services.')">
 
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -137,12 +137,12 @@
         <div class="w-full px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20 lg:h-24 max-w-7xl mx-auto">
                 <!-- Logo and Company Info -->
-                <div class="flex items-center space-x-3 lg:space-x-4">
-                    <img src="{{ asset('assets/images/wp41039c21_06.png') }}" alt="SurVail Logo" class="h-12 w-auto lg:h-16">
+                <a href="{{ route('home') }}" class="flex items-center space-x-3 lg:space-x-4 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-survail-green rounded-md">
+                    <img src="{{ asset('assets/images/wp41039c21_06.png') }}" alt="SurVail Logo" class="h-12 w-auto lg:h-16 transition-transform duration-200 group-hover:scale-105">
                     <div class="hidden sm:block">
-                        <h1 class="text-lg lg:text-2xl font-bold text-survail-brown leading-tight">SurVail Protection &<br class="hidden lg:block"> Investigation Services</h1>
+                        <h1 class="text-lg lg:text-2xl font-bold text-survail-brown leading-tight group-hover:text-survail-brown-light transition-colors">SurVail Protection &<br class="hidden lg:block"> Investigation Services</h1>
                     </div>
-                </div>
+                </a>
 
                 <!-- Desktop Contact Info -->
                 <div class="hidden lg:block text-right">
@@ -222,7 +222,7 @@
                         <h3 class="text-xl font-bold">SurVail Protection & Investigation Services</h3>
                     </div>
                     <p class="text-gray-300 mb-4 leading-relaxed">
-                        Professional security and investigation services in Southern Ontario. Over 42 years of experience in protection, event security, and specialized consulting services.
+                        Professional security and investigation services in Southern Ontario. 42 years of combined management experience in protection, event security, and specialized consulting services.
                     </p>
                     <div class="flex space-x-4">
                         <div>
