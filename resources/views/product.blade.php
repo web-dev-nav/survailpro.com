@@ -72,8 +72,8 @@
                 Four simple steps keep your property protected around the clock—from detection to resolution.
             </p>
             
-            <!-- Process Steps - 2x2 Grid -->
-            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <!-- Process Steps - 4x1 Grid for md and above -->
+            <div class="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
                 <!-- Step 1 -->
                 <div class="bg-white border border-gray-200 p-8 rounded-xl hover-lift flex items-start gap-4">
                     <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
