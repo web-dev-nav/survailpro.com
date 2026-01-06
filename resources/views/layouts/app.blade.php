@@ -267,8 +267,8 @@
                 <p class="text-gray-400">
                     &copy; {{ date('Y') }} SurVail Protection & Investigation Services. All rights reserved.
                 </p>
-                <p class="text-gray-500 text-sm mt-2">
-                    Built by <a href="https://brainandbolt.com/" target="_blank" rel="noopener noreferrer" class="text-survail-green hover:text-yellow-400 transition-colors">brainandbolt</a>
+                <p class="text-white text-sm mt-2">
+                    Built by <a href="https://brainandbolt.com/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gray-300 transition-colors">brainandbolt</a>
                 </p>
             </div>
         </div>
