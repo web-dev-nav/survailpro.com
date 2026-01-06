@@ -29,10 +29,10 @@
 @section('content')
 
     <!-- Hero Section -->
-    <section class="gradient-green text-white py-16 px-6 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+    <section class="relative gradient-green text-white">
+        <div class="max-w-7xl mx-auto flex items-center min-h-[600px]">
             <!-- Left Content -->
-            <div>
+            <div class="w-full md:w-1/2 px-6 py-16">
                 <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-5">
                     Turn Your Cameras Into a <span class="text-yellow-400">Live Security Team</span>
                 </h1>
@@ -55,11 +55,10 @@
                     </a>
                 </div>
             </div>
-            
-            <!-- Right Content - Security Monitor -->
-            <div class="relative hidden md:block">
-                <img src="{{ asset('assets/images/tasha-kostyuk-TtMKq3lJm-U-unsplash(1).jpg') }}" alt="Security monitoring dashboard" class="rounded-lg shadow-2xl">
-            </div>
+        </div>
+        <!-- Right Background Image -->
+        <div class="absolute top-0 right-0 w-1/2 h-full hidden md:block">
+            <img src="{{ asset('assets/images/tasha-kostyuk-TtMKq3lJm-U-unsplash(1).jpg') }}" alt="Security monitoring dashboard" class="w-full h-full object-cover">
         </div>
     </section>
 
