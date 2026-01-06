@@ -72,8 +72,8 @@
                 Four simple steps keep your property protected around the clock—from detection to resolution.
             </p>
             
-            <!-- Process Steps - 4x1 Grid for md and above -->
-            <div class="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <!-- Process Steps - 2x2 Grid -->
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 <!-- Step 1 -->
                 <div class="bg-white border border-gray-200 p-8 rounded-xl hover-lift flex items-start gap-4">
                     <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
@@ -81,7 +81,7 @@
                     </div>
                     <div class="flex-1">
                         <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
-                            Advanced AI Detection
+                            Advanced AI Detection <span class="text-yellow-500 ml-2">-></span>
                         </h3>
                         <p class="text-gray-600 text-sm">
                             AI analyzes camera feeds 24/7, identifying people, vehicles, motion, intrusions, and suspicious activity.
@@ -96,7 +96,7 @@
                     </div>
                     <div class="flex-1">
                         <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
-                            Human Verification
+                            Human Verification <span class="text-yellow-500 ml-2">-></span>
                         </h3>
                         <p class="text-gray-600 text-sm">
                             Trained operators review every AI alert instantly to verify genuine threats and eliminate false alarms.
@@ -111,7 +111,7 @@
                     </div>
                     <div class="flex-1">
                         <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
-                            Active Deterrence
+                            Active Deterrence <span class="text-yellow-500 ml-2">-></span>
                         </h3>
                         <p class="text-gray-600 text-sm">
                             Sirens, strobes, lights, and two-way audio warnings deter intruders before they cause damage.
@@ -190,8 +190,8 @@
 
                 <!-- Right Column - 2 Image Placeholders -->
                 <div class="space-y-4">
-                    <img src="{{ asset('assets/images/jasper-garratt-BPHmP-2spVc-unsplash.jpg') }}" alt="Security monitor" class="rounded-lg h-40 w-full object-cover">
-                    <img src="{{ asset('assets/images/thumbnail_security Industrial site pic.jpg') }}" alt="Security camera system" class="rounded-lg h-40 w-full object-cover">
+                    <img src="{{ asset('assets/images/jasper-garratt-BPHmP-2spVc-unsplash.jpg') }}" alt="Security monitor" class="rounded-lg h-64 w-full object-cover">
+                    <img src="{{ asset('assets/images/thumbnail_security Industrial site pic.jpg') }}" alt="Security camera system" class="rounded-lg h-64 w-full object-cover">
                 </div>
             </div>
 
