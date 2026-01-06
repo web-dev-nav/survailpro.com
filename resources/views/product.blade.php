@@ -73,15 +73,15 @@
             </p>
             
             <!-- Process Steps - Flex row -->
-            <div class="flex flex-wrap items-center justify-center gap-6">
+            <div class="flex flex-wrap items-stretch justify-center gap-6">
 
                 <!-- Step 1 -->
-                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift flex items-start gap-4">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift text-center">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                         <img src="{{ asset('assets/images/cctv-smart-cctv-safety-protection-monitoring-camera-cctv-camera-svgrepo-com.png') }}" alt="AI Detection" class="w-8 h-8">
                     </div>
-                    <div class="flex-1">
-                        <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">
                             Advanced AI Detection
                         </h3>
                         <p class="text-gray-600 text-sm">
@@ -91,19 +91,19 @@
                 </div>
 
                 <!-- Arrow -->
-                <div class="hidden md:block">
+                <div class="hidden md:flex items-center">
                     <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                     </svg>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift flex items-start gap-4">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift text-center">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                         <img src="{{ asset('assets/images/check-mark_5290982.png') }}" alt="Human Verification" class="w-8 h-8">
                     </div>
-                    <div class="flex-1">
-                        <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">
                             Human Verification
                         </h3>
                         <p class="text-gray-600 text-sm">
@@ -113,19 +113,19 @@
                 </div>
 
                 <!-- Arrow -->
-                <div class="hidden md:block">
+                <div class="hidden md:flex items-center">
                     <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                     </svg>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift flex items-start gap-4">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift text-center">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                         <img src="{{ asset('assets/images/bullhorn_9954748.png') }}" alt="Active Deterrence" class="w-8 h-8">
                     </div>
-                    <div class="flex-1">
-                        <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">
                             Active Deterrence
                         </h3>
                         <p class="text-gray-600 text-sm">
@@ -135,18 +135,18 @@
                 </div>
 
                 <!-- Arrow -->
-                <div class="hidden md:block">
+                <div class="hidden md:flex items-center">
                     <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                     </svg>
                 </div>
 
                 <!-- Step 4 -->
-                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift flex items-start gap-4">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
+                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift text-center">
+                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                         <img src="{{ asset('assets/images/security-worker-svgrepo-com-2.png') }}" alt="Guard Dispatch" class="w-8 h-8">
                     </div>
-                    <div class="flex-1">
+                    <div>
                         <h3 class="font-bold text-lg mb-2">Guard/Police Dispatch</h3>
                         <p class="text-gray-600 text-sm">
                             If threats persist, police or security guards respond immediately with detailed incident reports.
