@@ -21,9 +21,9 @@ Route::get('/services', function () {
     return view('services');
 })->name('services');
 
-Route::get('/services-new', function () {
-    return view('services-new');
-})->name('services-new');
+Route::get('/product', function () {
+    return view('product');
+})->name('product');
 
 Route::get('/contact', function () {
     $contactSettings = ContactSetting::first();

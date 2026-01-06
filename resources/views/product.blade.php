@@ -58,7 +58,7 @@
             
             <!-- Right Content - Security Monitor -->
             <div class="relative hidden md:block">
-                <img src="{{ asset('assets/images/thumbnail_security Industrial site pic.jpg') }}" alt="Security monitoring dashboard" class="rounded-lg shadow-2xl">
+                <img src="{{ asset('assets/images/tasha-kostyuk-TtMKq3lJm-U-unsplash(1).jpg') }}" alt="Security monitoring dashboard" class="rounded-lg shadow-2xl">
             </div>
         </div>
     </section>
@@ -192,7 +192,7 @@
                 <!-- Right Column - 2 Image Placeholders -->
                 <div class="space-y-4">
                     <img src="{{ asset('assets/images/jasper-garratt-BPHmP-2spVc-unsplash.jpg') }}" alt="Security monitor" class="rounded-lg h-40 w-full object-cover">
-                    <img src="{{ asset('assets/images/tasha-kostyuk-TtMKq3lJm-U-unsplash(1).jpg') }}" alt="Security camera system" class="rounded-lg h-40 w-full object-cover">
+                    <img src="{{ asset('assets/images/thumbnail_security Industrial site pic.jpg') }}" alt="Security camera system" class="rounded-lg h-40 w-full object-cover">
                 </div>
             </div>
 
