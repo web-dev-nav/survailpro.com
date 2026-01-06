@@ -72,16 +72,17 @@
                 Four simple steps keep your property protected around the clock—from detection to resolution.
             </p>
             
-            <!-- Process Steps - 2x2 Grid -->
-            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <!-- Process Steps - Flex row -->
+            <div class="flex flex-wrap items-center justify-center gap-6">
+
                 <!-- Step 1 -->
-                <div class="bg-white border border-gray-200 p-8 rounded-xl hover-lift flex items-start gap-4">
+                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift flex items-start gap-4">
                     <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
                         <img src="{{ asset('assets/images/cctv-smart-cctv-safety-protection-monitoring-camera-cctv-camera-svgrepo-com.png') }}" alt="AI Detection" class="w-8 h-8">
                     </div>
                     <div class="flex-1">
                         <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
-                            Advanced AI Detection <span class="text-yellow-500 ml-2">-></span>
+                            Advanced AI Detection
                         </h3>
                         <p class="text-gray-600 text-sm">
                             AI analyzes camera feeds 24/7, identifying people, vehicles, motion, intrusions, and suspicious activity.
@@ -89,14 +90,21 @@
                     </div>
                 </div>
 
+                <!-- Arrow -->
+                <div class="hidden md:block">
+                    <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </div>
+
                 <!-- Step 2 -->
-                <div class="bg-white border border-gray-200 p-8 rounded-xl hover-lift flex items-start gap-4">
+                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift flex items-start gap-4">
                     <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
                         <img src="{{ asset('assets/images/check-mark_5290982.png') }}" alt="Human Verification" class="w-8 h-8">
                     </div>
                     <div class="flex-1">
                         <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
-                            Human Verification <span class="text-yellow-500 ml-2">-></span>
+                            Human Verification
                         </h3>
                         <p class="text-gray-600 text-sm">
                             Trained operators review every AI alert instantly to verify genuine threats and eliminate false alarms.
@@ -104,14 +112,21 @@
                     </div>
                 </div>
 
+                <!-- Arrow -->
+                <div class="hidden md:block">
+                    <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </div>
+
                 <!-- Step 3 -->
-                <div class="bg-white border border-gray-200 p-8 rounded-xl hover-lift flex items-start gap-4">
+                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift flex items-start gap-4">
                     <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
                         <img src="{{ asset('assets/images/bullhorn_9954748.png') }}" alt="Active Deterrence" class="w-8 h-8">
                     </div>
                     <div class="flex-1">
                         <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
-                            Active Deterrence <span class="text-yellow-500 ml-2">-></span>
+                            Active Deterrence
                         </h3>
                         <p class="text-gray-600 text-sm">
                             Sirens, strobes, lights, and two-way audio warnings deter intruders before they cause damage.
@@ -119,8 +134,15 @@
                     </div>
                 </div>
 
+                <!-- Arrow -->
+                <div class="hidden md:block">
+                    <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </div>
+
                 <!-- Step 4 -->
-                <div class="bg-white border border-gray-200 p-8 rounded-xl hover-lift flex items-start gap-4">
+                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift flex items-start gap-4">
                     <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
                         <img src="{{ asset('assets/images/security-worker-svgrepo-com-2.png') }}" alt="Guard Dispatch" class="w-8 h-8">
                     </div>
