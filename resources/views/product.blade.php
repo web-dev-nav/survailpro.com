@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'SurVail Remote Monitoring - Live Security Team')
-@section('description', 'Turn your cameras into a live security team with 24/7 remote monitoring, AI detection, and licensed human operators.')
+@section('title', 'SurVail Video Monitoring - Advanced CCTV Security')
+@section('description', 'Professional video monitoring and CCTV security solutions with AI detection, real-time alerts, and 24/7 surveillance for your property.')
 
 @push('styles')
 <style>
@@ -34,10 +34,10 @@
             <!-- Left Content -->
             <div class="w-full md:w-1/2 px-6 py-16">
                 <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-5">
-                    Turn Your Cameras Into a <span class="text-yellow-400">Live Security Team</span>
+                    Professional <span class="text-yellow-400">Video Monitoring</span> for Total Security
                 </h1>
                 <p class="text-lg mb-8 text-gray-200 leading-relaxed">
-                    Real intervention. Real-time deterrence — Get <span class="font-bold">24/7</span> remote monitoring with AI detection and licensed human operators verification—without the cost of overnight guards.
+                    Advanced CCTV video monitoring with <span class="font-bold">AI-powered detection</span>, real-time alerts, and expert response — Protect what matters most with crystal-clear surveillance 24/7.
                 </p>
                 <div class="flex flex-wrap gap-3">
                     <a href="{{ route('contact') }}" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition flex items-center gap-2 text-sm">
@@ -66,10 +66,10 @@
     <section id="how-it-works" class="py-16 px-6 bg-white">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-3">
-                How <span class="text-yellow-500">SurVail</span> Remote Monitoring Works
+                How <span class="text-yellow-500">SurVail</span> Video Monitoring Works
             </h2>
             <p class="text-center text-gray-600 text-base mb-12">
-                Four simple steps keep your property protected around the clock—from detection to resolution.
+                Intelligent video surveillance powered by AI — Four simple steps keep your property secure from every angle.
             </p>
             
             <!-- Process Steps - Flex row -->
@@ -78,14 +78,14 @@
                 <!-- Step 1 -->
                 <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift text-center">
                     <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <img src="{{ asset('assets/images/cctv-smart-cctv-safety-protection-monitoring-camera-cctv-camera-svgrepo-com.png') }}" alt="AI Detection" class="w-8 h-8">
+                        <img src="{{ asset('assets/images/cctv-smart-cctv-safety-protection-monitoring-camera-cctv-camera-svgrepo-com.png') }}" alt="Video Capture" class="w-8 h-8">
                     </div>
                     <div>
                         <h3 class="font-bold text-lg mb-2">
-                            Advanced AI Detection
+                            High-Definition Video Capture
                         </h3>
                         <p class="text-gray-600 text-sm">
-                            AI analyzes camera feeds 24/7, identifying people, vehicles, motion, intrusions, and suspicious activity.
+                            Crystal-clear CCTV feeds record every moment with advanced camera systems designed for comprehensive property coverage.
                         </p>
                     </div>
                 </div>
@@ -100,14 +100,14 @@
                 <!-- Step 2 -->
                 <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift text-center">
                     <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <img src="{{ asset('assets/images/check-mark_5290982.png') }}" alt="Human Verification" class="w-8 h-8">
+                        <img src="{{ asset('assets/images/check-mark_5290982.png') }}" alt="AI Analysis" class="w-8 h-8">
                     </div>
                     <div>
                         <h3 class="font-bold text-lg mb-2">
-                            Human Verification
+                            Intelligent AI Analysis
                         </h3>
                         <p class="text-gray-600 text-sm">
-                            Trained operators review every AI alert instantly to verify genuine threats and eliminate false alarms.
+                            Machine learning algorithms analyze video in real-time, detecting threats, anomalies, and suspicious behavior instantly.
                         </p>
                     </div>
                 </div>
@@ -122,14 +122,14 @@
                 <!-- Step 3 -->
                 <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift text-center">
                     <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <img src="{{ asset('assets/images/bullhorn_9954748.png') }}" alt="Active Deterrence" class="w-8 h-8">
+                        <img src="{{ asset('assets/images/bullhorn_9954748.png') }}" alt="Real-Time Alerts" class="w-8 h-8">
                     </div>
                     <div>
                         <h3 class="font-bold text-lg mb-2">
-                            Active Deterrence
+                            Real-Time Alerts & Response
                         </h3>
                         <p class="text-gray-600 text-sm">
-                            Sirens, strobes, lights, and two-way audio warnings deter intruders before they cause damage.
+                            Instant notifications with video evidence sent to your team, enabling rapid response to any security incident.
                         </p>
                     </div>
                 </div>
@@ -144,12 +144,12 @@
                 <!-- Step 4 -->
                 <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift text-center">
                     <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <img src="{{ asset('assets/images/security-worker-svgrepo-com-2.png') }}" alt="Guard Dispatch" class="w-8 h-8">
+                        <img src="{{ asset('assets/images/security-worker-svgrepo-com-2.png') }}" alt="Investigation & Records" class="w-8 h-8">
                     </div>
                     <div>
-                        <h3 class="font-bold text-lg mb-2">Guard/Police Dispatch</h3>
+                        <h3 class="font-bold text-lg mb-2">Investigation & Records</h3>
                         <p class="text-gray-600 text-sm">
-                            If threats persist, police or security guards respond immediately with detailed incident reports.
+                            Complete video records with timestamp data provide evidence for investigations and insurance claims.
                         </p>
                     </div>
                 </div>
@@ -161,10 +161,10 @@
     <section class="py-16 px-6 bg-gray-50">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-4xl md:text-5xl font-bold mb-3">
-                Why Choose <span class="text-yellow-500">Remote Monitoring?</span>
+                Why Choose <span class="text-yellow-500">SurVail Video Monitoring?</span>
             </h2>
             <p class="text-gray-600 text-base mb-10 max-w-3xl">
-                Get enterprise-grade security without enterprise costs. Our AI-powered system works with your existing cameras to provide 24/7 protection at a fraction of the cost of traditional security guards.
+                Professional video surveillance with AI intelligence. Monitor your property 24/7 with crystal-clear footage, intelligent threat detection, and expert response capabilities.
             </p>
 
             <div class="grid md:grid-cols-2 gap-8 mb-8">
@@ -173,12 +173,12 @@
                     <!-- Benefit 1 -->
                     <div class="flex gap-4 items-start">
                         <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                             <img src="{{ asset('assets/images/cost-effective-productive-svgrepo-com.png') }}" alt="Cost-Effective" class="w-6 h-6">
+                             <img src="{{ asset('assets/images/cost-effective-productive-svgrepo-com.png') }}" alt="Comprehensive Coverage" class="w-6 h-6">
                         </div>
                         <div>
-                            <h3 class="font-bold text-lg mb-1">Cost-Effective Security</h3>
+                            <h3 class="font-bold text-lg mb-1">Comprehensive Coverage</h3>
                             <p class="text-gray-600 text-sm">
-                                Save up to <span class="font-bold">70%</span> compared to traditional overnight guard services while maintaining superior coverage.
+                                Monitor multiple areas simultaneously with high-definition cameras covering every blind spot on your property.
                             </p>
                         </div>
                     </div>
@@ -186,12 +186,12 @@
                     <!-- Benefit 2 -->
                     <div class="flex gap-4 items-start">
                         <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                            <img src="{{ asset('assets/images/twenty-four-hours-clock-svgrepo-com.png') }}" alt="24/7 Protection" class="w-6 h-6">
+                            <img src="{{ asset('assets/images/twenty-four-hours-clock-svgrepo-com.png') }}" alt="24/7 Recording" class="w-6 h-6">
                         </div>
                         <div>
-                            <h3 class="font-bold text-lg mb-1">True 24/7 Protection</h3>
+                            <h3 class="font-bold text-lg mb-1">Continuous 24/7 Recording</h3>
                             <p class="text-gray-600 text-sm">
-                                Unlike guards who patrol periodically, our system monitors every camera feed continuously, every second.
+                                Never miss a moment with non-stop video recording and intelligent playback search for easy incident investigation.
                             </p>
                         </div>
                     </div>
@@ -199,12 +199,12 @@
                     <!-- Benefit 3 -->
                     <div class="flex gap-4 items-start">
                         <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                            <img src="{{ asset('assets/images/cloud_16622281.png') }}" alt="Existing Cameras" class="w-6 h-6">
+                            <img src="{{ asset('assets/images/cloud_16622281.png') }}" alt="Cloud & Local Storage" class="w-6 h-6">
                         </div>
                         <div>
-                            <h3 class="font-bold text-lg mb-1">Works With Your Existing Cameras</h3>
+                            <h3 class="font-bold text-lg mb-1">Secure Cloud & Local Storage</h3>
                             <p class="text-gray-600 text-sm">
-                                Compatible with most existing camera systems—no need for expensive replacements or overhauls.
+                                Access your video from anywhere with encrypted cloud backup and local storage redundancy for maximum protection.
                             </p>
                         </div>
                     </div>
@@ -220,16 +220,16 @@
             <!-- Feature Cards - 3 across bottom -->
             <div class="grid md:grid-cols-3 gap-4">
                 <div class="bg-green-100 p-6 rounded-lg">
-                    <h3 class="font-bold text-base mb-2">Instant Alerts</h3>
-                    <p class="text-gray-700 text-sm">Real-time notifications when threats are detected and verified.</p>
+                    <h3 class="font-bold text-base mb-2">Smart Threat Detection</h3>
+                    <p class="text-gray-700 text-sm">AI-powered detection identifies intrusions, trespassing, and suspicious behavior automatically.</p>
                 </div>
                 <div class="bg-green-200 p-6 rounded-lg">
-                    <h3 class="font-bold text-base mb-2">Detailed Reports</h3>
-                    <p class="text-gray-700 text-sm">Comprehensive incident documentation with video evidence.</p>
+                    <h3 class="font-bold text-base mb-2">Video Evidence Archive</h3>
+                    <p class="text-gray-700 text-sm">Timestamped video records for investigations, insurance claims, and legal proceedings.</p>
                 </div>
                 <div class="bg-green-100 p-6 rounded-lg">
-                    <h3 class="font-bold text-base mb-2">Rapid Response</h3>
-                    <p class="text-gray-700 text-sm">Average verification time for to respond is under 30 seconds from detection.</p>
+                    <h3 class="font-bold text-base mb-2">Mobile Access</h3>
+                    <p class="text-gray-700 text-sm">View live feeds and recorded footage from anywhere using secure mobile or web apps.</p>
                 </div>
             </div>
         </div>
@@ -319,10 +319,10 @@
     <section class="py-16 px-6 bg-white">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                Ready to Experience Security That Never Sleeps?
+                Ready for Professional Video Monitoring?
             </h2>
             <p class="text-lg text-gray-600 mb-8">
-                Get a free site assessment and discover how SurVail Remote Monitoring can protect your property for less.
+                Get a free site assessment and discover how SurVail Video Monitoring can protect your property with intelligent surveillance.
             </p>
             <div class="flex flex-wrap gap-4 justify-center">
                 <a href="{{ route('contact') }}" class="bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
