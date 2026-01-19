@@ -75,7 +75,7 @@
     </div>
     <!-- Certificate Image - Mobile Only (Below Hero) -->
     <div class="md:hidden absolute bottom-0 left-0 right-0 translate-y-1/2 z-30 flex justify-center px-4">
-        <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-32 h-auto rounded-lg shadow-2xl">
+        <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-3/4 max-w-xs h-auto rounded-lg shadow-2xl">
     </div>
 </section>
 
