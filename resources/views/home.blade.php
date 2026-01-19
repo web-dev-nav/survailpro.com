@@ -80,7 +80,7 @@
 </section>
 
 <!-- Mobile Certificate Spacer -->
-<div class="md:hidden h-20"></div>
+<div class="md:hidden h-48"></div>
 
 <!-- Services Overview -->
 <section class="py-16 lg:py-24 bg-white">
