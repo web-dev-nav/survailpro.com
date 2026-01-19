@@ -114,7 +114,7 @@
                             </svg>
                         </div>
                         <h4 class="text-xl font-bold text-survail-brown mb-3">Physical Protection</h4>
-                        <p class="text-gray-600 leading-relaxed">Professional security personnel for construction sites, retail locations, warehouses, and corporate facilities. Includes mobile command post monitoring and on-site surveillance.</p>
+                        <p class="text-gray-600 leading-relaxed">Professional security personnel for construction sites, retail locations, warehouses, and corporate facilities. Includes mobile command center monitoring.</p>
                     </div>
                     <a href="{{ route('services') }}" class="text-survail-brown font-semibold hover:text-survail-brown-light transition-colors flex items-center">
                         Learn More
