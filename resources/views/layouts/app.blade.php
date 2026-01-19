@@ -179,7 +179,7 @@
                 <div class="hidden lg:flex justify-center space-x-1">
                     <a href="{{ route('home') }}" class="px-6 py-4 text-white font-semibold {{ Route::currentRouteName() == 'home' ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">Home</a>
                     <a href="{{ route('about') }}" class="px-6 py-4 text-white font-semibold {{ Route::currentRouteName() == 'about' ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">About Us</a>
-                    <a href="{{ route('services') }}" class="px-6 py-4 text-white font-semibold {{ Route::currentRouteName() == 'services' ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">Services</a>
+                    <a href="{{ route('services') }}" class="px-6 py-4 text-white font-semibold {{ Route::currentRouteName() == 'services' ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">SurVail Services</a>
                     <a href="{{ route('video-monitoring') }}" class="px-6 py-4 text-white font-semibold {{ Route::currentRouteName() == 'video-monitoring' ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">Video Monitoring</a>
                     <a href="{{ route('contact') }}" class="px-6 py-4 text-white font-semibold {{ Route::currentRouteName() == 'contact' ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">Contact</a>
                     <a href="{{ route('application') }}" class="px-6 py-4 text-white font-semibold {{ in_array(Route::currentRouteName(), ['application', 'apply']) ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">Apply Now</a>
@@ -190,7 +190,7 @@
                     <div class="px-4 py-2 space-y-1">
                         <a href="{{ route('home') }}" class="block px-4 py-3 text-white font-semibold {{ Route::currentRouteName() == 'home' ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">Home</a>
                         <a href="{{ route('about') }}" class="block px-4 py-3 text-white font-semibold {{ Route::currentRouteName() == 'about' ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">About Us</a>
-                        <a href="{{ route('services') }}" class="block px-4 py-3 text-white font-semibold {{ Route::currentRouteName() == 'services' ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">Services</a>
+                        <a href="{{ route('services') }}" class="block px-4 py-3 text-white font-semibold {{ Route::currentRouteName() == 'services' ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">SurVail Services</a>
                         <a href="{{ route('video-monitoring') }}" class="block px-4 py-3 text-white font-semibold {{ Route::currentRouteName() == 'video-monitoring' ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">Video Monitoring</a>
                         <a href="{{ route('contact') }}" class="block px-4 py-3 text-white font-semibold {{ Route::currentRouteName() == 'contact' ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">Contact</a>
                         <a href="{{ route('application') }}" class="block px-4 py-3 text-white font-semibold {{ in_array(Route::currentRouteName(), ['application', 'apply']) ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">Apply Now</a>
@@ -244,7 +244,7 @@
                     <ul class="space-y-2">
                         <li><a href="{{ route('home') }}" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
                         <li><a href="{{ route('about') }}" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="{{ route('services') }}" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="{{ route('services') }}" class="text-gray-300 hover:text-white transition-colors">SurVail Services</a></li>
                         <li><a href="{{ route('contact') }}" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
                         <li><a href="{{ route('application') }}" class="text-gray-300 hover:text-white transition-colors">Apply Now</a></li>
                     </ul>
