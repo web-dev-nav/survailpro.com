@@ -64,11 +64,11 @@
                 </p>
             </div>
             <div class="flex justify-center">
-                <div class="bg-white rounded-2xl shadow-xl p-8 max-w-4xl">
+                <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="bg-white rounded-2xl shadow-xl p-8 max-w-4xl hover:shadow-2xl transition-shadow">
                     <img src="/assets/images/certificate.png"
                          alt="Community Vote Brantford 2025 Platinum Winner - SurVail Protection & Investigation Services"
-                         class="w-full h-auto rounded-lg shadow-lg">
-                </div>
+                         class="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity">
+                </a>
             </div>
         </div>
     </div>
