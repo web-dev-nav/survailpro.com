@@ -13,7 +13,7 @@
     </div>
 
     <!-- Certificate Image - Hidden on mobile, shown on desktop right side -->
-    <div class="hidden md:absolute md:top-1/2 md:right-8 lg:right-20 z-30 md:max-w-[160px] lg:max-w-xs md:transform md:-translate-y-1/2">
+    <div class="hidden md:block absolute md:top-1/2 md:right-8 lg:right-20 z-30 md:max-w-[160px] lg:max-w-xs md:transform md:-translate-y-1/2">
         <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-full h-auto rounded-lg shadow-2xl">
     </div>
 
