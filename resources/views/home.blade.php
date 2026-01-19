@@ -4,12 +4,17 @@
 @section('description', 'Professional security and investigation services in Southern Ontario. 42 years of combined management experience in protection, event security, and specialized consulting services.')
 
 @section('content')
-<!-- Hero Section -->
+<!-- Hero Section with Certificate -->
 <section class="relative hero-mobile flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-survail-brown overflow-hidden">
     <!-- Background Video/Image Placeholder -->
     <div class="absolute inset-0 w-full h-full">
         <img src="{{ asset('assets/images/banner.png') }}" alt="Security Background" class="hero-bg-image absolute inset-0 w-full h-full object-cover object-center">
         <div class="absolute inset-0 bg-black opacity-45"></div>
+    </div>
+
+    <!-- Certificate Image - Top Right -->
+    <div class="absolute top-6 right-6 hidden lg:block z-30 max-w-xs">
+        <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-full h-auto rounded-lg shadow-2xl">
     </div>
 
     <!-- Hero Content -->
@@ -66,28 +71,6 @@
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
             <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
-        </div>
-    </div>
-</section>
-
-<!-- Awards & Recognition -->
-<section class="py-8 lg:py-12 bg-white">
-    <div class="w-full px-4 sm:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <!-- Left: We Keep You Safe Content -->
-                <div class="text-center md:text-left">
-                    <h3 class="text-3xl lg:text-4xl font-bold text-survail-brown mb-4">We Keep You Safe</h3>
-                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                        Your security is our top priority. With decades of combined expertise and proven track record of success, SurVail Protection & Investigation Services delivers professional security solutions you can trust.
-                    </p>
-                </div>
-
-                <!-- Right: Certificate Image -->
-                <div class="flex justify-center items-center">
-                    <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-full max-w-sm h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                </div>
-            </div>
         </div>
     </div>
 </section>
