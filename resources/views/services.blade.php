@@ -23,13 +23,14 @@
                 </div>
                 <h3 class="text-2xl font-bold text-survail-brown mb-4">Physical Protection</h3>
                 <p class="text-gray-600 mb-6">Professional security personnel for construction sites, retail locations, warehouses, and corporate facilities.</p>
-                <ul class="text-gray-600 space-y-2">
+                <ul class="text-gray-600 space-y-2 mb-4">
                     <li>• Construction site security</li>
                     <li>• Retail location protection</li>
                     <li>• Warehouse security</li>
                     <li>• Corporate facility security</li>
                     <li>• FireWatch/Recovery Security</li>
                 </ul>
+                <p class="text-gray-500 text-sm italic">Includes mobile command post monitoring and on-site surveillance.</p>
             </div>
 
             <!-- Event Security -->
