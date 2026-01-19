@@ -6,7 +6,8 @@
       "Bash(xargs ls:*)",
       "Bash(find:*)",
       "Bash(tree:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nUpdate services page to showcase comprehensive SurVail Services\n\n- Added hero section with gradient background\n- Expanded services from 3 to 6 offerings:\n  * New: Video Monitoring service\n  * New: Investigation Services\n  * New: Personal Protection\n  * Enhanced: Physical Protection, Event Security, Consulting & Training\n- Added \"Why Choose SurVail\" section with key statistics\n- Updated title and meta description to emphasize comprehensive security solutions\n- Improved visual design with better icons and hover effects\n- Updated CTA messaging\n\nCo-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
     ],
     "deny": [],
     "ask": []
