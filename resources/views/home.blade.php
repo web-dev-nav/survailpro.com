@@ -12,8 +12,8 @@
         <div class="absolute inset-0 bg-black opacity-45"></div>
     </div>
 
-    <!-- Certificate Image - Centered Right (Responsive) -->
-    <div class="absolute top-1/2 right-2 md:right-8 lg:right-20 z-30 max-w-[120px] md:max-w-[160px] lg:max-w-xs transform -translate-y-1/2">
+    <!-- Certificate Image - Hidden on mobile, shown on desktop right side -->
+    <div class="hidden md:absolute md:top-1/2 md:right-8 lg:right-20 z-30 md:max-w-[160px] lg:max-w-xs md:transform md:-translate-y-1/2">
         <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-full h-auto rounded-lg shadow-2xl">
     </div>
 
@@ -73,7 +73,14 @@
             <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
         </div>
     </div>
+    <!-- Certificate Image - Mobile Only (Below Hero) -->
+    <div class="md:hidden absolute bottom-0 left-0 right-0 translate-y-1/2 z-30 flex justify-center px-4">
+        <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-32 h-auto rounded-lg shadow-2xl">
+    </div>
 </section>
+
+<!-- Mobile Certificate Spacer -->
+<div class="md:hidden h-20"></div>
 
 <!-- Services Overview -->
 <section class="py-16 lg:py-24 bg-white">
