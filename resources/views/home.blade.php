@@ -5,7 +5,7 @@
 
 @section('content')
 <!-- Hero Section with Certificate -->
-<section class="relative hero-mobile flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-survail-brown overflow-hidden">
+<section class="relative hero-mobile flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-survail-brown overflow-visible md:overflow-hidden pb-32 md:pb-0">
     <!-- Background Video/Image Placeholder -->
     <div class="absolute inset-0 w-full h-full">
         <img src="{{ asset('assets/images/banner.png') }}" alt="Security Background" class="hero-bg-image absolute inset-0 w-full h-full object-cover object-center">
