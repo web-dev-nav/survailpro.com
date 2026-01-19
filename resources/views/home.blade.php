@@ -13,7 +13,7 @@
     </div>
 
     <!-- Certificate Image - Centered Right -->
-    <div class="absolute top-1/2 right-12 hidden lg:block z-30 max-w-xs transform -translate-y-1/2">
+    <div class="absolute top-1/2 right-4 hidden lg:block z-30 max-w-xs transform -translate-y-1/2">
         <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-full h-auto rounded-lg shadow-2xl">
     </div>
 
