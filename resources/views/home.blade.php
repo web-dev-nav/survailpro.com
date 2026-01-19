@@ -12,8 +12,8 @@
         <div class="absolute inset-0 bg-black opacity-45"></div>
     </div>
 
-    <!-- Certificate Image - Centered Right -->
-    <div class="absolute top-1/2 right-20 hidden lg:block z-30 max-w-xs transform -translate-y-1/2">
+    <!-- Certificate Image - Centered Right (Responsive) -->
+    <div class="absolute top-1/2 right-2 md:right-8 lg:right-20 z-30 max-w-[120px] md:max-w-[160px] lg:max-w-xs transform -translate-y-1/2">
         <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-full h-auto rounded-lg shadow-2xl">
     </div>
 
