@@ -93,7 +93,7 @@
 <div class="md:hidden h-64 sm:h-56"></div>
 
 <!-- Services Overview -->
-<section class="py-16 lg:py-24 bg-white">
+<section class="py-16 lg:py-24 bg-white mt-12 sm:mt-8 md:mt-0">
     <div class="w-full px-4 sm:px-6 lg:px-8">
         <div class="w-full">
             <div class="text-center mb-16">
