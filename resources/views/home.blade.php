@@ -5,7 +5,7 @@
 
 @section('content')
 <!-- Hero Section with Certificate -->
-<section class="relative hero-mobile flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-survail-brown overflow-visible md:overflow-hidden pb-32 md:pb-0 min-h-screen md:min-h-[700px]">
+<section class="relative hero-mobile flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-survail-brown overflow-visible md:overflow-hidden pb-32 md:pb-20 min-h-screen md:min-h-[850px]">
     <!-- Background Video/Image Placeholder -->
     <div class="absolute inset-0 w-full h-full">
         <img src="{{ asset('assets/images/banner.png') }}" alt="Security Background" class="hero-bg-image absolute inset-0 w-full h-full object-cover object-center">
@@ -13,11 +13,11 @@
     </div>
 
     <!-- Certificate Image - Hidden on mobile, shown on desktop right side -->
-    <div class="hidden md:flex md:flex-col md:items-center absolute md:top-1/2 md:right-8 lg:right-20 z-30 md:max-w-[160px] lg:max-w-xs md:transform md:-translate-y-1/2">
-        <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity mb-2 w-full flex justify-center md:mr-8">
+    <div class="hidden md:flex md:flex-col md:items-center absolute md:top-1/2 md:right-6 lg:right-16 z-30 md:max-w-[200px] lg:max-w-sm md:transform md:-translate-y-1/2">
+        <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity mb-3 w-full flex justify-center">
             <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-full h-auto rounded-lg shadow-2xl">
         </a>
-        <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="text-center text-white text-xs font-semibold hidden lg:block hover:text-yellow-300 transition-colors md:mr-8">
+        <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="text-center text-white text-xs font-semibold hidden lg:block hover:text-yellow-300 transition-colors px-2">
             Proud Platinum Winner of the Community Vote Brantford 2025
         </a>
     </div>
