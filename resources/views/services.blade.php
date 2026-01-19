@@ -29,8 +29,7 @@
                     <li>• Warehouse security</li>
                     <li>• Corporate facility security</li>
                     <li>• FireWatch/Recovery Security</li>
-                    <li>• Mobile command center monitoring</li>
-                    <li>• Live surveillance operations</li>
+                    <li>• On-site mobile monitoring</li>
                 </ul>
             </div>
 
