@@ -9,7 +9,7 @@
     <!-- Background Video/Image -->
     <div class="absolute inset-0 w-full h-full">
         <img src="{{ asset('assets/images/banner.png') }}" alt="Security Background" class="hero-bg-image absolute inset-0 w-full h-full object-cover object-center">
-        <div class="absolute inset-0 bg-black opacity-45"></div>
+        <div class="absolute inset-0 bg-black opacity-60"></div>
     </div>
 
     <!-- Hero Container with Grid Layout -->
