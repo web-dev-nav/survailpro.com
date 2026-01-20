@@ -17,8 +17,8 @@
             <!-- Physical Protection -->
             <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
                 <div class="w-16 h-16 bg-survail-brown bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-survail-brown" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-4 4-4-4 4-4 .257.257A6 6 0 1118 8zm-6-2a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd"></path>
+                    <svg class="w-8 h-8 text-survail-brown" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.6 10.74 9 12 5.4-1.26 9-6.45 9-12V5l-9-4z"></path>
                     </svg>
                 </div>
                 <h3 class="text-2xl font-bold text-survail-brown mb-4">Physical Protection</h3>
@@ -29,15 +29,18 @@
                     <li>• Warehouse security</li>
                     <li>• Corporate facility security</li>
                     <li>• FireWatch/Recovery Security</li>
-                    <li>• On-site mobile monitoring</li>
+                    <li>• Mobile Command/Communication Post available</li>
+                    <li>• On-site Weather Monitoring</li>
+                    <li>• Remote monitored video surveillance</li>
                 </ul>
             </div>
 
             <!-- Event Security -->
             <div id="events" class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
                 <div class="w-16 h-16 bg-survail-green bg-opacity-10 rounded-full flex items-center justify-center mb-6">
-                    <svg class="w-8 h-8 text-survail-green" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    <svg class="w-8 h-8 text-survail-green" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17 21H5a2 2 0 0 1-2-2V9.414a1 1 0 0 1 .293-.707l5.414-5.414A1 1 0 0 1 9.414 3H19a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z"></path>
+                        <circle cx="12" cy="12" r="3" fill="white"></circle>
                     </svg>
                 </div>
                 <h3 class="text-2xl font-bold text-survail-brown mb-4">Event Security</h3>
