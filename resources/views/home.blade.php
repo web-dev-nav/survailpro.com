@@ -14,7 +14,7 @@
 
     <!-- Hero Container with Grid Layout -->
     <div class="relative z-20 w-full">
-        <div class="w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
+        <div class="w-full px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 md:pb-16">
             <!-- Grid Layout: Content on left, Certificate on right (desktop) -->
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 lg:gap-12 max-w-7xl mx-auto items-center">
 
@@ -81,7 +81,7 @@
         </div>
 
         <!-- Mobile Certificate Section (Below main content on mobile) -->
-        <div class="md:hidden w-full px-4 sm:px-6 pb-12 sm:pb-16">
+        <div class="md:hidden w-full px-4 sm:px-6 pt-8 sm:pt-12 pb-8 sm:pb-12">
             <div class="flex flex-col items-center">
                 <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity mb-4 w-full flex justify-center">
                     <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-full sm:w-full h-auto rounded-lg shadow-2xl" style="max-width: 100%; max-width: 500px;">
