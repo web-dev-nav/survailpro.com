@@ -19,7 +19,7 @@
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 lg:gap-12 max-w-7xl mx-auto items-center">
 
                 <!-- Left Column: Hero Content -->
-                <div class="md:col-span-6 lg:col-span-6">
+                <div class="md:col-span-5 lg:col-span-4">
                     <div class="animate-slide-up text-center md:text-left">
                         <h2 class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 sm:mb-6 leading-tight">
                             We Keep You
@@ -67,7 +67,7 @@
                 </div>
 
                 <!-- Right Column: Certificate (Hidden on mobile, shown on tablet and up) -->
-                <div class="hidden md:flex md:col-span-6 lg:col-span-6 flex-col items-center justify-center">
+                <div class="hidden md:flex md:col-span-7 lg:col-span-8 flex-col items-center justify-center">
                     <div class="w-full flex flex-col items-center">
                         <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity mb-4 w-full flex justify-center px-4">
                             <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-full max-w-xs h-auto rounded-lg shadow-2xl">
