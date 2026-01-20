@@ -67,10 +67,10 @@
                 </div>
 
                 <!-- Right Column: Certificate (Hidden on mobile, shown on tablet and up) -->
-                <div class="hidden md:flex md:col-span-4 lg:col-span-3 flex-col items-end justify-center">
+                <div class="hidden md:flex md:col-span-4 lg:col-span-3 flex-col items-end justify-center pr-4 lg:pr-0">
                     <div class="w-full flex flex-col items-center">
-                        <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity mb-4 w-full flex justify-center px-4">
-                            <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-full h-auto rounded-lg shadow-2xl" style="max-width: 500px;">
+                        <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity mb-4 w-full flex justify-center">
+                            <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-full h-auto rounded-lg shadow-2xl" style="max-width: 100%;">
                         </a>
                         <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="text-center text-white text-xs lg:text-sm font-semibold hover:text-yellow-300 transition-colors px-2">
                             Proud Platinum Winner of the Community Vote Brantford 2025
@@ -84,7 +84,7 @@
         <div class="md:hidden w-full px-4 sm:px-6 pb-12 sm:pb-16">
             <div class="flex flex-col items-center">
                 <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity mb-4 w-full flex justify-center">
-                    <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-5/6 sm:w-5/6 h-auto rounded-lg shadow-2xl" style="max-width: 420px;">
+                    <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-full sm:w-full h-auto rounded-lg shadow-2xl" style="max-width: 100%; max-width: 500px;">
                 </a>
                 <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="text-center text-gray-200 text-xs sm:text-sm font-semibold hover:text-yellow-300 transition-colors px-4 max-w-md">
                     Proud Platinum Winner of the Community Vote Brantford 2025 - recognized by our community for excellence in security services.
