@@ -94,7 +94,7 @@
         @media (max-width: 640px) {
             .hero-mobile {
                 min-height: 100vh;
-                height: 100vh;
+                height: auto;
             }
 
             .hero-bg-image {
