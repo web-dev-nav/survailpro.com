@@ -8,7 +8,7 @@
 <section class="relative hero-mobile bg-gradient-to-br from-gray-900 via-gray-800 to-survail-brown overflow-hidden min-h-screen md:min-h-[850px] flex items-center">
     <!-- Background Video/Image -->
     <div class="absolute inset-0 w-full h-full">
-        <img src="{{ asset('assets/images/banner.png') }}" alt="Security Background" class="hero-bg-image absolute inset-0 w-full h-full object-cover object-center brightness-75">
+        <img src="{{ asset('assets/images/banner.png') }}" alt="Security Background" class="hero-bg-image absolute inset-0 w-full h-full object-cover object-center brightness-45">
         <div class="absolute inset-0 bg-black opacity-75"></div>
     </div>
 
