@@ -5,92 +5,101 @@
 
 @section('content')
 <!-- Hero Section with Certificate -->
-<section class="relative hero-mobile flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-survail-brown overflow-visible md:overflow-hidden pb-80 sm:pb-64 md:pb-20 min-h-screen md:min-h-[850px]">
-    <!-- Background Video/Image Placeholder -->
+<section class="relative hero-mobile bg-gradient-to-br from-gray-900 via-gray-800 to-survail-brown overflow-hidden min-h-screen md:min-h-[850px] flex items-center">
+    <!-- Background Video/Image -->
     <div class="absolute inset-0 w-full h-full">
         <img src="{{ asset('assets/images/banner.png') }}" alt="Security Background" class="hero-bg-image absolute inset-0 w-full h-full object-cover object-center">
         <div class="absolute inset-0 bg-black opacity-45"></div>
     </div>
 
-    <!-- Certificate Image - Hidden on mobile, shown on desktop right side -->
-    <div class="hidden md:flex md:flex-col md:items-center absolute md:top-1/2 md:right-6 lg:right-16 z-30 md:max-w-[200px] lg:max-w-sm md:transform md:-translate-y-1/2">
-        <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity mb-3 w-full flex justify-center">
-            <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-full h-auto rounded-lg shadow-2xl">
-        </a>
-        <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="text-center text-white text-xs font-semibold hidden lg:block hover:text-yellow-300 transition-colors px-2">
-            Proud Platinum Winner of the Community Vote Brantford 2025
-        </a>
-    </div>
+    <!-- Hero Container with Grid Layout -->
+    <div class="relative z-20 w-full">
+        <div class="w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
+            <!-- Grid Layout: Content on left, Certificate on right (desktop) -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 lg:gap-12 max-w-7xl mx-auto items-center">
 
-    <!-- Hero Content -->
-    <div class="relative z-20 w-full px-4 sm:px-6 lg:px-8 py-8">
-        <div class="max-w-6xl mx-auto text-center">
-            <div class="animate-slide-up">
-                <h2 class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 sm:mb-6 leading-tight">
-                    We Keep You
-                    <span class="text-yellow-400 animate-float inline-block">Safe</span>
-                </h2>
-                <p class="text-lg xs:text-xl sm:text-2xl lg:text-3xl text-gray-200 mb-5 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2">
-                    Professional security solutions with <strong class="text-yellow-400">42 years</strong> of combined management experience in Southern Ontario
-                </p>
+                <!-- Left Column: Hero Content -->
+                <div class="md:col-span-7 lg:col-span-8">
+                    <div class="animate-slide-up text-center md:text-left">
+                        <h2 class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 sm:mb-6 leading-tight">
+                            We Keep You
+                            <span class="text-yellow-400 animate-float inline-block">Safe</span>
+                        </h2>
+                        <p class="text-lg xs:text-xl sm:text-2xl lg:text-3xl text-gray-200 mb-5 sm:mb-8 leading-relaxed">
+                            Professional security solutions with <strong class="text-yellow-400">42 years</strong> of combined management experience in Southern Ontario
+                        </p>
+                    </div>
+
+                    <div class="animate-fade-in flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start items-center mb-8 sm:mb-12">
+                        <a href="{{ route('services') }}" class="group bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center">
+                            <span class="flex items-center justify-center">
+                                Our Services
+                                <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="{{ route('contact') }}" class="group bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center">
+                            <span class="flex items-center justify-center">
+                                Get Free Quote
+                                <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-white text-center md:text-left">
+                        <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-opacity-20 transition-all duration-300">
+                            <div class="text-2xl sm:text-3xl font-bold text-yellow-400 mb-1 sm:mb-2">42+</div>
+                            <div class="text-xs sm:text-sm opacity-90">Years Experience</div>
+                        </div>
+                        <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-opacity-20 transition-all duration-300">
+                            <div class="text-2xl sm:text-3xl font-bold text-yellow-400 mb-1 sm:mb-2">500+</div>
+                            <div class="text-xs sm:text-sm opacity-90">Events Secured</div>
+                        </div>
+                        <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-opacity-20 transition-all duration-300">
+                            <div class="text-2xl sm:text-3xl font-bold text-yellow-400 mb-1 sm:mb-2">24/7</div>
+                            <div class="text-xs sm:text-sm opacity-90">Available</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Certificate (Hidden on mobile, shown on tablet and up) -->
+                <div class="hidden md:flex md:col-span-5 lg:col-span-4 flex-col items-center justify-center">
+                    <div class="w-full flex flex-col items-center">
+                        <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity mb-4 w-full flex justify-center px-4">
+                            <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-full max-w-xs h-auto rounded-lg shadow-2xl">
+                        </a>
+                        <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="text-center text-white text-xs lg:text-sm font-semibold hover:text-yellow-300 transition-colors px-2">
+                            Proud Platinum Winner of the Community Vote Brantford 2025
+                        </a>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <div class="animate-fade-in flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 px-4">
-                <a href="{{ route('services') }}" class="group bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center">
-                    <span class="flex items-center justify-center">
-                        Our Services
-                        <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </span>
+        <!-- Mobile Certificate Section (Below main content on mobile) -->
+        <div class="md:hidden w-full px-4 sm:px-6 pb-12 sm:pb-16">
+            <div class="flex flex-col items-center">
+                <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity mb-4 w-full flex justify-center">
+                    <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-5/6 sm:w-2/3 max-w-xs h-auto rounded-lg shadow-2xl">
                 </a>
-                <a href="{{ route('contact') }}" class="group bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center">
-                    <span class="flex items-center justify-center">
-                        Get Free Quote
-                        <svg class="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                        </svg>
-                    </span>
+                <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="text-center text-gray-200 text-xs sm:text-sm font-semibold hover:text-yellow-300 transition-colors px-4 max-w-md">
+                    Proud Platinum Winner of the Community Vote Brantford 2025 - recognized by our community for excellence in security services.
                 </a>
-            </div>
-
-            <!-- Trust Indicators -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto text-white text-center px-4">
-                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-opacity-20 transition-all duration-300">
-                    <div class="text-2xl sm:text-3xl font-bold text-yellow-400 mb-1 sm:mb-2">42+</div>
-                    <div class="text-xs sm:text-sm opacity-90">Years Experience</div>
-                </div>
-                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-opacity-20 transition-all duration-300">
-                    <div class="text-2xl sm:text-3xl font-bold text-yellow-400 mb-1 sm:mb-2">500+</div>
-                    <div class="text-xs sm:text-sm opacity-90">Events Secured</div>
-                </div>
-                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-opacity-20 transition-all duration-300">
-                    <div class="text-2xl sm:text-3xl font-bold text-yellow-400 mb-1 sm:mb-2">24/7</div>
-                    <div class="text-xs sm:text-sm opacity-90">Available</div>
-                </div>
             </div>
         </div>
     </div>
 
     <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
         <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
             <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
         </div>
     </div>
-    <!-- Certificate Image - Mobile Only (Below Hero) -->
-    <div class="md:hidden absolute bottom-0 left-0 right-0 translate-y-1/2 z-30 flex flex-col items-center px-4">
-        <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity mb-4 flex justify-center w-full">
-            <img src="{{ asset('assets/images/certificate.png') }}" alt="Awards & Recognition Certificate" class="w-5/6 sm:w-2/3 h-auto rounded-lg shadow-2xl">
-        </a>
-        <a href="https://brantford.communityvotes.com/2024/12/services/security-services" target="_blank" rel="noopener noreferrer" class="text-center text-gray-900 text-xs sm:text-sm font-semibold w-5/6 sm:w-2/3 hover:text-survail-brown transition-colors">
-            Proud Platinum Winner of the Community Vote Brantford 2025 - recognized by our community for excellence in security services.
-        </a>
-    </div>
 </section>
-
-<!-- Mobile Certificate Spacer -->
-<div class="md:hidden h-64 sm:h-56"></div>
 
 <!-- Services Overview -->
 <section class="py-16 lg:py-24 bg-white mt-12 sm:mt-8 md:mt-0">
