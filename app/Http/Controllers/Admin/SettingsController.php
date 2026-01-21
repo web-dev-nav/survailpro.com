@@ -25,21 +25,15 @@ class SettingsController extends Controller
     {
         $request->merge([
             'google_analytics_id' => trim((string) $request->input('google_analytics_id')),
-            'google_analytics_url' => trim((string) $request->input('google_analytics_url')),
         ]);
 
         $data = $request->validate([
             'google_analytics_id' => ['nullable', 'string', 'max:64', 'regex:/^G-[A-Z0-9]+$/'],
-            'google_analytics_url' => ['nullable', 'url', 'max:255'],
         ]);
 
         if ($data['google_analytics_id'] === '') {
             $data['google_analytics_id'] = null;
         }
-        if ($data['google_analytics_url'] === '') {
-            $data['google_analytics_url'] = null;
-        }
-
         $settings = ContactSetting::firstOrCreate([]);
         $settings->update($data);
 
