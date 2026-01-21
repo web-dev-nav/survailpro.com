@@ -46,114 +46,12 @@
                         </svg>
                         Get My Free Site Assessment
                     </a>
-                    <a href="#how-it-works" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition flex items-center gap-2 text-sm">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        See How It Works
-                    </a>
                 </div>
             </div>
         </div>
         <!-- Right Background Image -->
         <div class="absolute top-0 right-0 w-1/2 h-full hidden md:block">
             <img src="{{ asset('assets/images/tasha-kostyuk-TtMKq3lJm-U-unsplash(1).jpg') }}" alt="Security monitoring dashboard" class="w-full h-full object-cover">
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="py-16 px-6 bg-white">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-3">
-                How <span class="text-yellow-500">SurVail</span> Video Monitoring Works
-            </h2>
-            <p class="text-center text-gray-600 text-base mb-12">
-                Intelligent video surveillance powered by AI — Four simple steps keep your property secure from every angle.
-            </p>
-            
-            <!-- Process Steps - Flex row -->
-            <div class="flex flex-wrap items-stretch justify-center gap-6">
-
-                <!-- Step 1 -->
-                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift text-center">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <img src="{{ asset('assets/images/cctv-smart-cctv-safety-protection-monitoring-camera-cctv-camera-svgrepo-com.png') }}" alt="Video Capture" class="w-8 h-8">
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg mb-2">
-                            High-Definition Video Capture
-                        </h3>
-                        <p class="text-gray-600 text-sm">
-                            Crystal-clear CCTV feeds record every moment with advanced camera systems designed for comprehensive property coverage.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Arrow -->
-                <div class="hidden md:flex items-center">
-                    <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                    </svg>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift text-center">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <img src="{{ asset('assets/images/check-mark_5290982.png') }}" alt="AI Analysis" class="w-8 h-8">
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg mb-2">
-                            Intelligent AI Analysis
-                        </h3>
-                        <p class="text-gray-600 text-sm">
-                            Machine learning algorithms analyze video in real-time, detecting threats, anomalies, and suspicious behavior instantly.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Arrow -->
-                <div class="hidden md:flex items-center">
-                    <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                    </svg>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift text-center">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <img src="{{ asset('assets/images/bullhorn_9954748.png') }}" alt="Real-Time Alerts" class="w-8 h-8">
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg mb-2">
-                            Real-Time Alerts & Response
-                        </h3>
-                        <p class="text-gray-600 text-sm">
-                            Instant notifications with video evidence sent to your team, enabling rapid response to any security incident.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Arrow -->
-                <div class="hidden md:flex items-center">
-                    <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                    </svg>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="w-full md:flex-1 bg-white border border-gray-200 p-8 rounded-xl hover-lift text-center">
-                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <img src="{{ asset('assets/images/security-worker-svgrepo-com-2.png') }}" alt="Investigation & Records" class="w-8 h-8">
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-lg mb-2">Investigation & Records</h3>
-                        <p class="text-gray-600 text-sm">
-                            Complete video records with timestamp data provide evidence for investigations and insurance claims.
-                        </p>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
