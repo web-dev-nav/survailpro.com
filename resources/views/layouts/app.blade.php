@@ -64,13 +64,13 @@
 
     </script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RXWW7S01M1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5TGDBX4ZE"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-RXWW7S01M1');
+    gtag('config', 'G-G5TGDBX4ZE');
     </script>
     <!-- Mobile viewport height fix -->
     <style>
