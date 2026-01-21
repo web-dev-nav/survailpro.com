@@ -60,6 +60,11 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
                     </p>
+                    @if(!empty($contactSettings?->google_analytics_url))
+                        <p class="text-xs text-gray-500 mt-2">
+                            <a href="{{ $contactSettings->google_analytics_url }}" target="_blank" rel="noopener noreferrer" class="text-survail-green font-semibold hover:text-survail-green-dark transition">Open Google Analytics</a>
+                        </p>
+                    @endif
                 </a>
                 <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
                     <p class="text-sm text-gray-500 mb-2">System Health</p>

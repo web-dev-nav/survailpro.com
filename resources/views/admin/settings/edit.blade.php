@@ -32,13 +32,31 @@
                     @csrf
                     @method('PUT')
 
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2" for="google_analytics_id">Google Analytics Measurement ID</label>
-                        <input type="text" name="google_analytics_id" id="google_analytics_id" value="{{ old('google_analytics_id', $settings->google_analytics_id) }}" placeholder="G-XXXXXXXXXX" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent @error('google_analytics_id') border-red-500 @enderror">
-                        @error('google_analytics_id')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                        <p class="mt-2 text-sm text-gray-500">Paste the GA4 Measurement ID only (example: G-ABC1234567). Leave blank to disable tracking.</p>
+                    <div class="grid gap-6 lg:grid-cols-2">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" for="google_analytics_id">Google Analytics Measurement ID</label>
+                            <input type="text" name="google_analytics_id" id="google_analytics_id" value="{{ old('google_analytics_id', $settings->google_analytics_id) }}" placeholder="G-XXXXXXXXXX" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent @error('google_analytics_id') border-red-500 @enderror">
+                            @error('google_analytics_id')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                            <p class="mt-2 text-sm text-gray-500">Paste the GA4 Measurement ID only (example: G-ABC1234567). Leave blank to disable tracking.</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" for="google_analytics_url">Google Analytics URL</label>
+                            <input type="url" name="google_analytics_url" id="google_analytics_url" value="{{ old('google_analytics_url', $settings->google_analytics_url) }}" placeholder="https://analytics.google.com/analytics/web/..." class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent @error('google_analytics_url') border-red-500 @enderror">
+                            @error('google_analytics_url')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                            <p class="mt-2 text-sm text-gray-500">Paste the URL to your GA property so the team can open it quickly.</p>
+                            @if(!empty($settings->google_analytics_url))
+                                <a href="{{ $settings->google_analytics_url }}" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 text-survail-green font-semibold hover:text-survail-green-dark transition">
+                                    Open Google Analytics
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </a>
+                            @endif
+                        </div>
                     </div>
 
                     <div class="flex justify-end gap-3 pt-6">

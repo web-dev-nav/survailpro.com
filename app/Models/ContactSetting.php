@@ -21,6 +21,7 @@ class ContactSetting extends Model
         'address_line_two',
         'service_areas',
         'google_analytics_id',
+        'google_analytics_url',
     ];
 
     protected $casts = [
