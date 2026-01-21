@@ -6,6 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="@yield('keywords', 'Investigation, Security, Protection, Brantford Ontario, Guard-Services, Police-Service, concierge, Safety, Control, certification')">
     <meta name="description" content="@yield('description', 'Professional security and investigation services in Southern Ontario. 42 years of combined management experience in protection, event security, and specialized consulting services.')">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ request()->url() }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SurVail Protection &amp; Investigation Services">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:url" content="{{ request()->url() }}">
+    <meta property="og:title" content="@yield('title', 'SurVail Protection & Investigation Services - Professional Security Solutions')">
+    <meta property="og:description" content="@yield('description', 'Professional security and investigation services in Southern Ontario. 42 years of combined management experience in protection, event security, and specialized consulting services.')">
+    <meta property="og:image" content="{{ asset('assets/images/wp41039c21_06.png') }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', 'SurVail Protection & Investigation Services - Professional Security Solutions')">
+    <meta name="twitter:description" content="@yield('description', 'Professional security and investigation services in Southern Ontario. 42 years of combined management experience in protection, event security, and specialized consulting services.')">
+    <meta name="twitter:image" content="{{ asset('assets/images/wp41039c21_06.png') }}">
 
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -126,6 +141,41 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('assets/images/wp41039c21_06.png') }}">
+
+    @php
+        $schemaAddress = array_filter([
+            '@type' => 'PostalAddress',
+            'streetAddress' => trim(implode(' ', array_filter([
+                $globalContact->address_line_one ?? null,
+                $globalContact->address_line_two ?? null,
+            ]))),
+            'addressLocality' => 'Brantford',
+            'addressRegion' => 'ON',
+            'addressCountry' => 'CA',
+        ]);
+
+        $schema = [
+            '@context' => 'https://schema.org',
+            '@type' => 'LocalBusiness',
+            'name' => 'SurVail Protection & Investigation Services',
+            'url' => config('app.url'),
+            'logo' => asset('assets/images/wp41039c21_06.png'),
+            'image' => asset('assets/images/wp41039c21_06.png'),
+            'telephone' => $globalContact->main_phone_number ?? null,
+            'email' => $globalContact->email ?? null,
+            'address' => $schemaAddress,
+            'areaServed' => [
+                'Brantford',
+                'Hamilton',
+                'Burlington',
+                'Cambridge',
+                'Waterloo',
+                'Kitchener',
+            ],
+            'sameAs' => [],
+        ];
+    @endphp
+    <script type="application/ld+json">{!! json_encode($schema, JSON_UNESCAPED_SLASHES) !!}</script>
 
     @stack('styles')
 </head>

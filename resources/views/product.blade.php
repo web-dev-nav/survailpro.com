@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'SurVail Video Monitoring - Advanced CCTV Security')
-@section('description', 'Professional video monitoring and CCTV security solutions with AI detection, real-time alerts, and 24/7 surveillance for your property.')
+@section('title', 'Video Monitoring in Brantford, Hamilton, Burlington, Cambridge, Waterloo, Kitchener | SurVail')
+@section('description', 'AI-powered CCTV video monitoring with real-time alerts and 24/7 coverage for Brantford, Hamilton, Burlington, Cambridge, Waterloo, Kitchener, and nearby cities.')
+@section('keywords', 'video monitoring Brantford, CCTV Hamilton, security cameras Burlington, video surveillance Cambridge, CCTV Waterloo, video monitoring Kitchener')
 
 @push('styles')
 <style>

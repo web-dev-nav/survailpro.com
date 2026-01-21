@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'SurVail Services')
-@section('description', 'Professional security services including physical protection, event security, consulting and training in Southern Ontario.')
+@section('title', 'Security Services in Brantford, Hamilton, Burlington, Cambridge, Waterloo, Kitchener | SurVail')
+@section('description', 'Professional security services including guards, event security, consulting, and training across Brantford, Hamilton, Burlington, Cambridge, Waterloo, Kitchener, and nearby cities.')
+@section('keywords', 'security services Brantford, security guard Hamilton, event security Burlington, security consulting Cambridge, security training Waterloo, security company Kitchener')
 
 @section('content')
 <div class="min-h-screen py-16">

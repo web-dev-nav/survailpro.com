@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Us - SurVail Protection & Investigation Services')
-@section('description', 'Contact SurVail Protection & Investigation Services. Call 519-770-6634 or email don@survailpro.ca for professional security solutions.')
+@section('title', 'Contact SurVail | Security Services in Brantford, Hamilton, Burlington, Cambridge, Waterloo, Kitchener')
+@section('description', 'Contact SurVail for security services in Brantford, Hamilton, Burlington, Cambridge, Waterloo, Kitchener, and nearby cities. Call 519-770-6634 for professional security solutions.')
+@section('keywords', 'contact SurVail, security services Brantford, security services Hamilton, security services Burlington, security services Cambridge, security services Waterloo, security services Kitchener')
 
 @section('content')
 @php

@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Work Application - SurVail Protection & Investigation Services')
-@section('description', 'Apply to join the SurVail Protection & Investigation Services team. Complete our online application form to be considered for security guard positions in Southern Ontario.')
+@section('title', 'Security Guard Jobs in Brantford, Hamilton, Burlington, Cambridge, Waterloo, Kitchener | SurVail')
+@section('description', 'Apply to join SurVail for security guard opportunities in Brantford, Hamilton, Burlington, Cambridge, Waterloo, Kitchener, and nearby cities.')
+@section('keywords', 'security guard jobs Brantford, security jobs Hamilton, security guard Burlington, security jobs Cambridge, security jobs Waterloo, security jobs Kitchener')
 
 @section('content')
 <!-- Hero Section -->

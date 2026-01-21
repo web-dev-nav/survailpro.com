@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'SurVail Protection & Investigation Services - Professional Security Solutions')
-@section('description', 'Professional security and investigation services in Southern Ontario. 42 years of combined management experience in protection, event security, and specialized consulting services.')
+@section('title', 'Security Services in Brantford, Hamilton, Burlington, Cambridge, Waterloo, Kitchener | SurVail')
+@section('description', 'Security and investigation services serving Brantford, Hamilton, Burlington, Cambridge, Waterloo, Kitchener, and nearby cities. Trusted protection, event security, and consulting.')
+@section('keywords', 'security services Brantford, security guard Hamilton, security company Burlington, security services Cambridge, security services Waterloo, security services Kitchener, private security Ontario')
 
 @section('content')
 <!-- Hero Section with Certificate -->

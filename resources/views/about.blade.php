@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'About Us - SurVail Protection & Investigation Services')
-@section('description', 'Learn about SurVail Protection & Investigation Services. 42 years of combined management experience in Southern Ontario.')
+@section('title', 'About SurVail | Security Services in Brantford, Hamilton, Burlington, Cambridge, Waterloo, Kitchener')
+@section('description', 'Learn about SurVail Protection & Investigation Services serving Brantford, Hamilton, Burlington, Cambridge, Waterloo, Kitchener, and nearby cities.')
+@section('keywords', 'about SurVail, security services Brantford, security services Hamilton, security services Burlington, security services Cambridge, security services Waterloo, security services Kitchener')
 
 @section('content')
 <div class="min-h-screen py-16">
