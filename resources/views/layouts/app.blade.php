@@ -63,15 +63,17 @@
         }
 
     </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5TGDBX4ZE"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    @if(!empty($globalContact?->google_analytics_id))
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ $globalContact->google_analytics_id }}"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    gtag('config', 'G-G5TGDBX4ZE');
-    </script>
+        gtag('config', '{{ $globalContact->google_analytics_id }}');
+        </script>
+    @endif
     <!-- Mobile viewport height fix -->
     <style>
         /* Fix for mobile viewport height issues */

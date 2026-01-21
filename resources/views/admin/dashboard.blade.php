@@ -30,7 +30,7 @@
                 </div>
             @endif
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
                 <a href="{{ route('admin.partners.index') }}" class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:-translate-y-1 hover:shadow-xl transition">
                     <p class="text-sm text-gray-500 mb-2">Partner Logos</p>
                     <p class="text-3xl font-bold text-gray-900">{{ $partnerCount }}</p>
@@ -46,6 +46,16 @@
                     <p class="text-3xl font-bold text-gray-900">{{ $contactSettings ? 'Ready' : 'Set up' }}</p>
                     <p class="text-xs text-survail-green mt-3 font-semibold flex items-center gap-2">
                         Update info
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </p>
+                </a>
+                <a href="{{ route('admin.settings.edit') }}" class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:-translate-y-1 hover:shadow-xl transition">
+                    <p class="text-sm text-gray-500 mb-2">Site Settings</p>
+                    <p class="text-3xl font-bold text-gray-900">{{ $contactSettings?->google_analytics_id ? 'Analytics On' : 'Analytics Off' }}</p>
+                    <p class="text-xs text-survail-green mt-3 font-semibold flex items-center gap-2">
+                        Manage settings
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
@@ -73,6 +83,13 @@
                         <div>
                             <p class="font-semibold text-gray-900">Edit Contact Details</p>
                             <p class="text-sm text-gray-500">Update phone, email across entire site</p>
+                        </div>
+                    </a>
+                    <a href="{{ route('admin.settings.edit') }}" class="flex items-center gap-3 p-4 border border-dashed border-survail-green rounded-2xl hover:bg-survail-green hover:bg-opacity-5 transition">
+                        <span class="w-10 h-10 rounded-full bg-survail-green bg-opacity-10 text-survail-green flex items-center justify-center text-xl font-bold">⚙</span>
+                        <div>
+                            <p class="font-semibold text-gray-900">Edit Site Settings</p>
+                            <p class="text-sm text-gray-500">Manage analytics and tracking</p>
                         </div>
                     </a>
                 </div>
