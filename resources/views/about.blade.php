@@ -18,10 +18,10 @@
             <div>
                 <h2 class="text-3xl font-bold text-survail-brown mb-6">Our Story</h2>
                 <p class="text-gray-600 mb-6">
-                    SurVail Protection & Investigation Services has been providing professional security solutions across Southern Ontario for over four decades. Founded with a commitment to excellence and client safety, we have built a reputation as a trusted partner in the security industry.
+                    SurVail Protection & Investigation Services has been providing professional security solutions across Southern Ontario since 2020. Founded with a commitment to excellence and client safety, we have built a reputation as a trusted partner in the security industry.
                 </p>
                 <p class="text-gray-600 mb-6">
-                    Our team brings extensive experience from law enforcement, military, and private security sectors, ensuring that we deliver comprehensive solutions tailored to each client's unique needs.
+                    Our team brings extensive experience from law enforcement, and private security sectors, ensuring that we deliver comprehensive solutions tailored to each client's unique needs.
                 </p>
             </div>
 
