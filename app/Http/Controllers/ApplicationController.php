@@ -126,14 +126,14 @@ class ApplicationController extends Controller
             // Send email notifications (if enabled)
             if (env('ENABLE_EMAIL_NOTIFICATIONS', true)) {
                 try {
-                    $adminEmail = env('ADMIN_EMAIL', 'hr@survailpro.ca');
+                    $adminEmail = env('ADMIN_EMAIL', 'survailpro@rogers.com');
                     $applicantEmail = $sanitizedData['email'];
                     $mailDriver = env('MAIL_MAILER', 'log');
 
                     // Get contact settings from database
                     $contactSettings = ContactSetting::first();
                     $contactPhone = $contactSettings->main_phone_number ?? '519-770-6634';
-                    $contactEmail = $contactSettings->email ?? 'don@survailpro.ca';
+                    $contactEmail = $contactSettings->email ?? 'survailpro@rogers.com';
 
                     \Log::info('Sending application notification emails', [
                         'driver' => $mailDriver,
@@ -168,7 +168,7 @@ class ApplicationController extends Controller
                 } catch (\Exception $emailError) {
                     \Log::error('Failed to send application notification emails: ' . $emailError->getMessage(), [
                         'driver' => env('MAIL_MAILER', 'log'),
-                        'admin_email' => env('ADMIN_EMAIL', 'hr@survailpro.ca'),
+                        'admin_email' => env('ADMIN_EMAIL', 'survailpro@rogers.com'),
                         'error_trace' => $emailError->getTraceAsString(),
                         'error_file' => $emailError->getFile(),
                         'error_line' => $emailError->getLine()

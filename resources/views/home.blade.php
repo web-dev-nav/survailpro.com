@@ -27,7 +27,7 @@
                             <span class="text-yellow-400 animate-float inline-block">Safe</span>
                         </h2>
                         <p class="text-lg xs:text-xl sm:text-2xl lg:text-3xl text-gray-200 mb-5 sm:mb-8 leading-relaxed">
-                            Professional security solutions with <strong class="text-yellow-400">42 years</strong> of combined management experience in Southern Ontario
+                            Serving clients across Southern Ontario with Professional Security Solutions since 2019.
                         </p>
                     </div>
 
@@ -53,7 +53,7 @@
                     <!-- Trust Indicators -->
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-white text-center md:text-left">
                         <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-opacity-20 transition-all duration-300">
-                            <div class="text-2xl sm:text-3xl font-bold text-yellow-400 mb-1 sm:mb-2">42+</div>
+                            <div class="text-2xl sm:text-3xl font-bold text-yellow-400 mb-1 sm:mb-2">40+</div>
                             <div class="text-xs sm:text-sm opacity-90">Years Experience</div>
                         </div>
                         <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-opacity-20 transition-all duration-300">
@@ -213,7 +213,7 @@
                         </svg>
                     </div>
                     <h4 class="text-xl font-bold mb-3">Proven Experience</h4>
-                    <p class="text-green-100 text-sm">42 years of combined management experience in justice, protection, and security sectors with 500+ successful events managed.</p>
+                    <p class="text-green-100 text-sm">Over 40 years of management experience.</p>
                 </div>
 
                 <!-- Credential 3 -->

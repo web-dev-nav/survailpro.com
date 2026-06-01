@@ -18,7 +18,7 @@ class ContactController extends Controller
             'message' => ['required', 'string', 'max:1000'],
         ]);
 
-        $contactEmail = env('CONTACT_EMAIL', 'info@survailpro.ca');
+        $contactEmail = env('CONTACT_EMAIL', 'survailpro@rogers.com');
 
         Mail::to($contactEmail)->send(new ContactFormMail($data));
 

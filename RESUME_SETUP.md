@@ -88,7 +88,7 @@ When someone uploads a resume:
 
 1. Submit a test application at https://survailpro.ca/application
 2. Upload a resume
-3. Check email at hr@survailpro.ca
+3. Check email at survailpro@rogers.com
 4. Click the resume link - should open directly in browser!
 
 ---

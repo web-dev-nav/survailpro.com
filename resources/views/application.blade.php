@@ -429,7 +429,7 @@
                             </div>
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" required value="{{ old('phone', '+1 (287) 482-2687') }}" class="w-full px-4 py-3 border {{ $errors->has('phone') ? 'border-red-300' : 'border-gray-300' }} rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent" placeholder="+1 (XXX) XXX-XXXX">
+                                <input type="tel" id="phone" name="phone" required value="{{ old('phone') }}" class="w-full px-4 py-3 border {{ $errors->has('phone') ? 'border-red-300' : 'border-gray-300' }} rounded-lg focus:ring-2 focus:ring-survail-green focus:border-transparent" placeholder="+1 (###)-###-####">
                                 @error('phone')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -627,13 +627,13 @@
                         Call: {{ $globalContact->main_phone_number ?? '519-770-6634' }}
                     </span>
                 </a>
-                <a href="mailto:{{ $globalContact->email ?? 'don@survailpro.ca' }}" class="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-survail-green transition-all duration-300 transform hover:scale-105">
+                <a href="mailto:{{ $globalContact->email ?? 'survailpro@rogers.com' }}" class="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-survail-green transition-all duration-300 transform hover:scale-105">
                     <span class="flex items-center justify-center">
                         <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
                             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                         </svg>
-                        Email: {{ $globalContact->email ?? 'don@survailpro.ca' }}
+                        Email: {{ $globalContact->email ?? 'survailpro@rogers.com' }}
                     </span>
                 </a>
             </div>
@@ -674,7 +674,7 @@ document.addEventListener('DOMContentLoaded', function() {
             cleaned = phoneNumber.substring(1);
         }
 
-        // Format as +1 (XXX) XXX-XXXX
+        // Format as +1 (###)-###-####
         if (cleaned.length <= 3) {
             return `+1 (${cleaned}`;
         } else if (cleaned.length <= 6) {

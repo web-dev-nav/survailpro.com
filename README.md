@@ -17,7 +17,7 @@ Marketing website and admin dashboard for SurVail. Built on Laravel with Blade v
 - `public/assets`: Images and static assets.
 
 ## Key Features
-- Public marketing pages (home, about, services, video monitoring, contact, application).
+- Public marketing pages (home, about, services, contact, application).
 - Admin panel for managing partner logos and contact details.
 - Global contact data shared across templates for consistent header/footer info.
 - GA4 Measurement ID managed from Admin -> Site Settings.

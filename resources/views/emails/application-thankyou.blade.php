@@ -126,7 +126,7 @@
             </div>
 
             <p>
-                We appreciate your interest in joining our team. With 42 years of combined management experience
+                We appreciate your interest in joining our team. With over 40 years of management experience
                 in the protection and investigation sector, we are committed to maintaining the
                 highest standards of professionalism and security services in Southern Ontario.
             </p>
@@ -151,7 +151,7 @@
                     If you have any questions about your application, please contact us:
                 </p>
                 <p>
-                    📧 <a href="mailto:{{ env('ADMIN_EMAIL', 'hr@survailpro.ca') }}">{{ env('ADMIN_EMAIL', 'hr@survailpro.ca') }}</a><br>
+                    📧 <a href="mailto:{{ env('ADMIN_EMAIL', 'survailpro@rogers.com') }}">{{ env('ADMIN_EMAIL', 'survailpro@rogers.com') }}</a><br>
                     📞 <a href="tel:{{ preg_replace('/\s+/', '', $contactPhone) }}">{{ $contactPhone }}</a>
                 </p>
             </div>
@@ -170,7 +170,7 @@
         <!-- Footer -->
         <div class="footer">
             <p style="font-weight: bold; margin-bottom: 10px;">SurVail Protection & Investigation Services</p>
-            <p>Protecting Southern Ontario with 42 years of combined management experience</p>
+            <p>Over 40 years of management experience.</p>
             <p style="opacity: 0.8; font-size: 14px;">
                 📧 {{ $contactEmail }} | 📞 {{ $contactPhone }} | 🌐 survailpro.ca
             </p>

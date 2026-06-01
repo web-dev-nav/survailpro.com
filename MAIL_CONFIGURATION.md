@@ -30,7 +30,7 @@ MAIL_MAILER=mail
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=587
-MAIL_USERNAME=your-email@gmail.com
+MAIL_USERNAME=survailpro@rogers.com
 MAIL_PASSWORD=your-app-password
 MAIL_ENCRYPTION=tls
 ```
@@ -49,9 +49,9 @@ MAIL_ENCRYPTION=tls
 
 ### Required Settings (All Drivers):
 ```env
-MAIL_FROM_ADDRESS="don@survailpro.ca"
+MAIL_FROM_ADDRESS="survailpro@rogers.com"
 MAIL_FROM_NAME="SurVail Protection & Investigation Services"
-ADMIN_EMAIL="don@survailpro.ca"
+ADMIN_EMAIL="survailpro@rogers.com"
 ```
 
 ### Optional Settings:
@@ -69,15 +69,15 @@ MAIL_SCHEME=null
 ```env
 MAIL_MAILER=log
 ENABLE_EMAIL_NOTIFICATIONS=true
-ADMIN_EMAIL="don@survailpro.ca"
+ADMIN_EMAIL="survailpro@rogers.com"
 ```
 
 ### For Online Hosting (PHP mail() function):
 ```env
 MAIL_MAILER=mail
-MAIL_FROM_ADDRESS="don@survailpro.ca"
+MAIL_FROM_ADDRESS="survailpro@rogers.com"
 MAIL_FROM_NAME="SurVail Protection & Investigation Services"
-ADMIN_EMAIL="don@survailpro.ca"
+ADMIN_EMAIL="survailpro@rogers.com"
 ENABLE_EMAIL_NOTIFICATIONS=true
 ```
 
@@ -86,12 +86,12 @@ ENABLE_EMAIL_NOTIFICATIONS=true
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=587
-MAIL_USERNAME=don@survailpro.ca
+MAIL_USERNAME=survailpro@rogers.com
 MAIL_PASSWORD=your-gmail-app-password
 MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS="don@survailpro.ca"
+MAIL_FROM_ADDRESS="survailpro@rogers.com"
 MAIL_FROM_NAME="SurVail Protection & Investigation Services"
-ADMIN_EMAIL="don@survailpro.ca"
+ADMIN_EMAIL="survailpro@rogers.com"
 ENABLE_EMAIL_NOTIFICATIONS=true
 ```
 
@@ -104,7 +104,7 @@ php artisan test:email
 
 ### Test with Specific Email:
 ```bash
-php artisan test:email your-test@email.com
+php artisan test:email survailpro@rogers.com
 ```
 
 ### Test Mail() Function Driver:
@@ -176,4 +176,4 @@ For email configuration issues:
 - Check Laravel logs: `storage/logs/laravel.log`
 - Verify .env settings
 - Test with `php artisan test:email`
-- Contact: don@survailpro.ca
+- Contact: survailpro@rogers.com

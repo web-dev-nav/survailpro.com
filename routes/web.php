@@ -22,10 +22,6 @@ Route::get('/survail-services', function () {
     return view('services');
 })->name('services');
 
-Route::get('/video-monitoring', function () {
-    return view('product');
-})->name('video-monitoring');
-
 Route::get('/contact', function () {
     $contactSettings = ContactSetting::first();
 

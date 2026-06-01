@@ -32,9 +32,9 @@ return new class extends Migration
             'hero_description' => 'Ready to secure your property? Get in touch with our security professionals today.',
             'main_phone_label' => 'Main',
             'main_phone_number' => '519-770-6634',
-            'secondary_phone_label' => 'Hamilton Area',
-            'secondary_phone_number' => '905-928-9636',
-            'email' => 'don@survailpro.ca',
+            'secondary_phone_label' => null,
+            'secondary_phone_number' => null,
+            'email' => 'survailpro@rogers.com',
             'address_line_one' => '148 Henry Street',
             'address_line_two' => 'Brantford ON N3S-5C7',
             'service_areas' => json_encode([

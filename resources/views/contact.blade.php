@@ -11,9 +11,9 @@
     $heroDescription = $contact->hero_description ?? 'Ready to secure your property? Get in touch with our security professionals today.';
     $mainPhoneLabel = $contact->main_phone_label ?? 'Main';
     $mainPhoneNumber = $contact->main_phone_number ?? '519-770-6634';
-    $secondaryPhoneLabel = $contact->secondary_phone_label ?? 'Hamilton Area';
-    $secondaryPhoneNumber = $contact->secondary_phone_number ?? '905-928-9636';
-    $email = $contact->email ?? 'don@survailpro.ca';
+    $secondaryPhoneLabel = null;
+    $secondaryPhoneNumber = null;
+    $email = $contact->email ?? 'survailpro@rogers.com';
     $addressLineOne = $contact->address_line_one ?? '148 Henry Street';
     $addressLineTwo = $contact->address_line_two ?? 'Brantford ON N3S-5C7';
     $serviceAreas = collect($contact->service_areas ?? [

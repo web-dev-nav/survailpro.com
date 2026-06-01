@@ -22,7 +22,7 @@ class ApplicationSubmitted extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($applicationData, $resumePath = null, $contactPhone = '519-770-6634', $contactEmail = 'hr@survailpro.ca')
+    public function __construct($applicationData, $resumePath = null, $contactPhone = '519-770-6634', $contactEmail = 'survailpro@rogers.com')
     {
         $this->applicationData = $applicationData;
         $this->resumePath = $resumePath;

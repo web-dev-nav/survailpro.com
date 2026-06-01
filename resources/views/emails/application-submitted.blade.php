@@ -339,6 +339,7 @@
         <!-- Footer -->
         <div class="footer">
             <p style="margin: 0; font-weight: bold;">SurVail Protection & Investigation Services</p>
+            <p style="margin: 5px 0 0 0; opacity: 0.8;">Over 40 years of management experience.</p>
             <p style="margin: 5px 0 0 0; opacity: 0.8;">
                 📧 {{ $contactEmail }} | 📞 {{ $contactPhone }} | 🌐 survailpro.ca
             </p>

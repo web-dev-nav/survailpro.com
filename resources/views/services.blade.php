@@ -10,7 +10,7 @@
         <div class="text-center mb-16">
             <h1 class="text-4xl lg:text-6xl font-bold text-survail-brown mb-6">SurVail Services</h1>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                Comprehensive security solutions tailored to your specific needs with 42 years of combined management experience.
+                Comprehensive security solutions tailored to your specific needs with over 40 years of management experience.
             </p>
         </div>
 

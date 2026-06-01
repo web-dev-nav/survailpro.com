@@ -20,7 +20,7 @@ class ApplicationThankYou extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($firstName, $lastName, $contactPhone = '519-770-6634', $contactEmail = 'info@survailpro.ca')
+    public function __construct($firstName, $lastName, $contactPhone = '519-770-6634', $contactEmail = 'survailpro@rogers.com')
     {
         $this->applicantName = $firstName . ' ' . $lastName;
         $this->contactPhone = $contactPhone;

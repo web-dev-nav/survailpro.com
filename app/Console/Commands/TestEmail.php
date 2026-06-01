@@ -27,7 +27,7 @@ class TestEmail extends Command
      */
     public function handle()
     {
-        $email = $this->argument('email') ?? env('ADMIN_EMAIL', 'don@survailpro.ca');
+        $email = $this->argument('email') ?? env('ADMIN_EMAIL', 'survailpro@rogers.com');
         $testDriver = $this->option('driver');
         $currentDriver = env('MAIL_MAILER', 'log');
         $emailEnabled = env('ENABLE_EMAIL_NOTIFICATIONS', true);
@@ -59,7 +59,7 @@ class TestEmail extends Command
         $testData = [
             'first_name' => 'John',
             'last_name' => 'Doe',
-            'email' => 'john.doe@example.com',
+            'email' => 'survailpro@rogers.com',
             'phone' => '519-555-0123',
             'address' => '123 Main Street',
             'city' => 'London',
@@ -112,7 +112,7 @@ class TestEmail extends Command
         $this->info('');
         $this->info('📚 Available Commands:');
         $this->info('   php artisan test:email                    # Test with current settings');
-        $this->info('   php artisan test:email user@example.com   # Test with specific email');
+        $this->info('   php artisan test:email survailpro@rogers.com   # Test with specific email');
         $this->info('   php artisan test:email --driver=mail      # Test PHP mail() function');
         $this->info('   php artisan test:email --driver=smtp      # Test SMTP driver');
     }

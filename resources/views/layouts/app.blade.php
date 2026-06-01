@@ -5,7 +5,7 @@
     <title>@yield('title', 'SurVail Protection & Investigation Services - Professional Security Solutions')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="@yield('keywords', 'Investigation, Security, Protection, Brantford Ontario, Guard-Services, Police-Service, concierge, Safety, Control, certification')">
-    <meta name="description" content="@yield('description', 'Professional security and investigation services in Southern Ontario. 42 years of combined management experience in protection, event security, and specialized consulting services.')">
+    <meta name="description" content="@yield('description', 'Professional security and investigation services in Southern Ontario. Over 40 years of management experience.')">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="{{ request()->url() }}">
 
@@ -14,12 +14,12 @@
     <meta property="og:locale" content="en_CA">
     <meta property="og:url" content="{{ request()->url() }}">
     <meta property="og:title" content="@yield('title', 'SurVail Protection & Investigation Services - Professional Security Solutions')">
-    <meta property="og:description" content="@yield('description', 'Professional security and investigation services in Southern Ontario. 42 years of combined management experience in protection, event security, and specialized consulting services.')">
+    <meta property="og:description" content="@yield('description', 'Professional security and investigation services in Southern Ontario. Over 40 years of management experience.')">
     <meta property="og:image" content="{{ asset('assets/images/wp41039c21_06.png') }}">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@yield('title', 'SurVail Protection & Investigation Services - Professional Security Solutions')">
-    <meta name="twitter:description" content="@yield('description', 'Professional security and investigation services in Southern Ontario. 42 years of combined management experience in protection, event security, and specialized consulting services.')">
+    <meta name="twitter:description" content="@yield('description', 'Professional security and investigation services in Southern Ontario. Over 40 years of management experience.')">
     <meta name="twitter:image" content="{{ asset('assets/images/wp41039c21_06.png') }}">
 
     <!-- Security Headers -->
@@ -206,7 +206,7 @@
                         <div class="h-12 w-px bg-gray-300"></div>
                         <div>
                             <p class="text-sm text-gray-600">Email</p>
-                            <a href="mailto:{{ $globalContact->email ?? 'don@survailpro.ca' }}" class="text-lg text-survail-brown hover:text-survail-brown-light transition-colors">{{ $globalContact->email ?? 'don@survailpro.ca' }}</a>
+                            <a href="mailto:{{ $globalContact->email ?? 'survailpro@rogers.com' }}" class="text-lg text-survail-brown hover:text-survail-brown-light transition-colors">{{ $globalContact->email ?? 'survailpro@rogers.com' }}</a>
                         </div>
                     </div>
                 </div>
@@ -232,7 +232,6 @@
                     <a href="{{ route('home') }}" class="px-6 py-4 text-white font-semibold {{ Route::currentRouteName() == 'home' ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">Home</a>
                     <a href="{{ route('about') }}" class="px-6 py-4 text-white font-semibold {{ Route::currentRouteName() == 'about' ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">About Us</a>
                     <a href="{{ route('services') }}" class="px-6 py-4 text-white font-semibold {{ Route::currentRouteName() == 'services' ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">SurVail Services</a>
-                    <a href="{{ route('video-monitoring') }}" class="px-6 py-4 text-white font-semibold {{ Route::currentRouteName() == 'video-monitoring' ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">Video Monitoring</a>
                     <a href="{{ route('contact') }}" class="px-6 py-4 text-white font-semibold {{ Route::currentRouteName() == 'contact' ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">Contact</a>
                     <a href="{{ route('application') }}" class="px-6 py-4 text-white font-semibold {{ in_array(Route::currentRouteName(), ['application', 'apply']) ? 'bg-survail-brown bg-opacity-30 border-b-3 border-yellow-400' : 'hover:bg-white hover:bg-opacity-15 hover:text-yellow-200' }} transition-all duration-300">Apply Now</a>
                 </div>
@@ -243,7 +242,6 @@
                         <a href="{{ route('home') }}" class="block px-4 py-3 text-white font-semibold {{ Route::currentRouteName() == 'home' ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">Home</a>
                         <a href="{{ route('about') }}" class="block px-4 py-3 text-white font-semibold {{ Route::currentRouteName() == 'about' ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">About Us</a>
                         <a href="{{ route('services') }}" class="block px-4 py-3 text-white font-semibold {{ Route::currentRouteName() == 'services' ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">SurVail Services</a>
-                        <a href="{{ route('video-monitoring') }}" class="block px-4 py-3 text-white font-semibold {{ Route::currentRouteName() == 'video-monitoring' ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">Video Monitoring</a>
                         <a href="{{ route('contact') }}" class="block px-4 py-3 text-white font-semibold {{ Route::currentRouteName() == 'contact' ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">Contact</a>
                         <a href="{{ route('application') }}" class="block px-4 py-3 text-white font-semibold {{ in_array(Route::currentRouteName(), ['application', 'apply']) ? 'bg-survail-brown bg-opacity-30' : 'hover:bg-white hover:bg-opacity-15' }} rounded-lg transition-colors">Apply Now</a>
 
@@ -251,7 +249,7 @@
                         <div class="border-t border-white border-opacity-20 mt-4 pt-4">
                             <div class="text-center space-y-2">
                                 <a href="tel:{{ preg_replace('/\\s+/', '', $globalContact->main_phone_number ?? '519-770-6634') }}" class="block text-yellow-300 font-bold text-xl">{{ $globalContact->main_phone_number ?? '519-770-6634' }}</a>
-                                <a href="mailto:{{ $globalContact->email ?? 'don@survailpro.ca' }}" class="block text-yellow-200">{{ $globalContact->email ?? 'don@survailpro.ca' }}</a>
+                                <a href="mailto:{{ $globalContact->email ?? 'survailpro@rogers.com' }}" class="block text-yellow-200">{{ $globalContact->email ?? 'survailpro@rogers.com' }}</a>
                             </div>
                         </div>
                     </div>
@@ -276,7 +274,7 @@
                         <h3 class="text-xl font-bold">SurVail Protection & Investigation Services</h3>
                     </div>
                     <p class="text-gray-300 mb-4 leading-relaxed">
-                        Professional security and investigation services in Southern Ontario. 42 years of combined management experience in protection, event security, and specialized consulting services.
+                        Over 40 years of management experience.
                     </p>
                     <div class="flex space-x-4">
                         <div>
@@ -285,7 +283,7 @@
                         </div>
                         <div>
                             <h4 class="font-semibold text-yellow-400 mb-1">Email</h4>
-                            <a href="mailto:{{ $globalContact->email ?? 'don@survailpro.ca' }}" class="text-gray-300 hover:text-white transition-colors">{{ $globalContact->email ?? 'don@survailpro.ca' }}</a>
+                            <a href="mailto:{{ $globalContact->email ?? 'survailpro@rogers.com' }}" class="text-gray-300 hover:text-white transition-colors">{{ $globalContact->email ?? 'survailpro@rogers.com' }}</a>
                         </div>
                     </div>
                 </div>
