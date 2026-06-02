@@ -17,6 +17,8 @@ class ContactSetting extends Model
         'secondary_phone_label',
         'secondary_phone_number',
         'email',
+        'contact_form_recipient_email',
+        'application_recipient_email',
         'address_line_one',
         'address_line_two',
         'service_areas',

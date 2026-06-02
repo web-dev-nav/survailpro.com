@@ -86,11 +86,12 @@
 
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2" for="email">Email</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" for="email">Website Display Email</label>
                             <input type="email" name="email" id="email" value="{{ old('email', $settings->email) }}" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent @error('email') border-red-500 @enderror">
                             @error('email')
                                 <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                             @enderror
+                            <p class="mt-2 text-sm text-gray-500">Shown publicly on the website in email links, the header, footer, contact page, and email templates.</p>
                         </div>
                         <div class="space-y-4">
                             <div>
@@ -106,6 +107,33 @@
                                 @error('address_line_two')
                                     <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="mb-4">
+                            <h2 class="text-xl font-semibold text-gray-900">Form Email Recipients</h2>
+                            <p class="text-sm text-gray-500">These control where submitted forms are sent. They do not change the public email address shown on the website.</p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2" for="contact_form_recipient_email">Contact Form Recipient Email</label>
+                                <input type="email" name="contact_form_recipient_email" id="contact_form_recipient_email" value="{{ old('contact_form_recipient_email', $settings->contact_form_recipient_email) }}" placeholder="{{ env('CONTACT_EMAIL', 'survailpro@rogers.com') }}" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent @error('contact_form_recipient_email') border-red-500 @enderror">
+                                @error('contact_form_recipient_email')
+                                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                                <p class="mt-2 text-sm text-gray-500">Inbox that receives messages submitted from the Contact page form. Leave blank to use the server fallback: {{ env('CONTACT_EMAIL', 'survailpro@rogers.com') }}.</p>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2" for="application_recipient_email">Resume/Application Recipient Email</label>
+                                <input type="email" name="application_recipient_email" id="application_recipient_email" value="{{ old('application_recipient_email', $settings->application_recipient_email) }}" placeholder="{{ env('ADMIN_EMAIL', 'survailpro@rogers.com') }}" class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-survail-green focus:border-transparent @error('application_recipient_email') border-red-500 @enderror">
+                                @error('application_recipient_email')
+                                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                                <p class="mt-2 text-sm text-gray-500">Inbox that receives job applications and resume attachments. Applicants still receive their thank-you email at the email address they enter on the application form.</p>
                             </div>
                         </div>
                     </div>

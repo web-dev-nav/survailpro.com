@@ -33,6 +33,8 @@ class ContactSettingsController extends Controller
             'secondary_phone_label' => ['nullable', 'string', 'max:255'],
             'secondary_phone_number' => ['nullable', 'string', 'max:255'],
             'email' => ['nullable', 'email'],
+            'contact_form_recipient_email' => ['nullable', 'email'],
+            'application_recipient_email' => ['nullable', 'email'],
             'address_line_one' => ['nullable', 'string', 'max:255'],
             'address_line_two' => ['nullable', 'string', 'max:255'],
             'service_areas' => ['nullable', 'array'],

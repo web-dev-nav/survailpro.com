@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactFormMail;
+use App\Models\ContactSetting;
 
 class ContactController extends Controller
 {
@@ -18,7 +19,9 @@ class ContactController extends Controller
             'message' => ['required', 'string', 'max:1000'],
         ]);
 
-        $contactEmail = env('CONTACT_EMAIL', 'survailpro@rogers.com');
+        $settings = ContactSetting::first();
+        $contactEmail = $settings?->contact_form_recipient_email
+            ?: env('CONTACT_EMAIL', 'survailpro@rogers.com');
 
         Mail::to($contactEmail)->send(new ContactFormMail($data));
 
