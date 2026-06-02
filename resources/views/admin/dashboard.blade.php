@@ -51,19 +51,22 @@
                         </svg>
                     </p>
                 </a>
-                <a href="{{ route('admin.settings.edit') }}" class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:-translate-y-1 hover:shadow-xl transition">
+                <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
                     <p class="text-sm text-gray-500 mb-2">Site Settings</p>
                     <p class="text-3xl font-bold text-gray-900">{{ $contactSettings?->google_analytics_id ? 'Analytics On' : 'Analytics Off' }}</p>
-                    <p class="text-xs text-survail-green mt-3 font-semibold flex items-center gap-2">
+                    <a href="{{ route('admin.settings.edit') }}" class="text-xs text-survail-green mt-3 font-semibold inline-flex items-center gap-2 hover:text-survail-green-dark transition">
                         Manage settings
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
-                    </p>
-                    <p class="text-xs text-gray-500 mt-2">
-                        <a href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener noreferrer" class="text-survail-green font-semibold hover:text-survail-green-dark transition">Open Google Analytics</a>
-                    </p>
-                </a>
+                    </a>
+                    <a href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener noreferrer" class="text-xs text-survail-green mt-2 font-semibold inline-flex items-center gap-2 hover:text-survail-green-dark transition">
+                        Open Google Analytics
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
                 <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
                     <p class="text-sm text-gray-500 mb-2">System Health</p>
                     <p class="text-3xl font-bold text-gray-900">OK</p>

@@ -5,7 +5,7 @@
 @section('content')
 <section class="py-16 bg-gray-100 min-h-[60vh]">
     <div class="w-full px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-6xl mx-auto">
             <a href="{{ route('admin.dashboard') }}" class="text-sm text-survail-green font-semibold inline-flex items-center gap-2 mb-6">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
@@ -13,20 +13,44 @@
                 Back to dashboard
             </a>
 
-            <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
-                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
-                    <div>
-                        <p class="text-sm uppercase tracking-widest text-survail-green">Website Settings</p>
-                        <h1 class="text-3xl font-bold text-gray-900">Site Settings</h1>
-                        <p class="text-gray-600">Update tracking and other global settings.</p>
-                    </div>
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-10">
+                <div>
+                    <p class="text-sm uppercase tracking-widest text-survail-green">Website Settings</p>
+                    <h1 class="text-3xl font-bold text-gray-900">Site Settings</h1>
+                    <p class="text-gray-600 mt-2">Manage analytics and global tracking settings.</p>
+                </div>
+            </div>
+
+            @if(session('status'))
+                <div class="mb-6 rounded-lg bg-green-50 border border-green-100 text-green-700 px-4 py-3">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                    <p class="text-sm text-gray-500 mb-2">Google Analytics</p>
+                    <p class="text-3xl font-bold text-gray-900">{{ $settings->google_analytics_id ? 'Enabled' : 'Disabled' }}</p>
+                    <p class="text-xs text-gray-500 mt-3">{{ $settings->google_analytics_id ?: 'No Measurement ID saved' }}</p>
                 </div>
 
-                @if(session('status'))
-                    <div class="mb-6 rounded-lg bg-green-50 border border-green-100 text-green-700 px-4 py-3">
-                        {{ session('status') }}
-                    </div>
-                @endif
+                <a href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener noreferrer" class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:-translate-y-1 hover:shadow-xl transition">
+                    <p class="text-sm text-gray-500 mb-2">Google Analytics</p>
+                    <p class="text-3xl font-bold text-gray-900">Open Dashboard</p>
+                    <p class="text-xs text-survail-green mt-3 font-semibold flex items-center gap-2">
+                        Open Google Analytics
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </p>
+                </a>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-semibold text-gray-900">Tracking Settings</h2>
+                    <p class="text-gray-600 mt-1">Update the Measurement ID used on the public website.</p>
+                </div>
 
                 <form action="{{ route('admin.settings.update') }}" method="POST" class="space-y-8">
                     @csrf
@@ -39,12 +63,6 @@
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                         <p class="mt-2 text-sm text-gray-500">Paste the GA4 Measurement ID only (example: G-ABC1234567). Leave blank to disable tracking.</p>
-                        <a href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 text-survail-green font-semibold hover:text-survail-green-dark transition">
-                            Open Google Analytics
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </a>
                     </div>
 
                     <div class="flex justify-end gap-3 pt-6">
